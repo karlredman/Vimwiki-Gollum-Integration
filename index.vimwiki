@@ -29,5 +29,8 @@
 * [diary](diary/index.vimwiki)
 * [[diary/diary]]
 
-## All Pages
+## All Pages (text list)
 <<AllPages()>>
+
+## All Pages TOC (clickable)
+<<GlobalTOC()>>
