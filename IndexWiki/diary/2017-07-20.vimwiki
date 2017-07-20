@@ -1,0 +1,116 @@
+# IndexWiki notes for setting up vimwiki for use with github / project: vimwiki+gollum howto
+
+* Dependencies
+    * vimwiki
+    * InstantMarkdownPreview
+    * gollum
+    * pandoc
+
+## Setting up a new vimwiki + repository
+
+### setup vim .vimrc
+* vimwiki setup
+```
+let g:vimwiki_list = [
+\ {'path': '~/mocwiki/IndexWiki/', 'path_html': '~/public_html/vimwiki/IndexWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
+\ {'path': '~/mocwiki/PersonalWiki/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
+\ {'path': '~/mocwiki/CompanyA', 'path_html': '~/public_html/vimwiki/CompanyA', 'syntax': 'markdown', 'ext': '.vimwiki'},
+\ {'path': '~/mocwiki/AnotherWikiA', 'path_html': '~/public_html/vimwiki/AnotherWikiA', 'syntax': 'markdown', 'ext': '.vimwiki'},
+\ {'path': '~/mocwiki/AnotherWikiB', 'path_html': '~/public_html/vimwiki/AnotherWikiB', 'syntax': 'markdown', 'ext': '.vimwiki'},
+\ ]
+
+"" set preferred settings
+"let vimwiki_folding='syntax'
+let g:vimwiki_folding='list'
+autocmd FileType vimwiki setlocal tabstop=4 expandtab
+```
+
+* InstantmarkdownPreview setup
+```
+"" vim-instant-markdow settings
+let g:instant_markdown_slow = 1             " stops realtime updates
+let g:instant_markdown_autostart = 0        " don't start automatically
+" use :InstantMarkdownPreview when g:instant_markdown_autostart is set to 0
+
+"" provide service to *.vimwiki files
+autocmd BufNewFile,BufReadPost *.vimwiki set filetype=markdown
+```
+
+## Setup wiki directory structure
+* Note: vimwiki will create directories as needed if you build and index wiki index. I find this to be handy and I use it for administrative work with the wiki itself. This might be overkill for most but it also provides a nice way to index all of your various wikis from one place.
+
+### Option A: use vimwiki to build the structure
+1. Start vimwiki
+```
+vim -c VimwikiIndex
+```
+
+2. Answer yes for vimwiki to create the directory IndexWiki
+3. Drop in an index similar to the one below
+* Note: The numbers in this example coorispond to the shortcut that vimwiki assignes each wiki. You can have up to 9 wikis. I just do that for convenience. The shrotcut for each wiki is then <leader><number>ww (i.e. "\2ww" opens PersonalWiki/index.vimwiki with my keybindings).
+* Note: The same goes for using diaries:
+    * To visit today's diary file for the second project listed in the vimrc file:
+```
+<project number><leader>w\w
+```
+    * Backspace from a diary file to get to the diary index
+        * be sure to save your files 
+    * To generate an index file for a wiki diary
+```
+<leader>w<leader>i
+```
+* Please refer to [vimwiki project page](https://github.com/vimwiki/vimwiki) for more info
+* Example IndexWiki index
+```
+# IndexWiki index page
+
+1. [[index|IndexWiki (this page)]]
+2. [[../PersonalWiki/index.vimwiki|My Personal Wiki]]
+3. [[../CompanyA/index.vimwiki|Wiki for CompanyA]]
+4. [[../AnotherWikiA/index.vimwiki|Wiki for AnotherWiki A]]
+5. [[../AnotherWikiB/index.vimwiki|Wiki for AnotherWiki B]]
+```
+
+### Option B: Build the directory structure to look something like this:
+```
+mockwiki
+├── AnotherWikiA
+│   └── index.vimwiki
+├── AnotherWikiB
+│   └── index.vimwiki
+├── CompanyA
+│   └── index.vimwiki
+├── IndexWiki
+│   └── index.vimwiki
+└── PersonalWiki
+    └── index.vimwiki
+```
+
+# Prepare the vimwiki structure for gollum
+1. copy the gollum_admin directory and files into the toplevel vimwiki directory
+* the directory structure for this example looks like this: 
+```
+mockwiki
+├── AnotherWikiA
+│   └── index.vimwiki
+├── AnotherWikiB
+│   └── index.vimwiki
+├── CompanyA
+│   └── index.vimwiki
+├── gollum_admin
+│   ├── config.rb
+│   ├── start_gollum.sh
+│   └── stop_gollum.sh
+├── IndexWiki
+│   └── index.vimwiki
+└── PersonalWiki
+    └── index.vimwiki
+```
+3. edit gollum_admin/start_gollum.sh to point to the correct directory
+4. from the top level of the vimwiki directory initialize a git repository
+```
+cd [some path]/mockwiki
+git init
+```
+
+## setup gollum
