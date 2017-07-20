@@ -10,7 +10,7 @@
 
 ### setup vim .vimrc
 * vimwiki setup
-```
+```vim
 let g:vimwiki_list = [
 \ {'path': '~/mocwiki/IndexWiki/', 'path_html': '~/public_html/vimwiki/IndexWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
 \ {'path': '~/mocwiki/PersonalWiki/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
@@ -26,7 +26,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 ```
 
 * InstantmarkdownPreview setup
-```
+```vim
 "" vim-instant-markdow settings
 let g:instant_markdown_slow = 1             " stops realtime updates
 let g:instant_markdown_autostart = 0        " don't start automatically
@@ -108,7 +108,7 @@ mockwiki
 ```
 3. edit gollum_admin/start_gollum.sh to point to the correct directory
 4. from the top level of the vimwiki directory initialize a git repository
-```
+```bash
 cd [some path]/mockwiki
 git init
 ```

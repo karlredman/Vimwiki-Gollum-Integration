@@ -34,3 +34,6 @@ GitHub::Markup::markup_impl(:vimwiki, ci)
 # set the default index page name (TODO: not working yet)
 #Gollum::Wiki.index_page
 Precious::App.set(:wiki_options, index_page: "index")
+
+# turn on TOC for all pages
+Precious::App.set(:wiki_options, { :universal_toc => true })
