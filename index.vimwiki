@@ -28,3 +28,6 @@
 * [[diary/index]]
 * [diary](diary/index.vimwiki)
 * [[diary/diary]]
+
+## All Pages
+<<AllPages()>>
