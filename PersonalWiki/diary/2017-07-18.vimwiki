@@ -5,7 +5,7 @@
 * [plantuml/plantuml-server (project page)](https://github.com/plantuml/plantuml-server)
 * Special notes for ubuntu 16.04
     * Install latest JDK
-    ```
+    ```bash
     sudo apt-get install default-jdk
     ```
     * manage java installations (requires >java 6.0)
@@ -81,7 +81,7 @@ digraph foo {
 ### config.rb
 * adding a custom extension with a custom processor
 * plantuml server port
-```
+```ruby
 Gollum::Filter::PlantUML.configure do |config|
     config.url = "http://my-own-plantuml.com:9999/plantuml/png"
     end
@@ -103,7 +103,7 @@ Gollum::Filter::PlantUML.configure do |config|
     * vimwiki settings
     * pandoc settings (optional?)
 * Setup bashrc alias
-```
+```bash
 alias vimwiki="cd $HOME/gollum.repo && git pull && vim -c VimwikiIndex"
 alias vimwiki_="cd $HOME/gollum.repo && vim -c VimwikiIndex"
 
