@@ -30,7 +30,12 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 
 # bind your own extension regex 
 #Gollum::Markup.formats[:markdown][:regexp] = /vimwiki/
-Gollum::Markup.formats[:markdown][:regexp] = /md|mkdn?|mdown|markdown|vimwiki/
+Gollum::Markup.formats.delete(:markdown)
+Gollum::Markup.formats[:vimwiki] = {
+    :name => "Markdown",
+    :regexp => /vimwiki/
+}
+#Gollum::Markup.formats[:markdown][:regexp] = /md|mkdn?|mdown|markdown|vimwiki/
 
 # set the default index page name 
 Precious::App.set(:wiki_options, index_page: "index")
