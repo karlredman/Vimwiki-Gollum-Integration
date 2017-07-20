@@ -1,1 +1,7 @@
-not what i'm looking for
+
+# Diary
+
+## 2017
+
+### July
+    * [[2017-07-20|IndexWiki notes for setting up vimwiki for use with github]]
