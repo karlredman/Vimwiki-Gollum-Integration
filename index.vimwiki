@@ -34,3 +34,7 @@
 
 ## All Pages TOC (clickable)
 <<GlobalTOC()>>
+
+## TOC with depth
+[[_TOC_]]
+[[_TOC_|levels = 3]]
