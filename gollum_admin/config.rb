@@ -31,9 +31,9 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 # bind your own extension regex 
 #Gollum::Markup.formats[:markdown][:regexp] = /vimwiki/
 Gollum::Markup.formats.delete(:markdown)
-Gollum::Markup.formats[:vimwiki] = {
+Gollum::Markup.formats[:thing] = {
     :name => "Markdown",
-    :regexp => /vimwiki/
+    :regexp => /thing/
 }
 #Gollum::Markup.formats[:markdown][:regexp] = /md|mkdn?|mdown|markdown|vimwiki/
 
