@@ -1,1 +1,0 @@
-# CompanyA wiki index page

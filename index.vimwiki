@@ -7,4 +7,5 @@
 5. [[AnotherWikiB/index|Wiki for AnotherWiki B]]
 
 * [[diary/index]]
-* (diary)[diary/index.vimwiki]
+* [diary](diary/index.vimwiki)
+* [[diary/diary]]
