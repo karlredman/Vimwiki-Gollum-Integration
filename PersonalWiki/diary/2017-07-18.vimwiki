@@ -9,11 +9,11 @@
     sudo apt-get install default-jdk
     ```
     * manage java installations (requires >java 6.0)
-    ```
+    ```bash
     sudo update-alternatives --config java
     ```
     * start plantuml server (alternate port)
-    ```
+    ```bash
     mvn jetty:run -Djetty.port=9999
     ```
 
