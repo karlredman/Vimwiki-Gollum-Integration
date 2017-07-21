@@ -114,7 +114,7 @@ git init
 * Install
 	* Please see the [Gollum Project page](https://github.com/gollum/gollum) for installation instructions
 * Setup Configuration file
-	* For the setup outlined here use the configuration file included in the sources for this project under mockwiki/gollum_admin/
+	* For the setup outlined here use the configuration file included in the sources for this project under [mockwiki/gollum_admin/](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/config.rb)
 * Start Gollum
 
 ## TODO:
