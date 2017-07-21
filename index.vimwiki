@@ -2,7 +2,21 @@
 # All wikis index page
 
 1. [[PersonalWiki/index|My Personal Wiki]]
+    * [[PersonalWiki/diary/diary|Diary Index (vimwiki)]]
+    * [[PersonalWiki/diary/index|Diary Index (gollum)]]
+
 2. [[HouseholdWiki/index|My Household Wiki]]
+    * [[HouseholdWiki/diary/diary|Diary Index (vimwiki)]]
+    * [[HouseholdWiki/diary/index|Diary Index (gollum)]]
+
 3. [[CompanyA/index|Wiki for CompanyA]]
+    * [[CompanyA/diary/diary|Diary Index (vimwiki)]]
+    * [[CompanyA/diary/index|Diary Index (gollum)]]
+
 4. [[AnotherWikiA/index|Wiki for AnotherWiki A]]
+    * [[AnotherWikiA/diary/diary|Diary Index (vimwiki)]]
+    * [[AnotherWikiA/diary/index|Diary Index (gollum)]]
+
 5. [[AnotherWikiB/index|Wiki for AnotherWiki B]]
+    * [[AnotherWikiB/diary/diary|Diary Index (vimwiki)]]
+    * [[AnotherWikiB/diary/index|Diary Index (gollum)]]
