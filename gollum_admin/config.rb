@@ -20,15 +20,17 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 #GitHub::Markup::markup_impl(:vimwiki, ci)
 ##################
 
-# bind your own extension regex 
-# remove the original markdown binding:
-Gollum::Markup.formats.delete(:markdown)
+# # bind your own extension regex 
+# # remove the original markdown binding:
+# Gollum::Markup.formats.delete(:markdown)
 
-# and define your own (".asc" is the new primary extension):
-Gollum::Markup.formats[:thing] = {
-    :name => "Markdown",
-    :regexp => /thing|vimwiki|md/
-}
+# # and define your own (".asc" is the new primary extension):
+# Gollum::Markup.formats[:thing] = {
+#     :name => "Markdown",
+#     :regexp => /thing|vimwiki|md/
+# }
+
+Gollum::Markup.formats[:markdown][:regexp] = /(?:markdown|md|vimwiki|thing)/
 
 ############### global options
 ## set the default index page name 
