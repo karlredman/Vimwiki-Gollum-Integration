@@ -24,14 +24,17 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 # # remove the original markdown binding:
 #Gollum::Markup.formats.delete(:markdown)
 
-# and define your own (".asc" is the new primary extension):
-Gollum::Markup.formats[:thing] = {
-    :name => "Markdown",
-    :regexp => /thing/
-}
+# # and define your own (".asc" is the new primary extension):
+# Gollum::Markup.formats[:thing] = {
+#     :name => "Markdown",
+#     :regexp => /thing/
+# }
 
 # Gollum::Markup.formats[:markdown][:regexp] = /(?:markdown|md|vimwiki|thing)/
 
+GitHub::Markup.markup(:markdown, :markdown, /md|vimwiki|thing/, ["Markdown"]) do |content|
+	GitHub::Markdown.render(content)
+end
 
 
 ############### global options
