@@ -130,7 +130,7 @@ git init
 
 
 ## Project Overview (mixed diagram)
-* Note: plantuml cli static images are sometimes uglier than plantuml-server images. [Here's an article(https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1) on getting plantuml diagrams via plantuml for github pages.
+* Note: plantuml cli static images are sometimes uglier than plantuml-server images. [Here's an article](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1) on getting plantuml diagrams via plantuml for github pages.
 ```
 ![image](docs/overview.png?raw=true)
 ```
