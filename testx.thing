@@ -1,46 +1,45 @@
-# Main Index Page
+# testx.thing
+## How can I add an extension to gollum markdown processor?
+* Description:
+* config.rb
+```
+# # always include this:
+Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_NAMES
 
-1. [[index|The toplevel wiki -wiki wiki]]
-    * [[diary/diary|vimwiki diary]]
-    * [[diary/index|gollum diary]]
+#################### custom extension + processor
+## # Rendering
+## ## References
+## * file reference: /var/lib/gems/2.1.0/gems/github-markup-1.6.0/lib/github/markup/command_implementation.rb
+## * [Adding Pandoc to Gollum - Martin Wolf's weblog [OUTDATED]](https://www.mwolf.net/2014/04/29/adding-pandoc-to-gollum/)
+#ci = ::GitHub::Markup::CommandImplementation.new(
+#      /vimwiki/,
+#      ["Vimwiki"],
+#      "pandoc -f markdown-tex_math_dollars-raw_tex",
+#      #::GitHub::Markup::Markdown.new,
+#      :vimwiki)
 
-2. [[IndexWiki/index|IndexWiki wiki]]
-2. [[IndexWiki wiki|IndexWiki/index]]
-    * [[IndexWiki/diary/diary|vimwiki diary]]
-    * [[IndexWiki/diary/index|gollum diary]]
+## bind your own extension regex (the new set of extensions will also include `.asc` and `.adoc`):
+## # * file reference: /var/lib/gems/2.1.0/gems/github-markup-1.6.0/lib/github/markups.rb
+#Gollum::Markup.register(:vimwiki,  "Vimwiki")
+#Gollum::Markup.formats[:vimwiki][:regexp] = /vimwiki/
+#GitHub::Markup::markup_impl(:vimwiki, ci)
+##################
 
-3. [[PersonalWiki/index|My Personal Wiki]]
-    * [[PersonalWiki/diary/diary|vimwiki diary]]
-    * [[PersonalWiki/diary/index|gollum diary]]
+# bind your own extension regex 
+# remove the original markdown binding:
+Gollum::Markup.formats.delete(:markdown)
 
-4. [[CompanyA/index|Wiki for CompanyA]]
-    * [[CompanyA/diary/diary|vimwiki diary]]
-    * [[CompanyA/diary/index|gollum diary]]
+# and define your own (".asc" is the new primary extension):
+Gollum::Markup.formats[:thing] = {
+    :name => "Markdown",
+    :regexp => /thing/
+}
 
-5. [[AnotherWikiA/index|Wiki for AnotherWiki A]]
-    * [[AnotherWikiA/diary/diary|vimwiki diary]]
-    * [[AnotherWikiA/diary/index|gollum diary]]
+############### global options
+## set the default index page name 
+#Precious::App.set(:wiki_options, index_page: "index")
 
-6. [[AnotherWikiB/index|Wiki for AnotherWiki B]]
-    * [[AnotherWikiB/diary/diary|vimwiki diary]]
-    * [[AnotherWikiB/diary/index|gollum diary]]
-
-## TESTING
-* [[diary/index]]
-* [diary](diary/index.vimwiki)
-* [[diary/diary]]
-
-## All Pages (text list)
-<<AllPages()>>
-
-## All Pages TOC (clickable)
-<<GlobalTOC()>>
-
-## TOC with depth
-[[_TOC_]]
-[[_TOC_|levels = 3]]
-
-## images
-Stuff and... 
-[[/IndexWiki/media/images/1-BHN1sCwtylPmj9ZdQvYgMg.png|right|alt=some image]]
-things
+## turn on TOC for all pages
+#Precious::App.set(:wiki_options, { :universal_toc => true })
+##############
+```
