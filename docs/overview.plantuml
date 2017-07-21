@@ -1,4 +1,3 @@
-@startuml
 [Vim]
 [Pandoc]
 [Gollum]
@@ -39,4 +38,3 @@ markdown_files --> [Gollum] : "content"
 
 Person <-> Vim : control
 Person <-> Browser : control
-@enduml
