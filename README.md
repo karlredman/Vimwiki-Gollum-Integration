@@ -130,56 +130,12 @@ git init
 
 
 ## Project Overview (mixed diagram)
+* Note: plantuml cli static images are sometimes uglier than plantuml-server images
+> ![image](docs/overview.png?raw=true)
 
-@startuml
 
-[Vim]
-[Pandoc]
-[Gollum]
-[Browser]
-actor Person
+![image2]()
 
-package "Vim Plugins" as vim_plugins {
-component "Pandoc plugin" as pandoc_plugin
-[InstantMarkdownPreview]
-[VimWiki]
-}
-
-package "Git Repository" as git_repository {
-artifact repo_files [
-config.rb
-start_gollum.sh
-stop_gollum.sh
-Home.md
-]
-artifact "Markdown Files" as markdown_files
-}
-
-package "Gollum Components" as gollum_components {
-[OAuth]
-[Search]
-[Sidebar]
-}
-
-[Vim] <-- pandoc_plugin : "parser plugin"
-[Vim] <-- [VimWiki] : "vim wiki\nplugin/parser"
-[Vim] --> git_repository : edit/commit
-[Vim] --> [InstantMarkdownPreview] : "start plugin"
-Pandoc --> pandoc_plugin : "parses markdown"
-
-[repo_files] --> [Gollum] : configuration
-markdown_files --> [Gollum] : "content"
-
-[Gollum] ... gollum_components
-[Gollum] ... Pandoc : "parses vimwiki\nas markdown"
-
-[InstantMarkdownPreview] --> Browser : render
-[Gollum] <-> Browser : interaction
-
-Person <-> Vim : control
-Person <-> Browser : control
-
-@enduml
 
 ## TODO:
 * [ ] Basic integration for gollum and vimwiki

@@ -1,0 +1,44 @@
+@startuml
+
+[Vim]
+[Pandoc]
+[Gollum]
+[Browser]
+actor Person
+
+package "Vim Plugins" as vim_plugins {
+component "Pandoc plugin" as pandoc_plugin
+[InstantMarkdownPreview]
+[VimWiki]
+}
+
+package "Git Repository" as git_repository {
+artifact "config.rb\nstart_gollum.sh\nstop_gollum.sh\nHome.md" as repo_files
+artifact "Markdown Files" as markdown_files
+}
+
+package "Gollum Components" as gollum_components {
+[OAuth]
+[Search]
+[Sidebar]
+}
+
+[Vim] <-- pandoc_plugin : "parser plugin"
+[Vim] <-- [VimWiki] : "vim wiki\nplugin/parser"
+[Vim] --> git_repository : edit/commit
+[Vim] --> [InstantMarkdownPreview] : "start plugin"
+Pandoc --> pandoc_plugin : "parses markdown"
+
+[repo_files] --> [Gollum] : configuration
+markdown_files --> [Gollum] : "content"
+
+[Gollum] ... gollum_components
+[Gollum] ... Pandoc : "parses vimwiki\nas markdown"
+
+[InstantMarkdownPreview] --> Browser : render
+[Gollum] <-> Browser : interaction
+
+Person <-> Vim : control
+Person <-> Browser : control
+
+@enduml
