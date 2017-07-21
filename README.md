@@ -123,6 +123,11 @@ git init
 ## Decorations
 * You can add a favicon.ico to the root directory if desired
 
+## Binary (media, etc.) file considerations
+* git is not a good place to serve big files from
+* TODO:
+    * Discuss file server etc.
+
 ## TODO:
 * [ ] Basic integration for gollum and vimwiki
 * [ ] Configure gollum editor to set correct extension when editing
@@ -137,4 +142,5 @@ git init
 	* [ ] Sidebar
 * [ ] Search system replacement
 * [ ] Online vim editor replacement
+* [ ] Docker image(?)
 
