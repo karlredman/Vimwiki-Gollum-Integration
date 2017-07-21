@@ -26,7 +26,7 @@ Gollum::Markup.formats.delete(:markdown)
 
 # and define your own (".asc" is the new primary extension):
 Gollum::Markup.formats[:markdown] = {
-    :name => "Markdown",
+    :name => "Thing",
     :regexp => /thing/
 }
 
