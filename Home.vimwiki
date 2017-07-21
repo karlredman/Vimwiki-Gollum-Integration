@@ -1,10 +1,13 @@
-# Main Index PagP
+# Main Index Page
+
+* [[testx]]
 
 1. [[index|The toplevel wiki -wiki wiki]]
     * [[diary/diary|vimwiki diary]]
     * [[diary/index|gollum diary]]
 
 2. [[IndexWiki/index|IndexWiki wiki]]
+2. [[IndexWiki wiki|IndexWiki/index]]
     * [[IndexWiki/diary/diary|vimwiki diary]]
     * [[IndexWiki/diary/index|gollum diary]]
 
