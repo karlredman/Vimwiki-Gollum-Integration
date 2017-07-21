@@ -8,8 +8,6 @@
 	* My interest in using Gollum is mainly for easy searching and presentation via browser.
     * *NOTE: Vimwiki diary indexes are NOT working for Gollum (yet). I'll add this feature ASAP*.
 
-[_TOC_]
-
 * Dependencies (install these their respective project instructions)
     * [Vimwiki](https://github.com/vimwiki/vimwiki)
     * [Pandoc](http://pandoc.org/installing.html)
