@@ -1,4 +1,4 @@
-# Project: Vimwiki+Gollum Integration
+# Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration)
 * Description:
 	* This document describes how to configure the various components to integrate Vimwiki and Gollum (and respective tools).
 	* This is a work in process (WIP) and will be the prototype for a larger/different system that I am designing. The main goal here is to document the integration of Gollum with vimwiki. The end result will be a complete wiki system that is accessible/usable from web browsers, mobile devices, and the terminal.
@@ -114,7 +114,7 @@ git init
 * Install
 	* Please see the [Gollum Project page](https://github.com/gollum/gollum) for installation instructions
 * Setup Configuration file
-	* For the setup outlined here use the configuration file included in the sources on github
+	* For the setup outlined here use the configuration file included in the sources for this project under mockwiki/gollum_admin/
 * Start Gollum
 
 ## TODO:
