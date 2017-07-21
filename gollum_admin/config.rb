@@ -22,7 +22,7 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 
 # # bind your own extension regex 
 # # remove the original markdown binding:
-Gollum::Markup.formats.delete(:markdown)
+#Gollum::Markup.formats.delete(:markdown)
 
 # and define your own (".asc" is the new primary extension):
 Gollum::Markup.formats[:thing] = {
