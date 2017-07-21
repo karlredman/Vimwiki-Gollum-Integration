@@ -8,6 +8,7 @@
 	* My interest in using Gollum is mainly for easy searching and presentation via browser.
     * *NOTE: Vimwiki diary indexes are NOT working for Gollum (yet). I'll add this feature ASAP*.
 
+[_TOC_]
 
 * Dependencies (install these their respective project instructions)
     * [Vimwiki](https://github.com/vimwiki/vimwiki)
@@ -118,6 +119,9 @@ git init
 * Setup Configuration file
 	* For the setup outlined here use the configuration file included in the sources for this project under [mockwiki/gollum_admin/](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/config.rb)
 * Start Gollum
+
+## Decorations
+* You can add a favicon.ico to the root directory if desired
 
 ## TODO:
 * [ ] Basic integration for gollum and vimwiki
