@@ -25,9 +25,9 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 Gollum::Markup.formats.delete(:markdown)
 
 # and define your own (".asc" is the new primary extension):
-Gollum::Markup.formats[:markdown] = {
-    :name => "Thing",
-    :regexp => /thing/
+Gollum::Markup.formats[:thing] = {
+    :name => "Markdown",
+    :regexp => /thing|vimwiki|md/
 }
 
 ############### global options
