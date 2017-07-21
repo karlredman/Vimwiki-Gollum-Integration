@@ -6,6 +6,7 @@
 * Workflow:
 	* Basically, I use vimwiki 99% of the time for editing my personal knowledge base, howto's, etc. 
 	* My interest in using Gollum is mainly for easy searching and presentation via browser.
+    * *NOTE: Vimwiki diary indexes are NOT working for Gollum (yet). I'll add this feature ASAP*.
 
 
 * Dependencies (install these their respective project instructions)
@@ -49,6 +50,7 @@ autocmd BufNewFile,BufReadPost *.vimwiki set filetype=markdown
 ```
 
 ### Setup wiki directory structure
+* Explanation of files and directories: Gollom defaults to using Home.[recognized extension (ext)] as an index page when serving pages for each directory. Vimwiki defaults to using index.vimwiki titled files for individual wikis but uses diary.vimwiki for wiki diary directories. While it is possible to configure vimwiki to use index.vimwiki for diary directory index files it's pointless. Vimwiki auto generated diary.vimwiki files are not compatible with Gollum formatting. Therefore, we'll have to (later) add a script to generate Gollum diary indexes. 
 
 1. Create an index file for Gollum in the root directory and name it index.vimwiki
 * Note: it's entirely possible to change the vimwiki diary landing filename. However, vimwiki formats the diary.vimwiki files in a way that gollum can't process it.
@@ -120,6 +122,7 @@ git init
 ## TODO:
 * [ ] Basic integration for gollum and vimwiki
 * [ ] Configure gollum editor to set correct extension when editing
+* [ ] write script to generate diary indexes for gollum
 * [ ] Workflow documentation
 * [ ] Dropbox integration
 * [ ] Mobile device integration
