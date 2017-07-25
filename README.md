@@ -209,6 +209,12 @@ mockwiki
 ```
 cd [path]/mockwiki
 git init
+
+# make sure your files are checked in
+git status
+
+# if not do a git add and a git commit
+git add -A; git commit -am "adding files"
 ```
 
 ## Setup Gollum:
@@ -270,7 +276,11 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 
 <a name=TODO_anchor> </a>
 ## TODO:
+* [ ] Add some clues about installing components
+    * [ ] plantuml
 * [ ] quick install / setup guide
+* [ ] write slightly better start/stop scripts
+    * [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
 * [ ] Example wiki page with all the bells and wistles in mockwiki
 * [ ] document search examples
 * [ ] TOC for README.md

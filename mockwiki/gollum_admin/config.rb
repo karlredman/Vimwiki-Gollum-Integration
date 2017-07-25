@@ -10,7 +10,7 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 # We are overriding Gollum::Git::Git.grep in order to open up the native 'git grep' regex capabilities.
 
 # probably not necessary
-# Gollum::Git_Adapter::Git.grep :remove_const, :FORMAT_NAMES if defined? Gollum::Git_Adapter::FORMAT_NAMES
+Gollum::Git_Adapter::Git.grep :remove_const, :FORMAT_NAMES if defined? Gollum::Git_Adapter::FORMAT_NAMES
 
 module Gollum
   module Git
