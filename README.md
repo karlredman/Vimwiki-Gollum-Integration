@@ -18,7 +18,7 @@
 * Specifics for file server setup for media, etc. is not discussed at this time. However please consider that git is definitely not an ideal place to keep binaries.
 * Author: [Karl N. Redman](https://karlredman.github.io/)
 
-## TODO and Limitations / Bugs: 
+## TODO and Limitations / Bugs:
 * See [those sections](#TODO_anchor) at the bottom of this document
 
 ## Background:
@@ -263,7 +263,7 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 * A new problem????:
     * It is **very likely** that my "fix" is a **security risk** for buffer overflows and the like. I **have not** tested this fix for security concernes.
 * Just a quick note on the simple fix.
-    * I easily spent 15 straight hours trying to understand how all of this stuff works just to fix this search thing. While I know alot more now about Gollum and how ruby fits together now, I really would rather have not had this problem in the first place. This bullet point is here for the sole purpose of venting my frustration at having to fix this in the first place and that it was all new in a language that I really don't know well. Also, am I daft or is there just no other information on the interwebs for making Gollum's search routine actually do it's job!?? Anyway, Bah! What a PITA!
+    * I easily spent like 15 straight hours trying to understand how all of this stuff works just to fix this search thing. While I know alot more now about Gollum and how ruby fits together now, I really would rather have not had this problem in the first place. This bullet point is here for the sole purpose of venting my frustration at having to fix this in the first place and that it was all new in a language that I really don't know well. Also, am I daft or is there just no other information on the interwebs for making Gollum's search routine actually do it's job!?? Anyway, Bah! What a PITA!
 
 ## Project Overview (mixed diagram)
 
@@ -307,3 +307,6 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 * [ ] Gollum's 'edit file page' does not default to the correct file type in the dropdown list.
     * This means that files edited with the 'vimwiki' extension will save to the wrong filename+extension unless 'Vimwiki' is selected by the user.
     * The problem is probably due to poor regex for the dropdown selection. I haven't dug into this yet.
+* Following diary links from vimwiki intended for Gollum tries to create a new file -this is **BAD**
+	* Won't fix
+	* This is a fundamental difference between how Vimwiki and Gollum view the physical directory strucure.

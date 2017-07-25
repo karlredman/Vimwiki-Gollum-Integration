@@ -1,7 +1,8 @@
-# Project: [Vimwiki+Gollum Integration (Quick Setup Guide)](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/QuickSetup.md)
+# Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration) [(Quick Setup Guide)](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/QuickSetup.md)
 ## Description:
 * This is a quick start guide that walks you through setting up Vimwiki so that it works with Gollum and vice versa.
 * I'll try to not use many words.
+* [ ] For information about improved search capabilities see the [search document]()
 * Author: [Karl N. Redman](https://karlredman.github.io/)
 
 1. Install dependencies and their respective dependencies:
@@ -32,15 +33,15 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 
 3. Setup wiki directory structure and initialize the repository:
 	1. Clone this project:
-	```
+	```bash
 	git clone git@github.com:karlredman/Vimwiki-Gollum-Integration.git
 	```
 	2. Copy the mockwiki directory structure to your home directory:
-	```
+	```bash
 	cp -r [path to]/Vimwiki-Gollum-Integration/mockwiki ~/
 	```
 	3. Initialize the mockwiki as a git repository and check in the files
-	```
+	```bash
 	cd ~/mockwiki
 	git init
 	git add -A
@@ -48,12 +49,12 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 	```
 
 4. Edit the startup script as needed
-```
+```bash
 vim ~/mockwiki/gollum_admin/start_gollum.sh
 ```
 
 5. Start Gollum
-```
+```bash
 [sudo] ~/mockwiki/gollum_admin/start_gollum.sh
 ```
 
