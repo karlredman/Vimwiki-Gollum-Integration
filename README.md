@@ -1,11 +1,5 @@
 # Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration)
 
-## NOTE: I'll be removing pandoc from the dependency list later today
-* I finally figured out how to add vimwiki as an extension without using pandoc
-* omfg it was like 2 lines of code.
-* stay tuned for updates
-
-
 ## Special Notes
 * This is a work in progress -I'm still adding content as of 7-25-2017
 * This project is 90% documentation and explanations.
