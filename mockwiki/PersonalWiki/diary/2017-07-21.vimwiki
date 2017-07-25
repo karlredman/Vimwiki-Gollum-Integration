@@ -1,5 +1,5 @@
 # Things TODO:
 * [X] setup example directory structure and files for gollum/vimwiki
-* [ ] finish gollum config
-* [ ] writeup vimwiki+gollum hoto
-* [ ] check on answers from stack overflow
+* [X] finish gollum config
+* [X] writeup vimwiki+gollum howto
+* [X] check on answers from stack overflow
