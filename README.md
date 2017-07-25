@@ -3,6 +3,8 @@
 ## Special Notes
 * This is a work in progress -I'm still adding content as of 7-25-2017
 * This project is 90% documentation and explanations.
+    * The other 10% is actual work that involves files and such.
+* Anything that has a [ ] checkbox is a TODO item for me.
 * [ ] See the [Quick Setup Guide]() if you want to just get something up and running and avoid all these words.
 
 ## Description:
