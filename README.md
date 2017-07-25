@@ -5,7 +5,7 @@
 * This project is 90% documentation and explanations.
     * The other 10% is actual work that involves files and such.
 * Anything that has a [ ] checkbox is a TODO item for me.
-* [ ] See the [Quick Setup Guide]() if you want to just get something up and running and avoid all these words.
+* See the [Quick Setup Guide](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/QuickSetup.md) if you want to just get something up and running and avoid all these words. It's essentially 6 steps (if you count installing dependencies as 1 step).
 
 ## Description:
 * This is a setup guide for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum](https://github.com/gollum/gollum). See the [Features section](#Features_anchor).
@@ -124,7 +124,7 @@ My requirements (relative to this project) boil down to the following:
 
 1. Add the following to your '.vimrc' configuration file
     * Adjust the 'path:' references in your '.vimrc' 'vimwiki_list' as needed.
-```
+```vim
 let g:vimwiki_list = [
 \ {'path': '~/mocwiki/PersonalWiki/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
 \ {'path': '~/mocwiki/HouseholdWiki/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
@@ -145,7 +145,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 
 1. Create an index file for Gollum in the root directory and name it index.vimwiki
 * [ ] Note: we'll set the Gollum index pages to 'index.vimwiki' in the [Gollum configuration section](#GollumConfig_anchor)
-```
+```markdown
 # All wikis index page (Root Directory)
 
 1. [[PersonalWiki/index|My Personal Wiki]]
@@ -173,7 +173,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
     * The 'index.vimwiki' files are the index pages for each wiki for vimwiki and gollum
     * Note: Vimwiki will automatically create directories and index files for wikis that are specified in the .vimrc configuration. I recommend not doing this if you aren't familiar with vimwiki -It can get very tedious and confusing.
     * Add an administration directory for gollum configuration, tools and scripts (here I call it gollum_admin)
-```
+```text
 mockwiki
 ├── AnotherWikiA
 │   └── index.vimwiki
@@ -192,7 +192,7 @@ mockwiki
 3. (Optional) Seed the index files:
 * This is just for convenience with gollum for getting to the diary index pages.
     * Note: only Gollum needs a detailed path to the diary index files (to be created later). This is because Gollum's root is configured to be the base directory of your tree of wikis.
-```
+```markdown
 # Personal Wiki Index
 
 ## Diary Indexes
@@ -206,15 +206,11 @@ mockwiki
 * Gollum supports this out of the box.
 
 5. Initialize the directory for git/gollum:
-```
+* NOTE: Remember, any time you edit something in this directory you'll have to commit your changes/files to git before they will show up in gollum
+```bash
 cd [path]/mockwiki
 git init
-
-# make sure your files are checked in
-git status
-
-# if not do a git add and a git commit
-git add -A; git commit -am "adding files"
+git add -A; git commit -am "adding files: first add"
 ```
 
 ## Setup Gollum:
@@ -223,9 +219,8 @@ git add -A; git commit -am "adding files"
 * If you are using the example 'mockwiki' provided with this project then you can use that directory for testing.
 * Start/Test your unconfigured Gollum like this:
     * Be sure to adjust the path to your wiki repository accordingly
-```
+```bash
 command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb --mathjax --live-preview --allow-uploads=page --collapse-tree --adapter grit"
-
 ```
 
 <a name=GollumConfig_anchor> </a>
@@ -290,6 +285,7 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
     * See Limitations and bugs
 * [ ] Suggested Vim plugins and macros for markdown editing
     * My personal list of plugins and macros and how I use them.
+    * git commit macro
 * [ ] Dropbox integration
 * [ ] Authentication Setup
 * [ ] test security concerns with search fix
