@@ -1,0 +1,8 @@
+kim.*dog|dog.*kim
+'(word1.*word2)|(word2.*word1)' *
+'(Kim.*info)|(info.*Kim)' *
+-e '#define' --and \( -e MAX_PATH -e PATH_MAX \)
+-e '#Kim' --and \( -e info -e Mom \)
+
+git grep -i -E '.*manage.*local' -- '*2017*vimwiki'
+git grep --all-match -l -i -e kim -e dog
