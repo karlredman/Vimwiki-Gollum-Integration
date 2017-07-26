@@ -77,6 +77,8 @@ My requirements (relative to this project) boil down to the following:
 
 ## Thank You!
 * To all of the contributors of the various components and projects discussed in this document.
+* [ ] Special thanks to the guy that wrote this post: Thanks for the clues!
+    * 
 
 <a name=Dependencies_anchor> </a>
 ## Dependencies:
@@ -89,7 +91,7 @@ My requirements (relative to this project) boil down to the following:
 * [Pandoc](http://pandoc.org/installing.html)
 * [Gollum](http://www.vim.org/)
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
-* [PlantUML Server](https://github.com/plantuml/plantuml-server)
+* [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 * You will likely have to accept installation for or install seperately dependencies that these dependencies depend on (i.e. Gollum depends on ruby v2+, etc.)
 
 ------
@@ -271,17 +273,19 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 
 <a name=TODO_anchor> </a>
 ## TODO:
-* [ ] Add some clues about installing components
-    * [ ] plantuml
-* [ ] quick install / setup guide
-* [ ] write slightly better start/stop scripts
-    * [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
+* [X] quick install / setup guide
+* [X] write slightly better start/stop scripts
+    * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
+* [.] Cron(?) script to generate vimwiki diary indexes for Gollum
+    * This will probably autogenerate diary indexes for vimwiki also -because large wikis are very slow to index through vimwiki macros.
+	* [X] write the script
+	* [ ] make the cron job
+	* [ ] document the thing
 * [ ] Example wiki page with all the bells and wistles in mockwiki
 * [ ] document search examples
+    * [ ] make pages in mockwiki to use for examples
 * [ ] TOC for README.md
-* [ ] Cron(?) script to generate vimwiki diary indexes for Gollum
-    * This will probably autogenerate diary indexes for vimwiki also -because large wikis are very slow to index through vimwiki macros.
-* [ ] Configure gollum editor to set correct extension when editing
+* [X] Configure gollum editor to set correct extension when editing
     * See Limitations and bugs
 * [ ] Suggested Vim plugins and macros for markdown editing
     * My personal list of plugins and macros and how I use them.
@@ -296,7 +300,6 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 	* [ ] Footer
 	* [ ] Sidebar
 * [ ] Docker image(?)
-* [ ] Page header, footer, and sidebar
 * [ ] Mobile device integration
 * [ ] Online vim editor replacement
 
@@ -304,9 +307,12 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 * [ ] The enhanced search capibily is likey a **Security Risk**
 * [ ] Spaces might be a problem in searches
 * [ ] No files in the wiki repository can be named 'index.md'
-* [ ] Gollum's 'edit file page' does not default to the correct file type in the dropdown list.
+* [X] Gollum's 'edit file page' does not default to the correct file type in the dropdown list.
     * This means that files edited with the 'vimwiki' extension will save to the wrong filename+extension unless 'Vimwiki' is selected by the user.
     * The problem is probably due to poor regex for the dropdown selection. I haven't dug into this yet.
-* Following diary links from vimwiki intended for Gollum tries to create a new file -this is **BAD**
+* [ ] searches: filenames don't get matches with expressions or options (i.e. '-e thing', 'thing.*')
+    * files are included if only words, separated by spaces, are used
+* [ ] Following diary links from vimwiki intended for Gollum tries to create a new file -this is **BAD**
 	* Won't fix
 	* This is a fundamental difference between how Vimwiki and Gollum view the physical directory strucure.
+	* redo gollum root index page to NOT include vimwiki diary pages

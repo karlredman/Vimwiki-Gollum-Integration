@@ -12,7 +12,7 @@
 * [Pandoc](http://pandoc.org/installing.html)
 * [Gollum](http://www.vim.org/)
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
-* [PlantUML Server](https://github.com/plantuml/plantuml-server)
+* [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 
 2. Add the following to your '.vimrc' configuration file:
     * Adjust the 'path:' references in your '.vimrc' 'vimwiki_list' as needed.

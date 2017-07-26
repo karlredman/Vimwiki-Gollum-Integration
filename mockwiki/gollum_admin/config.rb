@@ -67,7 +67,7 @@ end
 
 ##########################
 # # Custom extension + processor for '.vimwiki' files:
-# ## Explanation: 
+# ## Explanation:
 # * Honestly, I couldn't figure out how to just add Gollum's Markup processor for a custom extension so I ended up doing this.
 # ## References
 # * file reference: /var/lib/gems/2.1.0/gems/github-markup-1.6.0/lib/github/markup/command_implementation.rb
@@ -83,12 +83,14 @@ ci = ::GitHub::Markup::CommandImplementation.new(
 # * file reference: /var/lib/gems/2.1.0/gems/github-markup-1.6.0/lib/github/markups.rb
 #
 # register the new primary extension (:vimwiki) with a markdown type name (Vimwiki)
-Gollum::Markup.register(:vimwiki,  "Vimwiki")
-# set the regular expression the extension of these kinds of files
-Gollum::Markup.formats[:vimwiki][:regexp] = /vimwiki/
+Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_links => true)
 # tell the Markup initializer that :vimwiki types of files will use the implementation spec. from the previous section
 GitHub::Markup::markup_impl(:vimwiki, ci)
 ##################
+
+# fix a regex bug in mediawiki that caused vimwiki not to be recognized for edits
+Gollum::Markup.formats.delete(:mediawiki)
+Gollum::Markup.register(:mediawiki, "MediaWiki", :regexp => /mediawiki|wiki/, :reverse_links => true)
 
 ##################
 # # Set the default gollum index (landing page) page name
@@ -100,4 +102,11 @@ Precious::App.set(:wiki_options, index_page: "index")
 # # My preferred global options:
 # * turn on/off TOC for all pages (unless specified by macro in the markdown file)
 Precious::App.set(:wiki_options, { :universal_toc => false })
+
+# This doesn't work here for whatever reason... using command line anyway.
+# Gollum::Filter::PlantUML.configure do |config|
+#   config.test = true # Skip server checks
+#   config.url  = "http://localhost:8989/plantuml/png" # Non existent server
+# end
+
 ##################
