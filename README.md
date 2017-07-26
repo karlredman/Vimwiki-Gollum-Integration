@@ -77,8 +77,8 @@ My requirements (relative to this project) boil down to the following:
 
 ## Thank You!
 * To all of the contributors of the various components and projects discussed in this document.
-* [ ] Special thanks to the guy that wrote this post: Thanks for the clues!
-    * 
+* Special thanks to the guy that wrote this post: Thanks for the clues!
+    * [Adding Pandoc to Gollum - Martin Wolf's weblog](http://mwolf.net/2014/04/29/adding-pandoc-to-gollum/)
 
 <a name=Dependencies_anchor> </a>
 ## Dependencies:
@@ -273,6 +273,7 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 
 <a name=TODO_anchor> </a>
 ## TODO:
+* [ ] redo mockwiki pages
 * [X] quick install / setup guide
 * [X] write slightly better start/stop scripts
     * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
