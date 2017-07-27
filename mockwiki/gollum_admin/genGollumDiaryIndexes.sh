@@ -1,4 +1,24 @@
 #!/bin/bash
+# This program formats a vimwiki diary.vimwiki file so that it is compatible
+# for gollum to dispaly. The results are saved as an index.vimwiki file under
+# the vimwiki/gollum repository [wikiname]/diary directory structure.
+# The formatting is done in the awk script: Removes spaces at the beginning
+# of lines, Adds a date indicator to the diary description/name, and fixes
+# the tag/link so that gollum can find the diary entry.
+#
+# yes, this could/should be written in perl or python or something but I
+# wanted to provide a shell script for those who rather have one.
+#
+# Usage:
+# Execute this script from cron once per day or as needed from
+# command line.
+#
+# Configuration:
+# Edit repodir the location of your wiki repository.
+#
+# Here's a cron example:
+#
+# Author: [Karl N. Redman](https://github.com/karlredman)
 
 # configuration
 repodir="$HOME/mockwiki"
@@ -36,7 +56,8 @@ for i in ${!filelist[@]}; do
     today=$(date +"%Y-%m-%d")
 
 		# reformat the file in one pass
-    # Anything after # Diary... remove beginning whitespace, add the wikiname to the file path, and add the file name (date) to the description field
+    # Anything after # Diary... remove beginning whitespace, add the wikiname
+		# to the file path, and add the file name (date) to the description field
 		file_content=`awk -v wikiname=$wikiname -v today=$today '
 		{
 			if(!match($0,/^\# Diary/))
