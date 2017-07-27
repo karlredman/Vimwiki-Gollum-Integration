@@ -6,7 +6,7 @@ diaryname="diary.vimwiki"
 targetindex="index.vimwiki"
 
 # go to the repository
-pushd $repodir
+pushd $repodir > /dev/null 2>&1
 
 # get list of files (accepting spaces in file names for no reason)
 filelist=()
@@ -22,33 +22,62 @@ for i in ${!filelist[@]}; do
     # comment out if needed
     # TODO: we need a better way to do this I think
     vim -e -c VimwikiDiaryGenerateLinks ${filelist[$i]} -c wq
+
+		# check in the diary.vimwiki
     git add ${filelist[$i]} > /dev/null 2>&1
-    git commit -m "gollum generated index" ${filelist[$i]} > /dev/null 2>&1
+    git commit -m "Vimwiki generated index" ${filelist[$i]} > /dev/null 2>&1
 
     ### save the diary parent (wiki) directory name as $wikiname
     D1=$(dirname "${filelist[$i]}")
     D2=$(dirname $D1)
     wikiname=$(basename $D2)
 
-    # TODO: add the date to the entry text
+		# to be included in diary.index for a placeholder for today's diary entry
+    today=$(date +"%Y-%m-%d")
 
-    # remove space at the beginning of lines after # Diary in the file
-    # some sed magic to remove whitespace at beginning of line and set the proper link
-    file_content=`sed -e '/Diary/,$s/^[ \t]*//' ${filelist[$i]} | sed -e '/Diary/,$s/\* \[\[/*\ \[\['${wikiname}'\/diary\//g'`
+		# reformat the file in one pass
+    # Anything after # Diary... remove beginning whitespace, add the wikiname to the file path, and add the file name (date) to the description field
+		file_content=`awk -v wikiname=$wikiname -v today=$today '
+		{
+			if(!match($0,/^\# Diary/))
+			{
+				if($0 ~ /\[\[/)
+				{
+					# attempted comment
+					split($0, arr, /\[\[/, seps);
+					split(arr[2], arr, /\]\]/, seps);
+					split(arr[1], arr, /\|/, seps)
 
+					printf("*    [[%s/diary/%s | [%s] %s]]\n", wikiname, arr[1], arr[1], arr[2])
+				}
+				else
+				{
+					print;
+				}
+			}
+			else
+			{
+				print;
+				printf("*    [[%s/diary/%s | [%s] Today Placeholder]]\n", wikiname, today, today);
+			}
+		}' ${filelist[$i]}`
+
+    # some sed magic to remove whitespace at beginning of lines with links and set the proper link path
+		# the awk script above replaces this -with some better formating
+    # file_content=`sed -e '/\# Diary/,$s/^[ \t]*//' ${filelist[$i]} | sed -e '/\# Diary/,$s/\* \[\[/*\ \[\['${wikiname}'\/diary\//g'`
 
     # always add today as a placeholder to the index
-    today=$(date +"%Y-%m-%d")
-    file_content=`echo "$file_content" | sed '/\# Diary/a \\\n\* [['${wikiname}'\/diary\/'$today'\|Today Placeholder]]'`
+		# the awk script above replaces this -with some better formating
+    #file_content=`echo "$file_content" | sed '/\# Diary/a \\\n\* [['${wikiname}'\/diary\/'$today'\|Today Placeholder]]'`
 
     # write the content the index file
     index_file=$(dirname ${filelist[i]})/index.vimwiki
     echo "$file_content" > $index_file
 
-    # Now for the scary part. Checking in the file
+    # Checking in the index.vimwiki
     git add $index_file > /dev/null 2>&1
     git commit -m "gollum generated index" $index_file > /dev/null 2>&1
 done
 
 # return to where we started
-popd
+popd > /dev/null 2>&1
