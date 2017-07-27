@@ -90,6 +90,7 @@ My requirements (relative to this project) boil down to the following:
 * [Vimwiki](https://github.com/vimwiki/vimwiki) vim plugin
 * [Pandoc](http://pandoc.org/installing.html)
 * [Gollum](http://www.vim.org/)
+	* '[[_TOC_]] is broken for sidebars as of v4.1.1. It looks like 4.2.2 might fix this (untested).
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 * You will likely have to accept installation for or install seperately dependencies that these dependencies depend on (i.e. Gollum depends on ruby v2+, etc.)
@@ -273,16 +274,28 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 
 <a name=TODO_anchor> </a>
 ## TODO:
+* [ ] spell check stuff
+* [ ] Example wiki page with all the bells and wistles in mockwiki
+* [ ] file bug: TOC doesn't format correctly for include pages
+  * [ ] see todo's. some stuff needs attention i.e. tables
+* [ ] issues with math ???
+  * [ ] looks like it might be issues with mathjax or pandoc
+* [ ] fix code syntax hightlighting
+* [ ] Address Caveates
+  * [ ] Tags for internal files
+  * [ ] Always favor Gollum paths if there is a conflict
 * [ ] redo mockwiki pages
+  * [ ] For search examples
+  * [ ] Some mock content
+* [ ] file bug report for mediawiki extension bug
 * [X] quick install / setup guide
 * [X] write slightly better start/stop scripts
     * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
-* [.] Cron(?) script to generate vimwiki diary indexes for Gollum
+* [o] Cron(?) script to generate vimwiki diary indexes for Gollum
     * This will probably autogenerate diary indexes for vimwiki also -because large wikis are very slow to index through vimwiki macros.
 	* [X] write the script
-	* [ ] make the cron job
+	* [X] make the cron job
 	* [ ] document the thing
-* [ ] Example wiki page with all the bells and wistles in mockwiki
 * [ ] document search examples
     * [ ] make pages in mockwiki to use for examples
 * [ ] TOC for README.md
@@ -296,13 +309,21 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 * [ ] test security concerns with search fix
 * [ ] A generalized workflow document
     * diagrams and documentation
-* [ ] Page Templates
+* [ ] Add SubPages
+	* This will require an upgrade to Gollum v4.2.2+
+	  * [_TOC_ not rendering properly in _Sidebar · Issue #1161 · gollum/gollum](https://github.com/gollum/gollum/issues/1161)
+	  * [Fix subpage lookup bug. Fixes #214. by bartkamphorst · Pull Request #215 · gollum/gollum-lib](https://github.com/gollum/gollum-lib/pull/215)
 	* [ ] Header
 	* [ ] Footer
 	* [ ] Sidebar
+* [ ] custom css and javascript ?
+	* not sure what I'll want to add but it's an option
+	* skins? / themes?
+* [ ] do video tutorial
 * [ ] Docker image(?)
 * [ ] Mobile device integration
 * [ ] Online vim editor replacement
+* [ ] how to change the margins for gollum pages
 
 ## Known Litations / Bugs:
 * [ ] The enhanced search capibily is likey a **Security Risk**

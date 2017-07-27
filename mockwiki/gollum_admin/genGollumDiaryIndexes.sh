@@ -16,7 +16,8 @@
 # Configuration:
 # Edit repodir the location of your wiki repository.
 #
-# Here's a cron example:
+# Here's a cron example (2am every day)
+#0 2 * * * /home/karl/mockwiki/gollum_admin/genGollumDiaryIndexes.sh > /tmp/wtf 2<&1
 #
 # Author: [Karl N. Redman](https://github.com/karlredman)
 

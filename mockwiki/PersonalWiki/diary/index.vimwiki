@@ -1,1 +1,13 @@
-# Gollum diary index
+# this won't get touched by vimwiki
+* lines above '# Diary' are safe to edit
+* another line
+* after cron
+
+# Diary
+*    [[PersonalWiki/diary/2017-07-27 | [2017-07-27] Today Placeholder]]
+
+## 2017
+
+### July
+*    [[PersonalWiki/diary/2017-07-24 | [2017-07-24] PersonalWiki Diary entry]]
+*    [[PersonalWiki/diary/2017-07-21 | [2017-07-21] Things TODO:]]

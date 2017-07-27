@@ -1,0 +1,11 @@
+# Progress and TODO: with Vimwiki+Gollum project
+* Wrote the script for fixing up diary indexes for gollum
+* improved documentation
+
+# Today TODO: 
+* [ ] write up diary index stuff
+* [ ] swap quicksetup guide with readme
+    * [ ] make quicksetup the readme landing page
+    * [ ] add necessary info
+    * [ ] don't use lots of words
+* [ ] make kitchen sink page
