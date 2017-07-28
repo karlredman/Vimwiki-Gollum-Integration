@@ -3,7 +3,7 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
 
 ## Description:
 
-This is a guide and tutorial, with tools and 'out of the box' examples, for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum Wiki](https://github.com/gollum/gollum) on *Linux* systems. The aim of this project is to provide a fairly easy installation and setup for a working Vimwiki + Gollum workflow. 
+This is a guide and tutorial, with tools and 'out of the box' examples, for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum Wiki](https://github.com/gollum/gollum) on *Linux* systems. The aim of this project is to provide a fairly easy installation and setup for a working Vimwiki + Gollum workflow.
 
 Most of this work is not my own. Rather I endeavor to document the process for integrating the various components that make a fairly complete wiki system for personal use. I've added some tools and a mock up wiki installation to get you started.
 
@@ -41,7 +41,7 @@ sudo apt-get install git
 ```bash
 sudo apt-get install pandoc
 ```
-* [Gollum](https://github.com/gollum/gollum)
+* [Gollum](https://github.com/gollum/gollum) (only v4.1.1 is tested at this time)
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 	* The startup script expects this to be installed at $HOME/3rdparty/plantuml-server
@@ -92,13 +92,29 @@ vim ~/mockwiki/gollum_admin/start_gollum.sh
 [sudo] ~/mockwiki/gollum_admin/start_gollum.sh
 ```
 
-6. Start using the wiki: [http://http://127.0.0.1:4567/](http://http://127.0.0.1:4567/)
+6. Start using the wiki: [http://127.0.0.1:4567/](http://http://127.0.0.1:4567/)
+    * The index page for mockwiki will show links for the wiki repository
 
-7. Check out additional [demo pages on your system](http://127.0.0.1:4567/Vimwiki-Gollum/index)
-8. Try the searches suggested on the [search documentation]() page for the example wiki.
-9. Use Vimwiki to edit files in your wiki.
+8. Check out additional [demo pages on your system (http://127.0.0.1:4567/Vimwiki-Gollum/index)](http://127.0.0.1:4567/Vimwiki-Gollum/index)
+    * Explore the 'Vimwiki-Gollum' wiki for information pertaining to this project
+
+9. [ ] Try the searches suggested on the [search documentation]() page for the example wiki.
+
+10. Use Vimwiki to edit files in your wiki.
 	* [Vimwiki Cheetsheet](http://thedarnedestthing.com/vimwiki%20cheatsheet)
 ```bash
 vim -c VimwikiIndex
 ```
 11. Customize as needed.
+
+## Helper Scripts and Gollum configuration
+* Gollum + PlantUML Server start and stop scripts (under mockwiki/gollum_admin)
+    * configure [start_gollum.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/start_gollum.sh) for the path of your wiki repository, ports for Gollum and PlantUML, etc.
+    * [stop_gollum.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/stop_gollum.sh) just stops the servers based on the behavior from the start script.
+* The [Gollum config file](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/config.rb) is under mockwiki/gollum_admin
+* [GenGollumDiaryIndexes.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genGollumDiaryIndexes.sh)
+    * This is a cron safe script that generates vimwiki diary indexes (diary.vimwiki files) and then reformats them for Gollum -saving the results in an index.vimwiki for each [wikiname]/diary directory. This is necessary in order to be least intrusive for vimwiki operations while providing useful links through Gollum. Also, Vimwiki's formatting for the diary index doesn't work out of the box for Gollum.
+    * I run the script once per day via cron. Generally that's all I need. Also, the script adds a 'Today' link on the diary index page for Gollum whether the file has been created or not. This way we also don't interfere with vimwiki if a diary index (diary.vimwiki) is regenerated.
+    * Examples of the before and after:
+        * Before: [diary.vimwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/diary/diary.vimwiki)
+        * After: [index.vimwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/diary/index.vimwiki)
