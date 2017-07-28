@@ -20,6 +20,7 @@
 
 ## TODO and Limitations / Bugs:
 * See [those sections](#TODO_anchor) at the bottom of this document
+* [ ] figure out how to handle that I've moved Project TODO into the mockwiki/Vimwiki-Gollum wiki
 
 ## Background:
 
@@ -89,7 +90,7 @@ My requirements (relative to this project) boil down to the following:
 * [Git Version Control System](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Vimwiki](https://github.com/vimwiki/vimwiki) vim plugin
 * [Pandoc](http://pandoc.org/installing.html)
-* [Gollum](http://www.vim.org/)
+* [Gollum](https://github.com/gollum/gollum)
 	* '[[_TOC_]] is broken for sidebars as of v4.1.1. It looks like 4.2.2 might fix this (untested).
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
@@ -129,11 +130,10 @@ My requirements (relative to this project) boil down to the following:
     * Adjust the 'path:' references in your '.vimrc' 'vimwiki_list' as needed.
 ```vim
 let g:vimwiki_list = [
+\ {'path': '~/mockwiki/Vimwiki-Gollum/', 'path_html': '~/public_html/vimwiki/Vimwiki-Personal', 'syntax': 'markdown', 'ext': '.vimwiki'},
 \ {'path': '~/mocwiki/PersonalWiki/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
 \ {'path': '~/mocwiki/HouseholdWiki/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
-\ {'path': '~/mocwiki/CompanyA', 'path_html': '~/public_html/vimwiki/CompanyA', 'syntax': 'markdown', 'ext': '.vimwiki'},
-\ {'path': '~/mocwiki/AnotherWikiA', 'path_html': '~/public_html/vimwiki/AnotherWikiA', 'syntax': 'markdown', 'ext': '.vimwiki'},
-\ {'path': '~/mocwiki/AnotherWikiB', 'path_html': '~/public_html/vimwiki/AnotherWikiB', 'syntax': 'markdown', 'ext': '.vimwiki'},
+\ {'path': '~/mocwiki/AnotherWiki/', 'path_html': '~/public_html/vimwiki/AnotherWiki', 'syntax': 'markdown', 'ext': '.vimwiki'},
 \ ]
 
 "" set preferred settings
@@ -273,57 +273,6 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 ![image](docs/overview.png?raw=true)
 
 <a name=TODO_anchor> </a>
-## TODO:
-* [ ] spell check stuff
-* [ ] Example wiki page with all the bells and wistles in mockwiki
-* [ ] file bug: TOC doesn't format correctly for include pages
-  * [ ] see todo's. some stuff needs attention i.e. tables
-* [ ] issues with math ???
-  * [ ] looks like it might be issues with mathjax or pandoc
-* [ ] fix code syntax hightlighting
-* [ ] Address Caveates
-  * [ ] Tags for internal files
-  * [ ] Always favor Gollum paths if there is a conflict
-* [ ] redo mockwiki pages
-  * [ ] For search examples
-  * [ ] Some mock content
-* [ ] file bug report for mediawiki extension bug
-* [X] quick install / setup guide
-* [X] write slightly better start/stop scripts
-    * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
-* [o] Cron(?) script to generate vimwiki diary indexes for Gollum
-    * This will probably autogenerate diary indexes for vimwiki also -because large wikis are very slow to index through vimwiki macros.
-	* [X] write the script
-	* [X] make the cron job
-	* [ ] document the thing
-* [ ] document search examples
-    * [ ] make pages in mockwiki to use for examples
-* [ ] TOC for README.md
-* [X] Configure gollum editor to set correct extension when editing
-    * See Limitations and bugs
-* [ ] Suggested Vim plugins and macros for markdown editing
-    * My personal list of plugins and macros and how I use them.
-    * git commit macro
-* [ ] Dropbox integration
-* [ ] Authentication Setup
-* [ ] test security concerns with search fix
-* [ ] A generalized workflow document
-    * diagrams and documentation
-* [ ] Add SubPages
-	* This will require an upgrade to Gollum v4.2.2+
-	  * [_TOC_ not rendering properly in _Sidebar · Issue #1161 · gollum/gollum](https://github.com/gollum/gollum/issues/1161)
-	  * [Fix subpage lookup bug. Fixes #214. by bartkamphorst · Pull Request #215 · gollum/gollum-lib](https://github.com/gollum/gollum-lib/pull/215)
-	* [ ] Header
-	* [ ] Footer
-	* [ ] Sidebar
-* [ ] custom css and javascript ?
-	* not sure what I'll want to add but it's an option
-	* skins? / themes?
-* [ ] do video tutorial
-* [ ] Docker image(?)
-* [ ] Mobile device integration
-* [ ] Online vim editor replacement
-* [ ] how to change the margins for gollum pages
 
 ## Known Litations / Bugs:
 * [ ] The enhanced search capibily is likey a **Security Risk**
