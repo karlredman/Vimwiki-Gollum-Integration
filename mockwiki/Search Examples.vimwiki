@@ -1,0 +1,8 @@
+# Search Examples
+* The examples on this page are a brief introduction to the search capibilites provided through '[git grep](https://git-scm.com/docs/git-grep)' and [Gollum's Grit Git Adapter](https://github.com/gollum/gollum/wiki/Git-adapters).
+* Yes, this uses regex. If you hate regex then fortunately most of the searches you'll need will be pretty simple but you'll have the ability to do more advanced searches if needed.
+* **IMPORTANT:** It is entirely likely that the search utility for Gollum is a **Security Risk** due to the fact that I've disabled shell escaping through Gollum. I suggest that you run Gollum locally only. Specifically the security risk is a chance for buffer overflows or shell execution via 'git grep'.
+
+## Simple examples:
+
+## Mildly complex examples:

@@ -76,6 +76,7 @@ ci = ::GitHub::Markup::CommandImplementation.new(
      /vimwiki/,
      ["Vimwiki"],
      "pandoc -f markdown-tex_math_dollars-raw_tex",
+     #"pandoc -f markdown_github",
      #::GitHub::Markup::Markdown.new,
      :vimwiki)
 

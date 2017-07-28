@@ -1,0 +1,561 @@
+
+
+# Demo Page - Kitchen Sink
+## References
+* Note: This is not all my own writing. Content on this page is for reference. Most of the content is taken directly from the reference pages below. This content is cherry picked form these references in an attempt to consolidate some of the knowledge. **Please refer to the following references for more complete information**. 
+* [Home · gollum/gollum Wiki (feature descriptions)](https://github.com/gollum/gollum/wiki)
+* [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Mastering Markdown · GitHub Guides](https://guides.github.com/features/mastering-markdown/)
+* [Emoji cheat sheet for GitHub](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+
+[[_TOC_|levels=10]]
+
+
+## Anchors
+* [ ] TODO: html anchors generally needed for external previewers (i.e. InstantMarkdownPreview for Vim)
+* [ ] Gollum handlers
+
+## Code
+
+### Blocks
+```
+By use of 
+three 'backticks'.
+```
+
+	Or by indenting 
+	4 spaces.
+
+~~~~~
+Or use the Kramdown method
+~~~~~
+```
+~~~~~
+Or use the Kramdown method
+~~~~~
+```
+
+### Inline
+```
+I think you should use an
+`<addr>` element here instead.
+```
+* example
+
+I think you should use an
+`<addr>` element here instead.
+
+### Syntax Highlighting
+* TODO: needs testing - some highlighting for some languages seems less robust than I remember
+* Note this is also how we escape backticks (a code fence + 4 space indention
+```
+	```javascript
+	function fancyAlert(arg) {
+	  if(arg) {
+		$.facebox({div:'#foo'})
+	  }
+	}
+	```
+```
+
+* example
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+
+### DIAGRAMS
+
+#### Sequence diagrams
+* Gollum can render sequence diagrams from source on a page. Courtesy of [WebSequenceDiagrams](http://www.websequencediagrams.com/). For example:
+* You can replace the blue-modern style with any other supported style. Open the link above to discover what styles are available.
+```
+{{{{{{ blue-modern
+    alice->bob: Test
+    bob->alice: Test response
+}}}}}}
+```
+{{{{{{ blue-modern
+    alice->bob: Test
+    bob->alice: Test response
+}}}}}}
+
+#### PlantUML diagrams
+* If you install and configure your own PlantUML server, Gollum can render PlantUML diagrams from source on a page. Courtesy of PlantUML. For example:
+```
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+```
+
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+
+
+You can embed any of the diagram types supported by PlantUML: sequence diagrams, case diagrams, class diagrams, activity diagrams, component diagrams, object diagrams and even wireframe diagrams.
+
+**Notes:**
+
+For wireframe diagrams, you must use the *@startuml* tag followed by the *salt* keyword syntax. The new *@salt* syntax is not supported. See link.
+There cannot be empty lines inside the @startuml/@enduml block. PlantUML expects a single paragraph and adding empty lines in between will be read as multiple paragraphs.
+If you do not want to use your own PlantUML server, you can configure https://www.plantuml.com/plantuml/png as the server to use. See here on how to configure which server to use.
+
+
+## Emojis
+* There should be a heart here: :heart:
+
+## Emphasis
+```
+*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+_You **can** combine them_
+```
+
+* example
+	* *This text will be italic*
+	* _This will also be italic_
+	* **This text will be bold**
+	* __This will also be bold__
+	* _You **can** combine them_
+
+## Escaping Characters
+### Backticks
+* [ ] TODO
+
+## Footnotes
+* The link will appear as a super script
+* The note will appear at the end of the page
+* You have to manage the note indexes yourself
+* This sentence has a footnote[^1]
+
+[^1]:this is the footnote at the bottom of the page. It should be surrounded by a blank line when by itself.
+
+## Headers
+* Mainly recommended
+```
+# This is an <h1> tag
+## This is an <h2> tag
+###### This is an <h6> tag
+```
+
+* old style but still supported (H1 and H2 only)
+```
+Alt-H1
+======
+
+Alt-H2
+------
+```
+
+## Horizontal Rule (lines)
+```
+Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+```
+
+Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+
+
+## HTML (inline)
+* TODO: needs more info / examples
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+
+## Images
+```
+Inline local file:
+![GitHub Octocat Logo](Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png)
+
+Here's the logo from [Markdown Here -email markdown plugin](http://markdown-here.com/) (hover to see the title text):
+
+Inline-style:
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style:
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+```
+
+Inline local file:
+![GitHub Octocat Logo](Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png)
+
+Here's the logo from [Markdown Here -email markdown plugin](http://markdown-here.com/) (hover to see the title text):
+
+Inline-style:
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style:
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+## Line Breaks
+* **Not recommended:** end a line with 2 spaces
+* **Recommended** end a line with the HTML break tag `<br>`.
+
+## Lists
+### Ordered
+```
+1. Item 1
+1. Item 2
+1. Item 3
+    1. Item 3a
+    1. Item 3b
+```
+* example
+1. Item 1
+1. Item 2
+1. Item 3
+	1. Item 3a
+    1. Item 3b
+
+### Task Lists
+#### Documented
+```
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+- [ ] top level partially done task
+	- [ ] sub A task not done
+	- [x] sub A task done
+
+```
+
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+- [ ] top level partially done task
+	- [ ] sub A task not done
+	- [x] sub A task done
+
+#### UnDocumented
+* Vimwiki has a macro for this and is compatible with Gollum.
+
+```
+* [X] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+* [X] list syntax required (any unordered or ordered list supported)
+* [X] this is a complete item
+* [ ] this is an incomplete item
+* [o] top level partially done task
+	* [ ] sub A task not done
+	* [X] sub A task done
+```
+
+* [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+* [X] list syntax required (any unordered or ordered list supported)
+* [X] this is a complete item
+* [ ] this is an incomplete item
+* [o] top level partially done task
+	* [ ] sub A task not done
+	* [X] sub A task done
+
+#### Unordered
+```
+* Item 1
+* Item 2
+    * Item 2a
+    * Item 2b
+```
+
+* example
+	* Item 1
+	* Item 2
+	  	* Item 2a
+	  	* Item 2b
+
+
+## Macros
+* There aren't many macros as of 07/2017
+* Note: In theory these work in subpages as well but that is broken in Gollum v4.1.1
+
+### Default Macros
+* AllPages
+	*Description: Prints a list of all wiki pages.
+	*Syntax: 
+```
+<<AllPages()>>
+```
+
+	*Result (example): 
+```
+<ul id="pages"><li>AllPagesMacroPage</li></ul>
+```
+* GlobalTOC
+	* Description: Prints a clickable TOC (all pages site wise)
+	* Syntax: 
+    ```
+    <<GlobalTOC()>>
+    ``` 
+    * you can also override the title: 
+    ```
+    <<GlobalTOC("All pages")>>
+    ```
+
+
+## Mathematics
+* TODO: Unfortunately, Math display is a problem with the pandoc renerer currently used for processing vimwiki files
+
+* To enable mathematical expressions in Gollum, start it with the --mathjax option. Github recommends [this](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) page to learn about the syntax.
+
+### Examples:
+* Inline math:
+```
+\\\(2^2\\\)
+```
+
+* Display math:
+```
+$$2^2$$
+\\\[2^2\\\]
+```
+
+* By default, Gollum uses the TeX-AMS-MML_HTMLorMML config with the autoload-all extension. You can also set your own mathjax configuration with the --mathjax-config option.
+
+* **Notes:**
+    * When using the Org-mode markup, you will have to wrap display math blocks in #+BEGIN_HTML ... #+END_HTML blocks.
+
+
+## Page Titles (Custom)
+* Note that the metadata must be the first piece of text on the page.
+* [ ] TODO: document how to escape something like this so it doesn't hose the whole page
+
+    \<!-- --- title: My page title --\>
+
+
+## Quotes
+### Blockquotes
+```
+As Kanye West said:
+
+> We're living the future so
+> the present is our past.
+```
+* example
+
+As Kanye West said:
+
+> We're living the future so
+> the present is our past.
+
+## Other Notes
+### Uploaded files
+* Files uploaded through Gollum are placed in a folder with a space filled name of the page/file.
+* i.e. this file's name is 'Demo Page - Kitchen Sink' so an image uploaded via Gollum will be placed under this wiki's directory structure in a folder that is named as it appears below:
+```
+![GitHub Octocat Logo](Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png)
+```
+
+## Strickthrough
+```
+~~Struckthrough~~
+```
+* ~~Struckthrough~~
+
+## Subpages (Footers, Headers and Sidebar)
+* Header files are named _Header.ext, where ext is one of the supported formats' extensions.
+* Sidebar files are named _Sidebar.ext, where ext is one of the supported formats' extensions.
+* Footer files are named _Footer.ext, where ext is one of the supported formats' extensions.
+* TODO: there are more references for this
+
+## Tags
+* Tags can be finicky. As a best practice it's a good idea to always reference tags from the root of the repository 
+* The general rule should be to always favor Gollum links/tags over vimwiki
+* (**see #3 in the 'Link Tags' examples**)
+* Basic syntax
+```
+[[tag]]
+```
+
+### Escaping Tags: use a single backtick
+```
+`[[tag]]
+```
+
+### Page Tags
+
+#### Include tag (includes a page in the example)
+* As opposed to the link tag, this one is dedicated to pages, has a special syntax and includes a page into another, rather than linking it:
+```
+[[include:cannonical-page-filename]]
+```
+* Example this will likely mess up the TOC
+    * [[include:index]]
+
+### Link Tags
+* Basic syntax
+```
+[[link-text|linked-resource]]
+```
+
+* Fully qualified URLs work just fine
+```
+[[http://example.com]]
+[[link-text|http://example.com/pdfs/gollum.pdf]]
+```
+
+* Examples
+	1. [[index|This tag will result in a different page for vimwiki than Gollum]]
+	2. [[../index| This will show the root index for both vimwiki and Gollum]]
+	3. [[../PersonalWiki/index| Use relatives paths from root to maintain compatibility -this shows the PersonalWiki index page]]
+
+* Markdown from Examples
+```
+[[index|This tag will result in a different page for vimwiki than Gollum]]
+[[../index| This will show the root index for both vimwiki and Gollum]]
+[[../PersonalWiki/index| Use relatives paths from root to maintain compatibility -this shows the PersonalWiki index page]]
+```
+
+#### Linking Internal files (not pages or images)
+* These can be troublesome between Gollum and Vimwiki.
+* Vimwiki will always follow the relative links to files and tack on a '.vimwiki' extension. This means that Vimwiki will try to open new Vimwiki file if followed through Vim.
+* Gollum will either show the content if it's an image or provie a tag to follow
+* Generally I recommend that if there is a conflict in links/tags between Vimwiki and Gollum that you side with Gollum for content display and binary file handling...
+[[Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png|GitHub Octocat Logo link]]
+```
+[[Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png|GitHub Octocat Logo link]]
+```
+
+#### Linking internal images
+* All of the same issues and querks exist here same as 'Linking Internal files'
+* Identical to linking internal files, but also supports several special attributes:
+* All of these attributes can be combined together simply by separating them with pipes.
+```
+[[image-url|alt=text]]
+Text to display when the image is not found.
+
+[[image-url|frame]]
+Tells Gollum to place the image in an <iframe>.
+
+[[image-url|align=position]]
+Tells Gollum to align the image in the given way. Position can be left, center, and right. Default: left.
+
+[[image-url|float]]
+Tells Gollum to float the image so that the text flows around it. This option can not be used with the align=center option. When floating is enabled and alignment is not specified, align=left is applied.
+
+[[image-url|height=value]]
+Set maximum height for the image. Values must be specified either with px or em unit.
+
+[[image-url|width=value]]
+Set maximum width for the image. Values must be specified either with px or em unit.
+
+[[image-url|frame|alt=text]]
+Tells Gollum to place the image in an <iframe> and uses the alt's text as its caption.
+
+```
+
+##### Handling image placement issues: 
+* By default text will fill up all the space around the image. To control how much should show up use this tag to stop and start a new block so that additional content doesn't fill in.
+```
+[[_]]
+```
+
+#### Linking internal pages
+
+The following tag will create a link to another Gollum page:
+```
+[[cannonical-page-filename]]
+```
+
+* Canonical page filename is the page's filename, but after applying these rules:
+	* Extension is tossed away.
+	* Spaces (U+0020) are replaced with dashes (U+002D).
+	* Forward slashes (U+002F) are replaced with dashes (U+002D).
+
+* Examples:
+	* [[J. R. R. Tolkien]] will reference the J.-R.-R.-Tolkien.ext page
+	* [[Movies / The Hobbit]] will reference the Movies---The-Hobbit.ext page
+	* [[モルドール]] will reference the モルドール.ext page
+
+The referenced page may exist anywhere in the git repository. Gollum will search for it and link the first such page that it finds.
+
+## Tables
+### Simple
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+### Complex
+* [ ] TODO: my plugin is currently broken for the table plugin
+* Made simpler with Vimwiki + [dhruvasagar/vim-table-mode plugin](https://github.com/dhruvasagar/vim-table-mode/tree/4e41af8e5f0bf53326d1b83c2feb1eff89fe90d4)
+* TODO: Explain how this autoformats for me in vim
+
+| First header | Second header | Third Header |
+| ---          | ---           | ---          |
+| x            | x             | x            |
+
+## Table-of-contents (TOC) tag
+* TODO: note how this needed to be escaped
+* Gollum provides a special tag for embedding a table of contents into a page:
+\[\[_TOC_\]\]
+
+* Or with a max depth:
+\[\[_TOC_|levels = 3\]\]
+
+## Youtube Videos
+* TODO: needs testing
+* They can't be added directly but you can add an image with a link to the video like this:
+```
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+```
+
+* Or, in pure Markdown, but losing the image sizing and border:
+```
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+```
+
+## Stuff That Doesn't work
+* TODO: not sure we want to keep this section
+## Issue References
+mojombo/github-flavored-markdown#1
+
+## More todo:
+* document external plantuml server support

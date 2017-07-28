@@ -1,23 +1,29 @@
-# All wikis index page (Root Directory)
+# Mockwiki Index Pag
 
-1. [[PersonalWiki/index|My Personal Wiki]]
+* This is the "home"/landing page for Gollum only.
+* Vimwiki does not use this page at all.
+    * Links will be broken in vimwiki
+* Edit this page as needed.
+
+## Useful links
+* mockwiki [[Search Examples|Search Exapmles]]
+* mockwiki [[Vimwiki-Gollum/Demo-Page---Kitchen-Sink|Markdown Reference]]
+* [Vimwiki Cheetsheet](http://thedarnedestthing.com/vimwiki%20cheatsheet)
+
+## Mockwiki Wiki and WikiDiary index
+
+1. [[Vimwiki-Gollum/index|Vimwiki+Gollum Project Documentation]] (start here)
+    * [[Vimwiki-Gollum/diary/diary|Diary Index (vimwiki)]]
+    * [[Vimwiki-Gollum/diary/index|Diary Index (gollum)]]
+
+2. [[PersonalWiki/index|My Personal Wiki]]
     * [[PersonalWiki/diary/diary|Diary Index (vimwiki)]]
     * [[PersonalWiki/diary/index|Diary Index (gollum)]]
 
-2. [[HouseholdWiki/index|My Household Wiki]]
+3. [[HouseholdWiki/index|My Household Wiki]]
     * [[HouseholdWiki/diary/diary|Diary Index (vimwiki)]]
     * [[HouseholdWiki/diary/index|Diary Index (gollum)]]
 
-3. [[CompanyA/index|Wiki for CompanyA]]
-    * [[CompanyA/diary/diary|Diary Index (vimwiki)]]
-    * [[CompanyA/diary/index|Diary Index (gollum)]]
-
-4. [[AnotherWikiA/index|Wiki for AnotherWiki A]]
+5. [[AnotherWiki/index|Wiki for AnotherWiki]]
     * [[AnotherWikiA/diary/diary|Diary Index (vimwiki)]]
     * [[AnotherWikiA/diary/index|Diary Index (gollum)]]
-
-5. [[AnotherWikiB/index|Wiki for AnotherWiki B]]
-    * [[AnotherWikiB/diary/diary|Diary Index (vimwiki)]]
-    * [[AnotherWikiB/diary/index|Diary Index (gollum)]]
-= Generated Links =
-    - [[index]]

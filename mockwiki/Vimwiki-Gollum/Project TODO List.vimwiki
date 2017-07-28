@@ -1,0 +1,103 @@
+# Project TODO List
+
+## Showstopers
+* [ ] Swap README with QuickSetup
+    * [ ] rework QuickSetup to be a proper README
+* Fix all things marked "TODO" or find a place for it.
+  * [ ] i.e. tables in demo page
+* [ ] document search examples
+    * [ ] make pages in mockwiki to use for examples
+
+## Release
+* [X] Example wiki page content with all the bells and wistles in mockwiki
+* [ ] spell check EVERYTHING
+* [ ] redo mockwiki pages
+  * [ ] For search examples
+  * [ ] Some mock content
+* [o] Cron(?) script to generate vimwiki diary indexes for Gollum
+    * This will probably autogenerate diary indexes for vimwiki also -because large wikis are very slow to index through vimwiki macros.
+	* [X] write the script
+	* [X] make the cron job
+	* [ ] document the thing
+        * [ ] Need to run the script for newly created wikis or wait until cron fires off.
+        * [ ] if you add a wiki you'll have to run the gen script for the diary to be in Gollum
+* [ ] Find out if github will follow softlinks with an extension change
+    * [ ] i.e. move quicksetup and readme into mockwiki/Vimwiki-Gollum as .vimwiki files and link from the root dir as .md files to see of github will serve the pages as markdown.
+    * [ ] This will let me use sourced files sourced from mockwiki while keeping them in mockwiki for content for the tutorial
+
+### Explanations.md (the original README.md)
+* [ ] TOC file
+
+## Administrative
+* [ ] file bug: TOC doesn't format correctly for include pages
+* [ ] file bug report for mediawiki extension bug
+* [ ] using TOC in code blocs doesn't escape properly
+* [ ] Retire the wiki TODO list and move on to github tickets
+
+## Documentation
+* [o] Address Caveates
+  * [X] Tags for internal files
+  * [ ] Always favor Gollum paths if there is a conflict
+* [ ] add info for youtube video examples to kitching sink page
+    * [ ] see [github - Embed a YouTube video - Stack Overflow](https://stackoverflow.com/questions/11804820/embed-a-youtube-video)
+    * [ ] [[../PersonalWiki/diary/2017-07-28|project working example]]
+
+## Low Priority
+* [ ] Add perl and python scripts for updating diary indexes
+    * This is mostly for convenience for other people
+* [ ] Suggested Vim plugins and macros for markdown editing
+    * [ ] My personal list of plugins and macros and how I use them.
+    * [ ] git commit macro
+    * [ ] kill ending line whitespace macro
+    * [ ] document word processor mode macro
+
+## Issues
+* [ ] issues with math ???
+  * [ ] looks like it might be issues with mathjax or pandoc
+* [ ] fix code syntax hightlighting
+
+## Future
+* [ ] Authentication Setup
+* [ ] custom css for page content width
+* [ ] Dropbox integration
+* [ ] test security concerns with search fix
+* [ ] A generalized workflow document
+    * diagrams and documentation
+* [ ] Add SubPages
+	* This will require an upgrade to Gollum v4.2.2+
+	  * [_TOC_ not rendering properly in _Sidebar · Issue #1161 · gollum/gollum](https://github.com/gollum/gollum/issues/1161)
+	  * [Fix subpage lookup bug. Fixes #214. by bartkamphorst · Pull Request #215 · gollum/gollum-lib](https://github.com/gollum/gollum-lib/pull/215)
+	* [ ] Header
+	* [ ] Footer
+	* [ ] Sidebar
+* [ ] do video tutorial
+
+## Nice to haves:
+* [ ] custom css and javascript ?
+	* not sure what I'll want to add but it's an option
+	* skins? / themes?
+    * see [Can gollum integrate with flowchart.js ? · Issue #1080 · gollum/gollum](https://github.com/gollum/gollum/issues/1080)
+* [ ] Docker image
+* [ ] Mobile device integration
+* [ ] Online vim editor replacement
+* [ ] how to change the margins for gollum pages
+    * [ ] if no sidebar, etc.
+    * [ ] what are the ramifications of this
+* [ ] a vim helpfile?
+* [ ] a vimwiki fork for gollum?
+
+## TODO Specifics:
+### Vim macro's to document
+* [ ] file add/checkin to git
+* [ ] change filetype mode (for views)
+
+## Archived: Done. Things that were done before moving the todo list to the wiki
+* [X] quick install / setup guide
+* [X] write slightly better start/stop scripts
+    * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
+* [X] Configure gollum editor to set correct extension when editing
+
+## Recently added (unsorted)
+* [ ] make a macro that formats a youtube link for gollum
+* [ ] document vimwiki nuance for switching wikis and getting to the diary
+* [ ] recommend writing notes for other wikis in the one you are in and then moving the content -so you don't forget what you wanted to say or where you wanted to put it.

@@ -1,0 +1,17 @@
+# Reworking mockwiki dir + TODO
+
+## Journal
+* It occured to me today that I'm working on a wiki system and I'm not using that system to chronicle my work. While I'm in the process of trying to wrap things up I'll go ahead and start writing things down. In fact, normally I would have been writing about the project as I went except, well, I've been pointing my vimwiki to this directory strucure for testing lately and not my normal repository. I think things are stable enough now that I can eat my own dog food. The other advantage is that I've been worried about what I might use for my search demo page/file. Now I'll be able to have content from actual usage.
+
+## TODO Today:
+* [X] Start cronicaling development in mockwiki
+* [ ] Find out if github will follow softlinks with an extension change
+    * [ ] i.e. move quicksetup and readme into mockwiki/Vimwiki-Gollum as .vimwiki files and link from the root dir as .md files to see of github will serve the pages as markdown.
+* [o] rework mockwiki directory structure
+    * [X] Finalize the various wiki names/dirs
+    * [ ] add wiki index pages mock content and add mock content to various wikis
+* [X] move project TODO list from README.md to Vimwik-Gollum wiki project
+* [ ] copy today's mockwiki into the github directory stucture
+    * [ ] manage the moving around of files and directories in mockwiki
+* [ ] redo the root index to reflect mockwiki changes
+
