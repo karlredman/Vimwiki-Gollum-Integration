@@ -1,4 +1,4 @@
-# Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration)
+# Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration) (Extended documentation)
 
 ## Special Notes
 * This is a work in progress -I'm still adding content as of 7-25-2017
@@ -270,7 +270,7 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 
 ## Project Overview (mixed diagram)
 
-![image](docs/overview.png?raw=true)
+![image](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.png?raw=true)
 
 <a name=TODO_anchor> </a>
 

@@ -24,7 +24,7 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 * File uploads to the Vimwiki/Gollum repository from the Gollum web interface.
 * Custom startup/shutdown scripts
 * Cron script for automatically updating Gollum readable diary indexes.
-* [ ] [Extended documentation]() to support the entire integration process.
+* [ ] [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) to support the entire integration process.
 
 
 ## Example Installation
