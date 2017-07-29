@@ -100,6 +100,7 @@ vim ~/mockwiki/gollum_admin/start_gollum.sh
 
 9. [ ] Try the searches suggested on the [search documentation]() page for the example wiki.
 
+
 10. Use Vimwiki to edit files in your wiki.
 	* [Vimwiki Cheetsheet](http://thedarnedestthing.com/vimwiki%20cheatsheet)
 ```bash

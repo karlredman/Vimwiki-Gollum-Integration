@@ -1,11 +1,7 @@
 # Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration) (Extended documentation)
 
 ## Special Notes
-* This is a work in progress -I'm still adding content as of 7-25-2017
-* This project is 90% documentation and explanations.
-    * The other 10% is actual work that involves files and such.
 * Anything that has a [ ] checkbox is a TODO item for me.
-* See the [Quick Setup Guide](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/QuickSetup.md) if you want to just get something up and running and avoid all these words. It's essentially 6 steps (if you count installing dependencies as 1 step).
 
 ## Description:
 * This is a setup guide for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum](https://github.com/gollum/gollum). See the [Features section](#Features_anchor).
@@ -15,7 +11,7 @@
 * The intention here is to use **out of the box components only**. All customization is done through configuration of the various components via their respective customization methods. No direct patching is allowed.
 * An example wiki directory (mockwiki in the sources of this project) is provided for tutorial purposes. This directory structure will be used to throughout this document.
 * Note: this procedure is **only tested with ubuntu based systems** (specifically Linux Mint v18.1 Cinnamon)
-* Specifics for file server setup for media, etc. is not discussed at this time. However please consider that git is definitely not an ideal place to keep binaries.
+* Specifics for file server setup for media, etc. are not discussed at this time. However please consider that git is definitely not an ideal place to keep binaries.
 * Author: [Karl N. Redman](https://karlredman.github.io/)
 
 ## TODO and Limitations / Bugs:
