@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# stops plantuml and gollum servers relative to being started with start_gollum.sh
 # This is not very robust.
+# not suitable as a service script
 
 kill -15 `cat /tmp/plantuml-server.pid` > /dev/null 2<&1
 sleep 2

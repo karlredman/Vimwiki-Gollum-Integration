@@ -5,13 +5,12 @@
 
 ## TODO Today:
 * [X] Start cronicaling development in mockwiki
-* [ ] Find out if github will follow softlinks with an extension change
-    * [ ] i.e. move quicksetup and readme into mockwiki/Vimwiki-Gollum as .vimwiki files and link from the root dir as .md files to see of github will serve the pages as markdown.
 * [o] rework mockwiki directory structure
     * [X] Finalize the various wiki names/dirs
     * [ ] add wiki index pages mock content and add mock content to various wikis
 * [X] move project TODO list from README.md to Vimwik-Gollum wiki project
-* [ ] copy today's mockwiki into the github directory stucture
-    * [ ] manage the moving around of files and directories in mockwiki
-* [ ] redo the root index to reflect mockwiki changes
+* [X] copy today's mockwiki into the github directory stucture
+    * [X] manage the moving around of files and directories in mockwiki
+* [X] redo the root index to reflect mockwiki changes
+* [X] create unique file name for testing
 

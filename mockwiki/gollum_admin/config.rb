@@ -45,6 +45,7 @@ module Gollum
         # * Add --all-match and --extended-regexp to the arguments list plus the now delimited query
         # * The array format is <empty hash> +  <git grep options> + <query> + <branch reference (i.e. HEAD) + <end of options specifier>
         args = [{}, '--all-match', '-I', '-i', '-c', '--extended-regexp']+query+[ref, '--']
+        # args = [{}, '--all-match', '-I', '-i', '-c', '--extended-regexp', query, ref, '--']
         ##########################
 
 
@@ -64,6 +65,18 @@ module Gollum
   end
 end
 
+# fix a regex bug in mediawiki that caused vimwiki not to be recognized for edits
+Gollum::Markup.formats.delete(:mediawiki)
+Gollum::Markup.register(:mediawiki, "MediaWiki", :regexp => /mediawiki|wiki/, :reverse_links => true)
+
+##### Unfortunately, we can't do this. It causes an error for file edits -to be debugged some other time
+# # Remove all markdown formats so we can limit gollum to .vimwiki only
+# Gollum::Markup.formats.clear
+# # and then define the sole markup to be supported:
+# Gollum::Markup.formats[:vimwiki] = {
+#     :name => "Vimwiki",
+#     :regexp => /vimwiki/
+# }
 
 ##########################
 # # Custom extension + processor for '.vimwiki' files:
@@ -89,9 +102,6 @@ Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_link
 GitHub::Markup::markup_impl(:vimwiki, ci)
 ##################
 
-# fix a regex bug in mediawiki that caused vimwiki not to be recognized for edits
-Gollum::Markup.formats.delete(:mediawiki)
-Gollum::Markup.register(:mediawiki, "MediaWiki", :regexp => /mediawiki|wiki/, :reverse_links => true)
 
 ##################
 # # Set the default gollum index (landing page) page name

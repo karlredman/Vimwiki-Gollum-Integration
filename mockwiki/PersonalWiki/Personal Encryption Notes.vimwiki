@@ -1,0 +1,66 @@
+# Personal Encryption Notes
+
+## GnuPGP
+### Vim plugin
+* Note: Must turn off the callback function 'CursorHold' in the vimrc settings or else performance is very slow.
+* Note: Also inprove some performance by commenting out fold options
+* vimrc settings adjusted for my working configuration
+```
+""""""""""""""""""""
+ GnuPG Extensions "
+""""""""""""""""""""
+
+" Tell the GnuPG plugin to armor new files.
+let g:GPGPreferArmor=1
+
+" Tell the GnuPG plugin to sign new files.
+let g:GPGPreferSign=1
+
+augroup GnuPGExtra
+" Set extra file options.
+    autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) call SetGPGOptions()
+" Automatically close unmodified files after inactivity.
+    " autocmd CursorHold *.\(gpg\|asc\|pgp\) quit
+augroup END
+
+function SetGPGOptions()
+" Set updatetime to 1 minute.
+    set updatetime=0
+" Fold at markers.
+    " set foldmethod=marker
+" Automatically close all folds.
+    " set foldclose=all
+" Only open folds with insert commands.
+    " set foldopen=insert
+endfunction
+```
+
+## eCryptfs private directories
+* [eCryptfs Tutorial](http://bodhizazen.net/Tutorials/Ecryptfs/)
+* General information/overview [EncryptedPrivateDirectory](https://help.ubuntu.com/community/EncryptedPrivateDirectory)
+### Backup
+* backup the directory: ~/.Private
+### Restoring a ~/.Private diretory
+* The easiest way is to use ecryptfs-recover-private
+    * this works for any copy of the directory as long as you know your mount passphrase
+    ```
+    $ ecryptfs-recover-private [directory name]
+    ```
+* manual recovery
+** [Recovering Files From eCryptfs Encrypted Home](http://www.kaijanmaki.net/2009/10/26/recovering-files-from-ecryptfs-encrypted-home/)
+1. Add the mount passphrase (saved from time of encrypted directory creation)
+```
+ecryptfs-add-passphrase --fnek
+```
+* copy the second auth tok sig from output
+2. Given a backup ecryptfs directory named "TESTPRIVATE", mount the directory
+```
+mount -t ecryptfs TESTPRIVATE mnt/
+```
+    1. Select encryption type ("1" is fine for recovery otherwise use desired for restoration)
+    2. Select encryption bytes  ("1" is fine for recovery otherwise use desired for restoration)
+    3. Answer yes for encrypted file names
+    4. Use the saved auth tok sig from previous step for the File Encryption Key (FNEK)
+    5. Answer yes to continue to mount
+    6. Answer no to save the key in save the key in local directory
+

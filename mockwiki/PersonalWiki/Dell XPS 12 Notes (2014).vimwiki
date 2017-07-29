@@ -1,0 +1,202 @@
+
+# = Virtualbox setup =
+
+    * unity-tweaks-tool
+    * ubuntu-tweaks
+    * chrome
+    * terminator
+    * skype
+    * dropbox
+        * python-gpme
+        * libappindicator1
+    * thunderbird plugin 
+        * message filter inport/export plugin
+    * compizConfig Settings Manager
+        * command: ccsm 
+        *  compiz-plugins-extra
+    
+##    == system issues ==
+    * When dell-docked second monitor occasionally turns off and on again
+        * caused by windows 8 power management for the usb ports
+        * turn off power management in control pannel->hardware->[?]->power->advanced settings
+    * Occasional mouse/keyboard lockup 
+        * seems to be resolved with the usb port power down fix
+    * Massive slowdown of client O/S when laptop is unplugged from power supply
+        * Caused by Dell + Intell battery saving technology lowering gpu and cpu cycles
+        * disable dell + intell battery saver
+    * chrome behaves badly / keyboard & mouse temporary lockups.
+        * compiz tends to go crazy on memory and CPU usage with chrome
+        * typing in a terminal will "stutter" -VERY annoying
+        * in chrome: go to settings and turn off 'use hardware acceleration'
+        * seems to solve the problem
+    * virtualbox settings
+        * virtualbox client fullscreen menue at top
+            * just trust me -it helps with touchscreen and fullscreen terminals in client fullscreen mode
+        * 3d acceleration enabled
+        * max memory ??????????????????????????????????????????????????????????????????
+        * CPU ??????????????????????????????????????????????????????????????
+        * gpu: max (128MB)
+
+== windows 8.1 upgrade problems ==
+    * If you have trouble upgrading to 8.1 from 8.0 because of lack of "administrator priveledges" just do this:
+        * http://social.technet.microsoft.com/Forums/windows/en-US/fe87d35b-12b7-4176-89de-a38601937c9d/windows-store-doesnt-let-me-upgrade-to-81-says-i-am-not-administrator?forum=w8itproinstall
+            * Go to Control Panel ---> Programs ............ --> "View Installed Updates"
+            * find update KB2871389
+                * hint: use the find feature in the window
+            * uninstall KB2871389
+            * reboot
+            * go back to store and download/install 8.1
+                * download may take a couple of tries on wifi -if you can plugin via ethernet (via adapter on usb port) do so
+                * the download for 8.1 took me hours ?????????????????????????????????????????????????????????????????????????????????????
+    * You MUST upgrade at least Bluetooth and touchpad drivers. I suggest downloading all of the dell drivers possible for 8.1.
+        * This is fairly easy if you install the dell "system detecter" and allow your system to be analyzed by dell direction.
+            * note: use the service tag (on the bottom of the laptop) for interactions with dell.
+    * Bluetooth problems
+        * symptom: bluetooth stops working (most easily found out via bluetooth mouse stopped working)
+        * winkey->search[hardware manager]
+            * rtclick["intel wireless bluetooth + hs addapter"]->properties->power management
+                * uncheck "allow computer to shut off thid device to save power"
+                * Note: this will cause you to have to manually manage your bluetooth service via the bluetooth toggle in settings
+        * No bluetooth headphone / audio support
+        
+        
+    == performance ==
+        * If you know me at all relative to running linux you know that I run a fair amount of eyecandy and generally customize my working (gui) environments heavily. With that said, I find the performance to be nearly as good as a native installation so far.
+            * things to test with this comment:
+                * web server
+                * mysql
+                * other
+
+
+
+        
+    == personal environment == 
+        * rvm/ruby
+            *   http://rvm.io/rvm/install
+            * tmux
+                * compiled from site
+            * tmuxinator
+                * from git
+        * taskwarrior
+
+= General Annoyances = 
+* These are overall annoyances (and possible fixes) for OS, system, and other relative to the topic.
+    * 'Fn' key required for "Pg up, Pg down, Home, End" keys
+        * without a custom keybard driver you're stuck with this.
+        * for me the work around is fancy use of the 'ctrl-a' + arrow keys so it's not a huge problem
+    * unity / (compiz) forgets hot corners on startup [ubuntu 12.04 - 13.10]
+        * The fix for this is here: http://askubuntu.com/questions/140759/scale-plugin-keeps-forgetting-hot-corner-settings-on-restart
+            * basicaly just do a change in dconf editor
+            * "Note that system updates may revert this fix and you may have to use dconf to fix it again."
+    * Virtualbox crashes with oriantation changes.
+        * for me not a big deal -I lock the orientation with the button on the side of the laptop. 
+        * note that this is an orientation change problem for virtualbox. if you don't change the orientation after starting the client OS than the client runs perfectly fine in both portrait or landscape.
+    * no SD card slot
+        * I always carry a usb to multi-SD card reader anyway
+    * Only 2 USB ports (one 2.0 + one 3.0)
+        * I always carry a hub anyway
+    * small dispaly
+        * that's the price you pay for a small/portalble laptop
+    * No HDMI output
+        * buy the dongle from amazon
+    * Touchpad is sometimes flaky
+        * the majority of complaints (and mine) is the multitouch ability of this thing. The pad just "forgets" sometimes where you are scrolling and just moves a web page (for instance) to the bottom. 
+        * NOTE: THIS IS FIXED WITH windows 8.1 upgrade + new drivers
+            * It appears this is a hardware issue that isn't going to be fixed very easily by driver updates.
+            * This really isn't as annoying as reviews seem to make it out to be IMHO. Occasionally the pointer will "drift" in the opposite direction if it loses track of your finger touch.
+            * I don't find this to be all that much of a problem -worst case scenario I switch to keyboard or reestablish my contactact with the touchpad -it's automatic and doesn't take any time to do.
+            * absolute worst case scenario: I use the touchoupad mouse operations to use the scrollbar....
+    * In Virtualbox: Unity combines app windows from multiple desktops to a single desktop when....
+        * switching back to windows (i.e. going fullscreen linux client back to windows native)
+        * disconnecting from docking station.
+        * This takes (timed) <30 seconds to correct when returning to linux virtualbox client.
+            * if you swap displays, dock/undock frequently, etc. your milage may very on this annoyance.
+        * No Ethernet port
+            * buy an adapter
+
+= General Positive things =
+    * Really solid construction
+    * well laid out keyboard -responsive, individual keys, natural feeling, not too cramped.
+    * touchpad isn't annoying with hand placement -for it's other faults, there is little to no problem (for me) with the touchpad picking up my palms moving over it. 
+        * this is a huge positive IMHO.
+    * external orientation lock button.
+        * helps with linux orientation issues and especially virtualbox cleint OS orientation crashes
+    * small profile / screen
+        * this is a preference thing
+    * screen resolution/presentation is crisp and exact
+        * helps with the small screen
+    * NFC pad built in
+        * sometimes (rarely) useful but when it's there it's very conveinent. Tap your nexus 7 / phone to the pad and xfer the chosen data.....
+
+
+
+= useful accessories =
+    * USB to Multi-SD card reader
+    * Dell multi display dock station
+        * NOTE: does NOT charge the laptop -you still need your laptop power adapter.
+    * A second power adapter for home / work -a backup anyway...
+    * A stylus -it's just handy in tablet mode.
+    * A micro fiber cloth for occasional cleaning the tablet screen
+    * USB hub
+    * Backup drive
+        * **************************************** ????
+    * USB to ethernet adapter
+    * KVM crashcart adapter
+
+
+= Linux Setup =
+    * Stuck with Ubuntu Unity
+        * given the touchscreen I've found only ubuntu/unity to be productive and useful
+    * "online keyboard" 
+        * settings
+            * transparency
+            * placement
+                * I use the window staps to set the top/bottom half for the screen and I size the keyboard with the mouse accordingly -it remembers it's location
+            * actuall settings ??????????????????????????????????????????????????????????
+    
+    == general advice (relative to using as a laptop, desktop, and touchscreen at the same time) ==
+        * no autohides for launcher / panel
+        * set up hot corners for windows snaps
+            * this helps out if you need to move things side by side in tablet mode. This also helps with onscreen keyboard placement (once you het the hang of it it's easy -took me some time)
+            * I use use the following configuration
+                * top left = window area at top left
+                * top right = window area at top right
+                * top middle = top half of screen
+                * bottom left = window area at bottom left
+                * bottom right = window area at bottom right
+                * bottom middle = bottom half of screen
+        * add main apps to launcher bar (unity)
+            * onboard keyboard
+                * settings: ???????????????????????????????????
+            * skype
+            * thunderbird
+            * chrome
+        * use multiple desktops
+            * you're a fool if you don't.... IMHO
+                * I'd entertain the argument to using a tiling WM otherwise....
+                    * but you can't because with this system your stuck with Unity and compiz -so, get used to it.
+            * as a matter of preference I use 4+ x 1 configuration. I find that most efficient.
+        * set up hot corners for larger monitor (desktop) use
+            * I have these set to the right because I place my laptop to the left of my second monitor when docked
+                * top right = workspace view
+                * bottom right = windows spread (I prefer per workspace - can be all windows if desired)
+        
+
+
+= Windows 8/8.1 setup = 
+    == useful apps ==
+        * Cygwin
+        * console2
+        * putty
+            * ssh key setup 
+
+
+= usuful reviews = 
+    * slightly outdated review. However the shortfalls are still well outlined and mostly still there.
+        * http://www.theverge.com/2012/11/20/3655532/acer-aspire-s7-and-dell-xps-12-review
+
+
+= google chrome =
+    * multiple users
+    * multiple accounts under users
+    * hangouts

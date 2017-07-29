@@ -1,0 +1,37 @@
+# Mac keyboard shortcuts (that I use)
+
+## References:
+* [Apple: Mac Keyboard Shortcuts](https://support.apple.com/en-us/HT201236)
+
+## Mac / Windows map 
+| command                    | Mac                                        | linux        |
+| ---                        | ---                                        | ---          |
+|                            | command                                    | CTRL         |
+|                            | option                                     | ALT          |
+|                            | control                                    | CTRL         |
+| window menu                | control+ L-click                           | Right-click  |
+| copy text                  | commad+ C                                  | CTRL+ C      |
+| paste text                 | command+ V                                 | CTRL+ v      |
+| *zoom window               | CTRL+command+ =                            |              |
+| toggle window fullscreen   | CTRL+command+ F                            |              |
+| switch applications        | command+ TAB                               | ALT+ TAB     |
+| switch application windows | command+ `                                 |              |
+| minimize window            | command+ m                                 | ALT+ SPACE n |
+| restore minimized window   | command+ TAB (hold option and release last | ALT+ TAB     |
+|                            |                                            |              |
+
+
+## [Chrome shortcuts](https://support.google.com/chrome/answer/157179?hl=en)
+| task               | shortcut  |
+| ---                | ---       |
+| new tab            | Cmd+ T    |
+| close tab          | Cmd+ W    |
+| focus address line | Cmd+ L    |
+| switch tab         | CTRL+ TAB |
+
+## vim/bash (vi mode) key combinations
+* Note: option key set to +ESC in terminal settings (i.e. iterm2)
+| task          | Mac           | linux      |
+| ---           | ---           | ---        |
+| escape & move | option+[HJKL] | ALT+[HJKL] |
+| backspace     | option+Delete | Backspace  |

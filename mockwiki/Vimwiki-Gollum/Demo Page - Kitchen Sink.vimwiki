@@ -110,6 +110,17 @@ For wireframe diagrams, you must use the *@startuml* tag followed by the *salt* 
 There cannot be empty lines inside the @startuml/@enduml block. PlantUML expects a single paragraph and adding empty lines in between will be read as multiple paragraphs.
 If you do not want to use your own PlantUML server, you can configure https://www.plantuml.com/plantuml/png as the server to use. See here on how to configure which server to use.
 
+##### PlantUML static images
+* It's best to use the jar file that is generated while building the [PlantUML Server](https://github.com/plantuml/plantuml-server).
+* (If you haven't instaled PlantUML Server already) 
+    * Follow the instructions from github (but don't run): [Install local PlantUML server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server#install-local-plantuml-server)
+    * I put the repo under ~/3rdparty
+* Here's an example [input file](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.plantuml)
+* Here's a generated [output file](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.png)
+* command line ( note the jar file contains the version number ....)
+```
+java -jar ~/3rdparty/plantuml-server/target/plantuml/WEB-INF/lib/plantuml-1.2017.14.jar -verbose overview.plantuml -tpng
+```
 
 ## Emojis
 * There should be a heart here: :heart:
@@ -551,6 +562,16 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 ```
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
 ```
+
+### Examples
+
+[![HEALTH](https://img.youtube.com/vi/PL3F4K1kxSA/0.jpg)](https://www.youtube.com/watch?v=PL3F4K1kxSA)
+
+<a href=
+"https://www.youtube.com/watch?v=PL3F4K1kxSA"
+target="_blank"><img src=
+"http://img.youtube.com/vi/PL3F4K1kxSA/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Stuff That Doesn't work
 * TODO: not sure we want to keep this section

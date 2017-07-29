@@ -1,46 +1,48 @@
 # Project TODO List
 
 ## Showstopers
-* [ ] Swap README with QuickSetup
-    * [ ] rework QuickSetup to be a proper README
+* [X] Swap README with QuickSetup
+    * [X] rework QuickSetup to be a proper README
 * Fix all things marked "TODO" or find a place for it.
   * [ ] i.e. tables in demo page
-* [ ] document search examples
-    * [ ] make pages in mockwiki to use for examples
+* [X] document search examples
+    * [X] make pages in mockwiki to use for examples
 
 ## Release
+* [ ] rework extended_readme.md
 * [X] Example wiki page content with all the bells and wistles in mockwiki
 * [ ] spell check EVERYTHING
-* [ ] redo mockwiki pages
-  * [ ] For search examples
-  * [ ] Some mock content
-* [o] Cron(?) script to generate vimwiki diary indexes for Gollum
+* [X] redo mockwiki pages
+  * [X] For search examples
+  * [X] Some mock content
+* [X] Cron(?) script to generate vimwiki diary indexes for Gollum
     * This will probably autogenerate diary indexes for vimwiki also -because large wikis are very slow to index through vimwiki macros.
 	* [X] write the script
 	* [X] make the cron job
-	* [ ] document the thing
-        * [ ] Need to run the script for newly created wikis or wait until cron fires off.
-        * [ ] if you add a wiki you'll have to run the gen script for the diary to be in Gollum
-* [ ] Find out if github will follow softlinks with an extension change
-    * [ ] i.e. move quicksetup and readme into mockwiki/Vimwiki-Gollum as .vimwiki files and link from the root dir as .md files to see of github will serve the pages as markdown.
-    * [ ] This will let me use sourced files sourced from mockwiki while keeping them in mockwiki for content for the tutorial
+	* [X] document the thing
+        * [X] Need to run the script for newly created wikis or wait until cron fires off.
+        * [X] if you add a wiki you'll have to run the gen script for the diary to be in Gollum
+* [X] Find out if github will follow softlinks with an extension change
+    * [X] i.e. move quicksetup and readme into mockwiki/Vimwiki-Gollum as .vimwiki files and link from the root dir as .md files to see of github will serve the pages as markdown.
+    * [X] This will let me use sourced files sourced from mockwiki while keeping them in mockwiki for content for the tutorial
+    * [X] NOT POSSIBLE
 
-### Explanations.md (the original README.md)
-* [ ] TOC file
+### extended_readme.md (the original README.md)
+* [ ] TOC for the file
 
 ## Administrative
 * [ ] file bug: TOC doesn't format correctly for include pages
-* [ ] file bug report for mediawiki extension bug
-* [ ] using TOC in code blocs doesn't escape properly
+* [ ] file bug?: report for mediawiki extension bug
+* [ ] file bug: using TOC in code blocs doesn't escape properly
 * [ ] Retire the wiki TODO list and move on to github tickets
 
 ## Documentation
 * [o] Address Caveates
   * [X] Tags for internal files
   * [ ] Always favor Gollum paths if there is a conflict
-* [ ] add info for youtube video examples to kitching sink page
-    * [ ] see [github - Embed a YouTube video - Stack Overflow](https://stackoverflow.com/questions/11804820/embed-a-youtube-video)
-    * [ ] [[../PersonalWiki/diary/2017-07-28|project working example]]
+* [X] add info for youtube video examples to kitching sink page
+    * [X] see [github - Embed a YouTube video - Stack Overflow](https://stackoverflow.com/questions/11804820/embed-a-youtube-video)
+    * [X] [[../PersonalWiki/diary/2017-07-28|project working example]]
 
 ## Low Priority
 * [ ] Add perl and python scripts for updating diary indexes
@@ -50,11 +52,15 @@
     * [ ] git commit macro
     * [ ] kill ending line whitespace macro
     * [ ] document word processor mode macro
+    * [ ] instant markdown preview
+        * [ ] discuss querks
 
 ## Issues
 * [ ] issues with math ???
   * [ ] looks like it might be issues with mathjax or pandoc
-* [ ] fix code syntax hightlighting
+* [ ] fix code syntax hightlighting ?
+* [ ] search does not return file names as part of the search when regex is used
+    * [ ] possibly escaped by adding logic to handle '--' in the search bar to indicate a file name pattern
 
 ## Future
 * [ ] Authentication Setup
@@ -98,6 +104,8 @@
 * [X] Configure gollum editor to set correct extension when editing
 
 ## Recently added (unsorted)
+* [ ] tutorial/checklist for switching bakc and forth from example to production
+* [ ] integrat time tracking
 * [ ] make a macro that formats a youtube link for gollum
 * [ ] document vimwiki nuance for switching wikis and getting to the diary
 * [ ] recommend writing notes for other wikis in the one you are in and then moving the content -so you don't forget what you wanted to say or where you wanted to put it.

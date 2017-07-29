@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# starts the plantuml and gollum servers in the background
+# not suitable as a service script
+
 # Configuration
 ## PlantUML
 plantuml_installdir="$HOME/3rdparty/plantuml-server"
@@ -10,8 +13,12 @@ gollum_repodir="$HOME/mockwiki"
 gollum_configfile="$gollum_repodir/gollum_admin/config.rb"
 gollum_port="4567"
 
+waitstart_plantuml=10       # how long to wait for the plantuml server to start
+
+########### End of configuration section
 
 ## start plantuml server
+### does not report if it fails -see the log
 program="plantuml"
 proclive=`ps -ax |grep -E -e 'bin/java.*maven.*plantuml' |grep -v 'grep'`
 if [ "${proclive}" ]; then
@@ -20,17 +27,15 @@ if [ "${proclive}" ]; then
 else
     cd $plantuml_installdir
     command="mvn jetty:run -Djetty.port=$plantuml_port"
-    $command > /tmp/plantuml-server.log 2>&1 &
-    echo "$!" > /tmp/plantuml-server.pid
+    $command > /tmp/$program-server.log 2>&1 &
+    echo "$!" > /tmp/$program-server.pid
 
-    sleeptime=10
-    echo "Sleeping for $sleeptime while plantuml starts..."
-    sleep 10
+    echo "Sleeping for $waitstart_plantuml while PlantUML starts..."
+    sleep $waitstart_plantuml
 fi
 
-
-
-# start gollum
+# start gollum server
+### does not report if it fails -see the log...
 program="gollum"
 proclive=`ps -ax |grep -E -e 'bin/ruby.*/bin/gollum' |grep -v 'grep'`
 if [ "${proclive}" ]; then
@@ -39,8 +44,8 @@ if [ "${proclive}" ]; then
 else
     cd $gollum_repodir
     command="gollum --port $gollum_port --config $gollum_configfile --plantuml-url $gollum_plantuml_url --emoji --mathjax --live-preview --allow-uploads=page --collapse-tree --adapter grit"
-    $command > /tmp/gollum-server.log 2>&1 &
-    echo "$!" > /tmp/gollum-server.pid
+    $command > /tmp/$program-server.log 2>&1 &
+    echo "$!" > /tmp/$program-server.pid
 fi
 
 

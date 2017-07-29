@@ -16,8 +16,12 @@
 # Configuration:
 # Edit repodir the location of your wiki repository.
 #
-# Here's a cron example (1am every day)
-#0 1 * * * /home/karl/mockwiki/gollum_admin/genGollumDiaryIndexes.sh > /tmp/wtf 2<&1
+# Cron:
+# Note: you will have to have your credentials setup properly for git and run this
+# under your user account for it to work properly.
+# > crontab -e
+# Here's a cron example (1:05 am every day because of daylight savings switches)
+#5 1 * * * /home/karl/mockwiki/gollum_admin/genGollumDiaryIndexes.sh > /tmp/wtf 2<&1
 #
 # Author: [Karl N. Redman](https://github.com/karlredman)
 
@@ -53,36 +57,36 @@ for i in ${!filelist[@]}; do
     D2=$(dirname $D1)
     wikiname=$(basename $D2)
 
-		# to be included in diary.index for a placeholder for today's diary entry
+	# to be included in diary.index for a placeholder for today's diary entry
     today=$(date +"%Y-%m-%d")
 
-		# reformat the file in one pass
+	# reformat the file in one pass
     # Anything after # Diary... remove beginning whitespace, add the wikiname
-		# to the file path, and add the file name (date) to the description field
-		file_content=`awk -v wikiname=$wikiname -v today=$today '
-		{
-			if(!match($0,/^\# Diary/))
-			{
-				if($0 ~ /\[\[/)
-				{
-					# attempted comment
-					split($0, arr, /\[\[/, seps);
-					split(arr[2], arr, /\]\]/, seps);
-					split(arr[1], arr, /\|/, seps)
+	# to the file path, and add the file name (date) to the description field
+    file_content=`awk -v wikiname=$wikiname -v today=$today '
+    {
+        if(!match($0,/^\# Diary/))
+        {
+            if($0 ~ /\[\[/)
+            {
+                # attempted comment
+                split($0, arr, /\[\[/, seps);
+                split(arr[2], arr, /\]\]/, seps);
+                split(arr[1], arr, /\|/, seps)
 
-					printf("*    [[%s/diary/%s | [%s] %s]]\n", wikiname, arr[1], arr[1], arr[2])
-				}
-				else
-				{
-					print;
-				}
-			}
-			else
-			{
-				print;
-				printf("*    [[%s/diary/%s | [%s] Today Placeholder]]\n", wikiname, today, today);
-			}
-		}' ${filelist[$i]}`
+                printf("*    [[%s/diary/%s | [%s] %s]]\n", wikiname, arr[1], arr[1], arr[2])
+            }
+            else
+            {
+                print;
+            }
+        }
+        else
+        {
+            print;
+            printf("*    [[%s/diary/%s | [%s] Today Placeholder]]\n", wikiname, today, today);
+        }
+    }' ${filelist[$i]}`
 
     # some sed magic to remove whitespace at beginning of lines with links and set the proper link path
 		# the awk script above replaces this -with some better formating

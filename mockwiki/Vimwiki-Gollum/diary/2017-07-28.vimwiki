@@ -1,1 +1,20 @@
+# Working Toward Release
 
+## Journal:
+
+I'm finalizing the last few things on my [[../Project TODO List|Release todo list]]. For me this is the hardest the most difficult part of a project. It's that period of time where I have something working and now all I have to do is clean things up and finalize the product. There's a lot of scattered details to manage and a lot of stopping and starting on things. This is also one of the most rewarding periods though. Because the result is something that works and will be useful for me (and I hope others). Overall I'm pretty happy with the results.
+
+Also, I'm excited to see what other little things I can come up with. For instance, I'd love to put together a file based/nosql time tracking/logging thing that could be integrated into the diary pages. That might be fun.
+
+## TODO Today:
+* [X] document search examples
+    * [X] make pages in mockwiki to use for examples
+* [X] add mockwiki mock content to wikis
+  * [X] For search examples
+  * [X] Some mock content
+* [X] add info for youtube video examples to kitching sink page
+    * [X] see [github - Embed a YouTube video - Stack Overflow](https://stackoverflow.com/questions/11804820/embed-a-youtube-video)
+    * [X] [[../PersonalWiki/diary/2017-07-28|project working example]]
+    * [X] [[../../PersonalWiki/diary/2017-07-28|project working example]]
+* [X] add plant-server static file generation comment to kitchen sink
+* [X] remove kitchen sink link and file from PersonlWiki wiki
