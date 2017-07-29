@@ -7,6 +7,8 @@ This is a guide and tutorial, with tools and 'out of the box' examples, for inte
 
 Most of this work is not my own. Rather I endeavor to document the process for integrating the various components that make a fairly complete wiki system for personal use. I've added some tools and a mock up wiki installation to get you started.
 
+**Note:** This is a short version of the documentation. Please see the [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) for more in depth information.
+
 
 ## Features:
 * All the features outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki).
@@ -17,17 +19,17 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 * Regex Searches of Wiki content through the Gollum Web Interface.
 	* Enables [git grep](https://git-scm.com/docs/git-grep) on the backend.
 	* Requires [Gollum's Grit Git Adapter](https://github.com/gollum/gollum/wiki/Git-adapters) (default adapter for Linux)
-    * [ ] See the [search documentation]() for specific information about the improved search capabilities.
+    * See the [search documentation]((https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Search%20Examples.vimwiki)) for specific information about the improved search capabilities.
 * [PlantUML Server](https://github.com/plantuml/plantuml-server) integration with Gollum.
     * Supports inline markdown (i.e [Class Diagrams](http://plantuml.com/class-diagram))
     * GitHub !includeurl format supported (see [git - How to integrate UML diagrams into GitLab or GitHub - Stack Overflow](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1))
 * File uploads to the Vimwiki/Gollum repository from the Gollum web interface.
 * Custom startup/shutdown scripts
 * Cron script for automatically updating Gollum readable diary indexes.
-* [ ] [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) to support the entire integration process.
+* [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) to support the entire integration process.
 
 
-## Example Installation
+## Example Installation / Tutorial
 
 1. Install dependencies and their respective dependencies:
 * [Vim v8.0+](http://www.vim.org/)
@@ -98,7 +100,7 @@ vim ~/mockwiki/gollum_admin/start_gollum.sh
 8. Check out additional [demo pages on your system (http://127.0.0.1:4567/Vimwiki-Gollum/index)](http://127.0.0.1:4567/Vimwiki-Gollum/index)
     * Explore the 'Vimwiki-Gollum' wiki for information pertaining to this project
 
-9. [ ] Try the searches suggested on the [search documentation]() page for the example wiki.
+9. Try the searches suggested on the [search documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Search%20Examples.vimwiki) page for the example wiki.
 
 
 10. Use Vimwiki to edit files in your wiki.

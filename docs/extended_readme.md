@@ -1,6 +1,7 @@
-# Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration) (Extended documentation)
+# Project: [Vimwiki+Gollum Integration (Extended documentation)](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md)
 
 ## Special Notes
+* This is the long form of this procedure. See [Vimwiki+Gollum Integration: README.md](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/README.md) for a quick install guide.
 * Anything that has a [ ] checkbox is a TODO item for me.
 
 ## Description:
@@ -14,9 +15,8 @@
 * Specifics for file server setup for media, etc. are not discussed at this time. However please consider that git is definitely not an ideal place to keep binaries.
 * Author: [Karl N. Redman](https://karlredman.github.io/)
 
-## TODO and Limitations / Bugs:
-* See [those sections](#TODO_anchor) at the bottom of this document
-* [ ] figure out how to handle that I've moved Project TODO into the mockwiki/Vimwiki-Gollum wiki
+## Limitations / Bugs:
+* See the [Limitations sections](#TODO_anchor) at the bottom of this document
 
 ## Background:
 
@@ -45,26 +45,25 @@ My requirements (relative to this project) boil down to the following:
 
 <a name=Features_anchor> </a>
 ## Features:
-* [X] All the features of outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki)
-* [X] Editing vimwiki files in [github mardown](https://guides.github.com/features/mastering-markdown/).
-* [X] Vimwiki extension is recognized in Gollum editor.
-* [O] Improved [git grep](https://git-scm.com/docs/git-grep) search capabilities through Gollum.
-    * [ ] See [here]() for specific information about the improved search capabilities.
-    * [X] Basic Regex file content searches are supported
-	* [X] [PlantUML Server](https://github.com/plantuml/plantuml-server) integration with Gollum
-    * [X] Supports inline mardown
-    * [X] Supports GitHub !includeurl format supported (see [git - How to integrate UML diagrams into GitLab or GitHub - Stack Overflow](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1))
-* [X] File uploads for the occasion that files are genuinely required/needed
-	* [X] Note: I occasionally use this feature. I highly recommend that you **not** use git as a binary file server overall.
-* [X] Custom (very basic) startup/shutdown scripts
-* [X] List some [useful references](#UsefulReferences_anchor) for the components involved
+* All the features of outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki)
+* Editing vimwiki files in [github mardown](https://guides.github.com/features/mastering-markdown/).
+* Vimwiki extension is recognized in Gollum editor.
+* Improved [git grep](https://git-scm.com/docs/git-grep) search capabilities through Gollum.
+    * See the [search ](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Search%20Examples.vimwiki) for specific information about the improved search capabilities.
+    * Basic Regex file content searches are supported
+	* [PlantUML Server](https://github.com/plantuml/plantuml-server) integration with Gollum
+    * Supports inline mardown
+    * Supports GitHub !includeurl format supported (see [git - How to integrate UML diagrams into GitLab or GitHub - Stack Overflow](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1))
+* File uploads for the occasion that files are genuinely required/needed
+* Custom (very basic) startup/shutdown scripts
+* List some [useful references](#UsefulReferences_anchor) for the components involved
 
 
 <a name=UsefulReferences_anchor> </a>
 ## Useful References
 * [Vimwiki Cheetsheet](http://thedarnedestthing.com/vimwiki%20cheatsheet)
-* [ ] [git grep regex]()
-* [ ] [This project's Gollum Search capabilities]()
+* [git grep regex](https://git-scm.com/docs/git-grep)
+* [This project's Gollum Search capabilities](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Search%20Examples.vimwiki))
 * [Pandoc Tricks](https://github.com/jgm/pandoc/wiki/Pandoc-Tricks)
 * [Pandoc User's Guide](http://pandoc.org/MANUAL.html)
     * **Note:** You will want the github-markdown "from" option for your conversions.
@@ -97,7 +96,6 @@ My requirements (relative to this project) boil down to the following:
 * All path references assume the example 'mockwiki' directory structure that is part of this project.
     * For testing/tutorial purposes you may want to just download/clone this directory and copy the files to someplace convenient. This example assumes the $HOME directory.
 * Linear progression of the instructions from here on is implied.
-* [ ] See the short version [here]()
 
 ### Install [Dependencies](#Dependencies_anchor):
 1. Installation instructions for each component is beyond the scope of this project. Since the aim of this project is to use unaltered components then merely following the basic installation instructions (links provided above) should suffice.
@@ -143,7 +141,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 * The directory structure I use seperates several wikis all accessable from both Vimwiki and Gollum
 
 1. Create an index file for Gollum in the root directory and name it index.vimwiki
-* [ ] Note: we'll set the Gollum index pages to 'index.vimwiki' in the [Gollum configuration section](#GollumConfig_anchor)
+    * Note: we'll set the Gollum index pages to 'index.vimwiki' in the [Gollum configuration section](#GollumConfig_anchor)
 ```markdown
 # All wikis index page (Root Directory)
 
@@ -255,7 +253,6 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
     * While it is possible to configure Vimwiki to use 'index.vimwiki' for diary directory index files it's pointless. Vimwiki auto generated 'diary.vimwiki' files are not compatible with Gollum formatting. Therefore, we'll have to (later) add a script to generate Gollum formatted/readable diary indexes.
 
 #### Add better search capibilities for Gollum (Grit_Adapter grep() override)
-* [ ] A summary of the new functionality can be found [here]()
 * The problem:
     * This is quite simple: Gollum's search capabilities 'out of the box' are severely limiting. It was **increadably frustrating** that Gollum searches only matchedd files where all words appeard, in order, in a single line.
     * The answer is very simple as well: eliminate shell escapes and allow ['git grep'](https://git-scm.com/docs/git-grep) to perform searches with --extended-regexp and --all-match
@@ -269,17 +266,15 @@ command="gollum --port 4567 --config /home/karl/mockwiki/gollum_admin/config.rb 
 ![image](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.png?raw=true)
 
 <a name=TODO_anchor> </a>
+## Project TODO:
+* The TODO list for this project has moved to the [mockwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/Project%20TODO%20List.vimwiki)
 
-## Known Litations / Bugs:
-* [ ] The enhanced search capibily is likey a **Security Risk**
-* [ ] Spaces might be a problem in searches
-* [ ] No files in the wiki repository can be named 'index.md'
-* [X] Gollum's 'edit file page' does not default to the correct file type in the dropdown list.
-    * This means that files edited with the 'vimwiki' extension will save to the wrong filename+extension unless 'Vimwiki' is selected by the user.
-    * The problem is probably due to poor regex for the dropdown selection. I haven't dug into this yet.
-* [ ] searches: filenames don't get matches with expressions or options (i.e. '-e thing', 'thing.*')
+## Known Litations
+* The enhanced search capibily is likey a **Security Risk**
+* Spaces might be a problem in searches
+* No files in the wiki repository can be named 'index.md'
+* searches: filenames don't get matches with expressions or options (i.e. '-e thing', 'thing.*')
     * files are included if only words, separated by spaces, are used
-* [ ] Following diary links from vimwiki intended for Gollum tries to create a new file -this is **BAD**
-	* Won't fix
+* Following diary links from vimwiki intended for Gollum tries to create a new file -this is **BAD**
+    * Won't fix
 	* This is a fundamental difference between how Vimwiki and Gollum view the physical directory strucure.
-	* redo gollum root index page to NOT include vimwiki diary pages
