@@ -1,0 +1,1 @@
+mockwiki/Vimwiki-Gollum/index.vimwiki
