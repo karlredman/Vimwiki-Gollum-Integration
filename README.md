@@ -106,8 +106,6 @@ vim ~/mockwiki/gollum_admin/start_gollum.sh
 vim -c VimwikiIndex
 ```
 11. Customize as needed.
-
-## Helper Scripts and Gollum configuration
 * Gollum + PlantUML Server start and stop scripts (under mockwiki/gollum_admin)
     * configure [start_gollum.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/start_gollum.sh) for the path of your wiki repository, ports for Gollum and PlantUML, etc.
     * [stop_gollum.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/stop_gollum.sh) just stops the servers based on the behavior from the start script.
@@ -118,3 +116,13 @@ vim -c VimwikiIndex
     * Examples of the before and after:
         * Before: [diary.vimwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/diary/diary.vimwiki)
         * After: [index.vimwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/diary/index.vimwiki)
+    * Cron Setup: 
+        * You need to have your git credentials for your local repository setup for this to work properly.
+        * The script will need to be run under your user account.
+        ```
+        crontab -e
+        ```
+        * I run the script at 1:05am every night because of daylight savings switches:
+        ```
+        5 1 * * * /home/karl/mockwiki/gollum_admin/genGollumDiaryIndexes.sh > /tmp/wtf 2<&1
+        ```
