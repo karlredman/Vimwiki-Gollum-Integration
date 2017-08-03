@@ -1,36 +1,14 @@
 # Project TODO List
 
-## Recently added (unsorted) :unsorted:
-* [ ] fix link generation bug to find better matches where file's have a '-'
-* [ ] tutorial/checklist for switching bakc and forth from example to production
-* [ ] integrat time tracking
-* [ ] make a macro that formats a youtube link for gollum
-* [ ] document vimwiki nuance for switching wikis and getting to the diary
-* [ ] recommend writing notes for other wikis in the one you are in and then moving the content -so you don't forget what you wanted to say or where you wanted to put it.
-* [ ] Forced to use root directory for root so the paths can be similar
-* [ ] add handler for generated links in 'index.wiki' files 
-* [ ] vimwiki tag generated links are broken relative to gollum
-        * whitespace at beginning of line
-        * they use relative paths from a wiki
-        * gollum can't handle the tags links apparently at all. It escapes the hashtag
-        * see [Add support for categories and/or tags (keywords) · Issue #85 · vimwiki/vimwiki](https://github.com/vimwiki/vimwiki/issues/85)
-        * Possible fix:
-            * change the tag template for vimwiki
-            * add index term interpretation to gollum
-            * allow gollum to read vimwiki tag indexes
+* This page is retired. All relevant information is moved to github issues for the project.
 
-## Showstopers
-* [X] Swap README with QuickSetup
-    * [X] rework QuickSetup to be a proper README
-* Fix all things marked "TODO" or find a place for it.
-  * [ ] i.e. tables in demo page
-* [X] document search examples
-    * [X] make pages in mockwiki to use for examples
 
-## Release
-* [ ] rework extended_readme.md
+
+# moved to issues or retired (no longer maintained in this file)
+## Release 1.0.0
+* [X] rework extended_readme.md
 * [X] Example wiki page content with all the bells and wistles in mockwiki
-* [ ] spell check EVERYTHING
+* [X] spell check EVERYTHING
 * [X] redo mockwiki pages
   * [X] For search examples
   * [X] Some mock content
@@ -46,26 +24,29 @@
     * [X] This will let me use sourced files sourced from mockwiki while keeping them in mockwiki for content for the tutorial
     * [X] NOT POSSIBLE
 
-### extended_readme.md (the original README.md)
-* [ ] TOC for the file
-
 ## Administrative
 * [ ] file bug: TOC doesn't format correctly for include pages
 * [ ] file bug?: report for mediawiki extension bug
 * [ ] file bug: using TOC in code blocs doesn't escape properly
-* [ ] Retire the wiki TODO list and move on to github tickets
+* [X] Retire the wiki TODO list and move on to github tickets
 
 ## Documentation
-* [o] Address Caveates
-  * [X] Tags for internal files
-  * [ ] Always favor Gollum paths if there is a conflict
-* [X] add info for youtube video examples to kitching sink page
-    * [X] see [github - Embed a YouTube video - Stack Overflow](https://stackoverflow.com/questions/11804820/embed-a-youtube-video)
-    * [X] [[../PersonalWiki/diary/2017-07-28|project working example]]
+* update extended readme with symlinks info
+
+## Showstopers Release 1.0.0
+* [X] Swap README with QuickSetup
+    * [X] rework QuickSetup to be a proper README
+* [X] document search examples
+    * [X] make pages in mockwiki to use for examples
+* [X] fix link generation bug to find better matches where file's have a '-'
+
+### extended_readme.md (the original README.md)
+* [ ] TOC for the file
 
 ## Low Priority
-* [ ] Add perl and python scripts for updating diary indexes
-    * This is mostly for convenience for other people
+* [ ] tutorial/checklist for switching bakc and forth from example to production
+* [X] Add perl and python scripts for updating diary indexes
+    * [X] This is mostly for convenience for other people
 * [ ] Suggested Vim plugins and macros for markdown editing
     * [ ] My personal list of plugins and macros and how I use them.
     * [ ] git commit macro
@@ -73,13 +54,30 @@
     * [ ] document word processor mode macro
     * [ ] instant markdown preview
         * [ ] discuss querks
+* [ ] make a vim macro that formats a youtube link for gollum
 
 ## Issues
+* [X] Fix all things marked "TODO" or find a place for it.
+    * [X] i.e. tables in demo page
 * [ ] issues with math ???
   * [ ] looks like it might be issues with mathjax or pandoc
-* [ ] fix code syntax hightlighting ?
-* [ ] search does not return file names as part of the search when regex is used
-    * [ ] possibly escaped by adding logic to handle '--' in the search bar to indicate a file name pattern
+* [ ] vimwiki tag generated links are broken relative to gollum
+        * whitespace at beginning of line
+* [ ] vimwiki tag generated links are broken relative to gollum
+        * whitespace at beginning of line
+        * they use relative paths from a wiki
+        * gollum can't handle the tags links apparently at all. It escapes the hashtag
+        * see [Add support for categories and/or tags (keywords) · Issue #85 · vimwiki/vimwiki](https://github.com/vimwiki/vimwiki/issues/85)
+        * Possible fix:
+            * change the tag template for vimwiki
+            * add index term interpretation to gollum
+            * allow gollum to read vimwiki tag indexes
+* [X] fix code syntax hightlighting ?
+* [X] search does not return file names as part of the search when regex is used
+    * [X] possibly escaped by adding logic to handle '--' in the search bar to indicate a file name pattern
+    * [X] won't fix: Not going to bother with this until I work on either replacing or patchwork
+* [X] Forced to use root directory for root so the paths can be similar
+    * [X] Can't fix without changing vimwiki internals
 
 ## Future
 * [ ] Authentication Setup
@@ -96,6 +94,7 @@
 	* [ ] Footer
 	* [ ] Sidebar
 * [ ] do video tutorial
+* [ ] integrate time tracking
 
 ## Nice to haves:
 * [ ] custom css and javascript ?
@@ -121,3 +120,15 @@
 * [X] write slightly better start/stop scripts
     * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
 * [X] Configure gollum editor to set correct extension when editing
+
+## Documentation
+* [X] Address Caveates
+  * [X] Tags for internal files
+  * [X] Always favor Gollum paths if there is a conflict
+  * [X] fixed by using symlinks
+* [X] add info for youtube video examples to kitching sink page
+    * [X] see [github - Embed a YouTube video - Stack Overflow](https://stackoverflow.com/questions/11804820/embed-a-youtube-video)
+    * [X] [[../PersonalWiki/diary/2017-07-28|project working example]]
+* [X] document vimwiki nuance for switching wikis and getting to the diary
+    * [X] won't fix -it just takes some getting used to
+
