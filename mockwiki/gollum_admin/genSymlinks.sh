@@ -37,7 +37,7 @@
 # configuration defaults
 repodir="$HOME/mockwiki"
 excludelist=($repodir "$repodir/gollum_admin")
-skiptoplevels=true
+skiptoplevels=false         # !!!! set to true to skip toplevel directories
 diary_dir_name="diary"
 extension="vimwiki"
 ###########
@@ -47,7 +47,6 @@ extension="vimwiki"
 ## stuff goes here
 ## handle excludelist
 #excludelist+=("$repodir/uploads" "$repodir/testfiles" "$repodir/R-Systems/files" )
-skiptoplevels=false
 
 function create_symlink () {
     target=$1
@@ -144,6 +143,7 @@ for i in ${!dirlist[@]}; do
     # if it's a diary directory just make the links
     if [ "$directory" == "diary" ];then
         echo "created diary level links at ${dirlist[$i]}"
+        create_symlinks  topdirs[@] "${dirlist[$i]}"
         continue
     fi
 
@@ -158,6 +158,8 @@ for i in ${!dirlist[@]}; do
 
         # create links
         echo "creating links at ${dirlist[$i]}"
+        create_symlinks  topdirs[@] "${dirlist[$i]}"
+        continue
     fi
     #########################
 

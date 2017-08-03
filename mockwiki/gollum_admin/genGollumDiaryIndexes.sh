@@ -39,34 +39,23 @@ while IFS=  read -r -d $'\0'; do
     filelist+=("$REPLY")
 done < <(find $repodir -name "$diaryname" -print0)
 
-
-echo "${filelist[@]}"
-
 ## for each file that matches diary/$diaryname
 for i in ${!filelist[@]}; do
-
 
     # First, let's update the vimwiki diary indexes
     # NOTE: for large wikis this may take a long time (as in several minutes)
     # comment out if needed
     # TODO: we need a better way to do this I think
+    vim -e -c VimwikiDiaryGenerateLinks ${filelist[$i]} -c wq
 
-    # vim -e -c VimwikiDiaryGenerateLinks ${filelist[$i]} -c wq
-
-		# # check in the diary.vimwiki
-    # git add ${filelist[$i]} > /dev/null 2>&1
-    # git commit -m "Vimwiki generated index" ${filelist[$i]} > /dev/null 2>&1
+		# check in the diary.vimwiki
+    git add ${filelist[$i]} > /dev/null 2>&1
+    git commit -m "Vimwiki generated index" ${filelist[$i]} > /dev/null 2>&1
 
     ### save the diary parent (wiki) directory name as $wikiname
     D1=$(dirname "${filelist[$i]}")
     D2=$(dirname $D1)
     wikiname=$(basename $D2)
-
-    # generate return links for vimwiki to accomidate for path issues
-    # ln -s -t PersonalWiki/diary ../../PersonalWiki
-    #echo "ln -s -t $wikiname/diary ../../$wikiname"
-    echo "ccccccccccccccccccccccccccccccccccc"
-    exit;
 
 	# to be included in diary.index for a placeholder for today's diary entry
     today=$(date +"%Y-%m-%d")
