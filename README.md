@@ -27,7 +27,18 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 * Custom startup/shutdown scripts
 * Cron script for automatically updating Gollum readable diary indexes.
 * [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) to support the entire integration process.
+* A [shell script](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh) is provided to help with keeping links consistant between Gollum and Vimwiki.
 
+## Special Note about internal link/tag consistency:
+
+There is no easy way to synchronize the behavior for internal links and tags between Gollum and Vimwiki. The two systems, by way of their purpose and use cases, handle links from different perspectives. In an effort to provide the most consistent behavior between the two systems I've created a script ([genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh))that generates symlinks with comprehensive list of restrictions. Without some major alteration of one or both systems it seems that symlinks is as good as it's going to get. Please see the script for more detail. There are notes in the mockwiki that detail the reluctant decision making process that went into using symlinks to solve a very complicated problem. 
+
+If you follow the 'Example Installation / Tutorial' then running the genSymlinks.sh script should work ok for you on a linux based system. 
+* Use the script at **Your Own Risk**
+* Please look at the code first before running it.
+* I run exactly this script from cron several times per day.
+
+* For **best results use forward looking links as much as possible** (i.e. '\[\[PersonalWiki/diary/2017-07-31\]\]' as opposed to \[\[2017-07-31\]\])
 
 ## Example Installation / Tutorial
 
@@ -129,3 +140,4 @@ vim -c VimwikiIndex
         ```
         5 1 * * * /home/karl/mockwiki/gollum_admin/genGollumDiaryIndexes.sh > /tmp/wtf 2<&1
         ```
+* In order **to keep link and tag behavior consistent** between Gollum and Vimwiki **use forward looking links** along with my [genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh) script to create (**eep! use at your own risk!**) symlinks in (mostly) appropriate subdirectories of your repository. Obviously you'll have to commit the symlinks on your own because the script doesn't muck with git at all.
