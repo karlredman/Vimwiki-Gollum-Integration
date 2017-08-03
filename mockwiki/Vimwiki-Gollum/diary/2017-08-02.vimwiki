@@ -1,0 +1,14 @@
+# Stupid link tricks
+
+
+-----------------------------------
+
+TimeStamp: 2017-08-02T19:45:56-0500
+
+
+I have to say up front that I absolutely hate this solution.<br>
+I've resolved most of the linking issues by adding symlinks to all the directories that are not upload directories. I'll document stuff later tonight and put this project on the backburner since I'm calling it "functionally done". I've reached my goal for getting vimwiki to work with gollum with decent searches, fairly unified tags and wiki links, and is not disruptive to workflow. The details for this fix are in [[/Vimwiki-Gollum/diary/2017-07-29]].
+
+I've written a fairly comprehensive script (although badly) that handles the link creation for a repo. I'll probably add this to my crontab once I figure out what I want to say about it and name it. Having to resolve this issue this way is a good demonstration of why these two different systems were never meant to play well together. In the end, I learned a lot about how I might go about making my own wiki system and what kinds of tough decisions go into the process of developing one.
+
+The bottom line is that the user should **always** use absolute paths for links and tags

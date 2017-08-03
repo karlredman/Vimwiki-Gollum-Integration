@@ -1,0 +1,88 @@
+
+# Final Release! bugs already
+
+* After integrating the new system into my personal wiki I found out that there is an issue with links within the diary directories The problem is that vimwiki wants to always follow relative links forward but doesn't have a concept of the repository root.
+    * I think the fix for this is to add creation of a symlink in each repo diary back to the repo itself. I'll probably add this to the genGollumDiaryIndexes.sh script by default and include a switch at the top for people who want to turn it off. This also prevents me/people from having to include the repo root as a wiki -which can get extremely annoying.
+    * here's an example of how links would have to be added within diaries: [[Vimwiki-Gollum/Project TODO List|Release todo list]].
+
+
+-----------------------------------
+
+ TimeStamp: 2017-07-29T23:16:48-0500
+
+* I'm coming to the realization that my gen script will need to be a bit more sophisticated. I'm going to have to experiment with symlinks for the next few days to figure out what behavior I really want/need. Right now it looks like I'll need to add symlinks for every toplevel wiki both in diary directories and in subprojects. Also this locks me into always using "fully qualified" tags when writing. It's not a big deal but it's something to consider.
+* The concern that I have is that this kind of creates a potential nightmare of symlinks.
+	* fortunately, 'find' (by default) and 'git grep' won't follow those links.
+* Preliminary criteria for the script:
+	* for each toplevel wiki:
+		* add an 'index.vimwiki' under the 'diary' directory if 'diary/diary.index' exists.
+		* add symlinks to all toplevel wikis to all subdirectories (including 'diary/').
+		* all symlins are relative to the directory they are in.
+
+
+-----------------------------------
+
+TimeStamp: 2017-07-30T22:41:35-0500
+
+## The issue:
+* Gollum follows tags from root while Vimwiki follows all tags as though they are relative:
+
+### Examples (from file "repo/Vimwiki-Gollum/diary/2017-07-29"
+* Note: '/' assumes root of the repository
+* [[Demo Page - Kitchen Sink|Demo Page - Kitchen Sink]]
+    * Vimwiki: creates a new file in current directory.
+        * repo/Vimwiki-Gollum/diary/Demo Page - Kitchen Sink
+    * Gollum:
+        * /Vimwiki-Gollum/Demo-Page---Kitchen-Sink
+* [[Vimwiki-Gollum/Demo Page - Kitchen Sink|Vimwiki-Gollum/Demo Page - Kitchen Sink]]
+    * Vimwiki: creates new directory at the current directiory and a new file under that.
+        * repo/Vimwiki-Gollum/diary/Vimwiki-Gollum/Demo Page - Kitchen Sink"
+    * Gollum:
+        * /Vimwiki-Gollum/Demo-Page---Kitchen-Sink
+* [[/Vimwiki-Gollum/Demo Page - Kitchen Sink|/Vimwiki-Gollum/Demo Page - Kitchen Sink]]
+    * Vimwiki: creates a directory at the wiki root and then a new file under that.
+        * repo/Vimwiki-Gollum/Vimwiki-Gollum/Demo Page - Kitchen Sink"
+    * Gollum:
+        * /Vimwiki-Gollum/Demo-Page---Kitchen-Sink
+* [[../Vimwiki-Gollum/Demo Page - Kitchen Sink|/../Vimwiki-Gollum/Demo Page - Kitchen Sink]]
+    * Vimwiki: creates a directory at the wiki root and then a new file under that.
+        * repo/Vimwiki-Gollum/Vimwiki-Gollum/Demo Page - Kitchen Sink"
+    * Gollum:
+        * /Vimwiki-Gollum/Demo-Page---Kitchen-Sink
+* [[wiki0:index]]
+    * vimwiki: links to the index file of the first wiki in vimwiki_list from vimwikirc
+    * Gollum: attempts to link to /wiki:index
+* [[/Demo Page - Kitchen Sink|/Demo Page - Kitchen Sink]]
+    * Vimwiki: creates a file 'Demo Page - Kitchen Sink' under '/[default]/Demo Page - Kitchen Sink'
+    * Gollum: attempts to open the page under root '/Demo Page - Kitchen Sink'
+
+
+## Analysis:
+* Here is a discussion in vimwiki issues about this problem: [Wikilinks don't work in pages located in subfolders · Issue #105 · vimwiki/vimwiki](https://github.com/vimwiki/vimwiki/issues/105)
+
+
+-----------------------------------
+
+TimeStamp: 2017-07-31T03:56:42-0500
+
+
+## Options:
+1. For each subdirectory of a wiki that is also not a filename, create relative path symlinks to the wiki repository root.
+    * Creates a restriction that prevents subdirectories/subprojects that are named the same as a toplevel wiki.
+    * Absolutely prevents compatibility on some operating systems.
+    * Extremly messy.
+    * Has the side affect that links all wiki's together. 
+        * This breaks the clear seperation of wikis in vimwiki.
+        * This provides a consistant behavior between gollum and vimwiki
+2. Change the behavior of vimwiki so that it is "aware" of a root directory above the current wiki.
+    * Patching 3rd party components is not allowed for this project.
+    * If overloading is even allowed, this adds more custom code to be debugged outside of a 3rd party components behavior.
+3. Force users to use the root of the repository as the 'default wiki' for Vimwiki
+    * Can be extremly annoying for some users (me).
+    * For existing vimwiki structures, the user either must manage using a toplevel index wiki or move their default wiki files to the top level of the repo tree.
+    * For existing vimwiki structures, moving files and dirs to the 'default' (root of the repo) directory forces the index.vimwiki file to be the landing page for vimwiki unless we revert Gollum to using 'Home.vimwiki' for it's landing pages per directory. This would then create a similar issue as the diary page problem.
+    * Has the side affect that links all wiki's together. 
+        * This breaks the clear seperation of wikis in vimwiki.
+        * This provides a consistant behavior between gollum and vimwiki
+4. Add code to Gollum's config.rb to interpret 'wikiX:' as a path specifier
+    * This would require adding a lot of hacked in code to Ruby.

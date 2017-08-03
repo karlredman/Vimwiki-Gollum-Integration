@@ -1,0 +1,67 @@
+# Search Examples
+* The examples on this page are a brief introduction to the search capibilites provided through '[git grep](https://git-scm.com/docs/git-grep)' and [Gollum's Grit Git Adapter](https://github.com/gollum/gollum/wiki/Git-adapters).
+* Yes, this uses regex. If you hate regex then fortunately most of the searches you'll need will be pretty simple but you'll have the ability to do more advanced searches if needed.
+* **IMPORTANT:** It is entirely likely that the search utility for Gollum is a **Security Risk** due to the fact that I've disabled shell escaping through Gollum. I suggest that you run Gollum locally only. Specifically the security risk is a chance for buffer overflows or shell execution via 'git grep'.
+
+## Some caveats:
+* Spaces in search queries are **not** allowed at all at this time.
+* Escaping characters in search queries is **not** allowed.
+* File names only match if there are *no* regex and *no* spaces in the query.
+    * See the first example below.
+* Remember, this is grep. So everything is matched from line to line except when we use multiple '-e' switches.
+    * Specifically the options are as follows for 'git grep' where '[your query string]' might be something like '-e dog -e journal'.
+    ```
+    git grep -I -i -c --all-match -l -E [your query string] HEAD
+    ```
+* String interpretation is literal don't bother with quotes or slashes.
+    * These are all invalid:
+```
+/wiki/
+'wiki'
+"wiki"
+
+/wiki/
+'wiki'
+"wiki"
+
+```
+
+## Simple examples:
+* Filenames and files with a single term (no spaces):
+```
+# matches file content and filenames
+uniquefilename
+unique
+efilename
+name
+
+# matches file content only no filenames
+unique.*name
+
+```
+
+* All Files that contain a word or words respectively in any order.
+    * one word
+    ```
+    -e complex
+    ```
+    * two words: files that contain both words in any order
+    ```
+    -e complex -e git
+    ```
+    * ...
+
+## Mildly complex examples (content only):
+* All files that contain the word 'journal' and where 'dog' precedes 'content' with any number of characters in between except a line break
+* This is awesome if you know exactly what you are looking for. But if there's a line break that you didn't expect or remember then you are better off just searching with individual words separated by '-e'
+```
+-e journal -e dog.*content
+uniq[x|u].*name
+```
+
+* matches the whole word frog but not bullfrogs
+```
+frog
+\bfrog\b
+
+```

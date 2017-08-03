@@ -1,0 +1,9 @@
+# today todo:
+
+* Write script to setup symlinks:
+    * for all sub directories of each toplevel wiki
+        * that are not the same name as a filename+extension
+    * Options:
+        * link only the toplevel wiki within subdirectories
+        * link all toplevel wiki's within subdirectories of all wikis
+        * use an exclude list of directories relative to the repo directory

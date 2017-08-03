@@ -1,5 +1,24 @@
 # Project TODO List
 
+## Recently added (unsorted) :unsorted:
+* [ ] fix link generation bug to find better matches where file's have a '-'
+* [ ] tutorial/checklist for switching bakc and forth from example to production
+* [ ] integrat time tracking
+* [ ] make a macro that formats a youtube link for gollum
+* [ ] document vimwiki nuance for switching wikis and getting to the diary
+* [ ] recommend writing notes for other wikis in the one you are in and then moving the content -so you don't forget what you wanted to say or where you wanted to put it.
+* [ ] Forced to use root directory for root so the paths can be similar
+* [ ] add handler for generated links in 'index.wiki' files 
+* [ ] vimwiki tag generated links are broken relative to gollum
+        * whitespace at beginning of line
+        * they use relative paths from a wiki
+        * gollum can't handle the tags links apparently at all. It escapes the hashtag
+        * see [Add support for categories and/or tags (keywords) · Issue #85 · vimwiki/vimwiki](https://github.com/vimwiki/vimwiki/issues/85)
+        * Possible fix:
+            * change the tag template for vimwiki
+            * add index term interpretation to gollum
+            * allow gollum to read vimwiki tag indexes
+
 ## Showstopers
 * [X] Swap README with QuickSetup
     * [X] rework QuickSetup to be a proper README
@@ -102,10 +121,3 @@
 * [X] write slightly better start/stop scripts
     * [X] [ ]See: (Gollum as a service)[https://github.com/gollum/gollum/wiki/Gollum-as-a-service]
 * [X] Configure gollum editor to set correct extension when editing
-
-## Recently added (unsorted)
-* [ ] tutorial/checklist for switching bakc and forth from example to production
-* [ ] integrat time tracking
-* [ ] make a macro that formats a youtube link for gollum
-* [ ] document vimwiki nuance for switching wikis and getting to the diary
-* [ ] recommend writing notes for other wikis in the one you are in and then moving the content -so you don't forget what you wanted to say or where you wanted to put it.

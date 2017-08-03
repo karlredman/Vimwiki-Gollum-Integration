@@ -1,7 +1,12 @@
-# [Vimwiki+Gollum Project](https://github.com/karlredman/Vimwiki-Gollum-Integration) Documentation (Index page)
+# [Vimwiki+Gollum Project](https://github.com/karlredman/Vimwiki-Gollum-Integration) 
 
-## Welcome to the default wiki for the Vimwiki+Gollum Integration Project!
+## My Diary Pages
+* [[index| Vimwiki-Gollum]]
+    * [[diary/diary|Diary Index (vimwiki)]]
+    * [[Vimwiki-Gollum/diary/index|Diary Index (gollum)]]
 
-# Internal Pages
+## My Pages
 * [[Demo Page - Kitchen Sink]]
 * [[Project TODO List]]
+* [[diary/index]]
+

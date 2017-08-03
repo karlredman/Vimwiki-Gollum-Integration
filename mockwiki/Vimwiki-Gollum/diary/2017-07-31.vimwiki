@@ -1,0 +1,14 @@
+# link issues still + new incompatibility
+
+## link issues:
+
+I'm still working out the details about how to handle link paths between the two systems. I'd originally had this worked out when I prototyped the system by forcing the vimwiki 'default wiki' to be the root of the repo.
+	* I hated this idea because I didn't like having an entire wiki structure that is basically not used.
+    * I hated the idea because I would always be force to select a number my peronal wiki -my current default.
+    * This also means that I might break link paths if '../' kinds of things were used in the past on pages -of which I don't know.
+
+* The discussion I'm having with myself is [[/Vimwiki-Gollum/diary/2017-07-29]]
+
+
+## Tags are completely broken
+* adding to the list of todo stuff
