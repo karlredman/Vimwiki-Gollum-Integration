@@ -1,7 +1,6 @@
 # Demo Page - Kitchen Sink
-## tags: :Demo Page: :tutorial:
 ## References
-* Note: This is not all my own writing. Content on this page is for reference. Most of the content is taken directly from the reference pages below. This content is cherry picked form these references in an attempt to consolidate some of the knowledge. **Please refer to the following references for more complete information**. 
+* Note: This is not all my own writing. Content on this page is for reference. Most of the content is taken directly from the reference pages below. This content is cherry picked form these references in an attempt to consolidate some of the knowledge. **Please refer to the following references for more complete information**.
 * [Home · gollum/gollum Wiki (feature descriptions)](https://github.com/gollum/gollum/wiki)
 * [Markdown Cheatsheet · adam-p/markdown-here Wiki](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * [Mastering Markdown · GitHub Guides](https://guides.github.com/features/mastering-markdown/)
@@ -18,11 +17,11 @@
 
 ### Blocks
 ```
-By use of 
+By use of
 three 'backticks'.
 ```
 
-	Or by indenting 
+	Or by indenting
 	4 spaces.
 
 ~~~~~
@@ -111,7 +110,7 @@ If you do not want to use your own PlantUML server, you can configure https://ww
 
 ##### PlantUML static images
 * It's best to use the jar file that is generated while building the [PlantUML Server](https://github.com/plantuml/plantuml-server).
-* (If you haven't instaled PlantUML Server already) 
+* (If you haven't instaled PlantUML Server already)
     * Follow the instructions from github (but don't run): [Install local PlantUML server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server#install-local-plantuml-server)
     * I put the repo under ~/3rdparty
 * Here's an example [input file](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.plantuml)
@@ -256,12 +255,13 @@ Reference-style:
     1. Item 3a
     1. Item 3b
 ```
+
 * example
-1. Item 1
-1. Item 2
-1. Item 3
-	1. Item 3a
-    1. Item 3b
+    1. Item 1
+    1. Item 2
+    1. Item 3
+        1. Item 3a
+        1. Item 3b
 
 ### Task Lists
 #### Documented
@@ -313,7 +313,7 @@ Reference-style:
     * Item 2b
 ```
 
-* example
+* example:
 	* Item 1
 	* Item 2
 	  	* Item 2a
@@ -327,48 +327,68 @@ Reference-style:
 ### Default Macros
 * AllPages
 	*Description: Prints a list of all wiki pages.
-	*Syntax: 
+	*Syntax:
 ```
 <<AllPages()>>
 ```
 
-	*Result (example): 
+	*Result (example):
 ```
 <ul id="pages"><li>AllPagesMacroPage</li></ul>
 ```
 * GlobalTOC
 	* Description: Prints a clickable TOC (all pages site wise)
-	* Syntax: 
+	* Syntax:
     ```
     <<GlobalTOC()>>
-    ``` 
-    * you can also override the title: 
+    ```
+    * you can also override the title:
     ```
     <<GlobalTOC("All pages")>>
     ```
 
 
 ## Mathematics
-* TODO: Unfortunately, Math display is a problem with the pandoc renerer currently used for processing vimwiki files
-
-* To enable mathematical expressions in Gollum, start it with the --mathjax option. Github recommends [this](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) page to learn about the syntax.
-
-### Examples:
-* Inline math:
-```
-\\\(2^2\\\)
-```
-
-* Display math:
-```
-$$2^2$$
-\\\[2^2\\\]
-```
-
+* To enable mathematical expressions in Gollum, start it with the --mathjax option.
 * By default, Gollum uses the TeX-AMS-MML_HTMLorMML config with the autoload-all extension. You can also set your own mathjax configuration with the --mathjax-config option.
-
+* Syntax reference: [MathJax basic tutorial and quick reference - Mathematics Meta Stack Exchange](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+* General Mathematics in Markdown discussion: [Math in MarkDown · cben/mathdown Wiki](https://github.com/cben/mathdown/wiki/math-in-markdown)
 * **Notes:**
     * When using the Org-mode markup, you will have to wrap display math blocks in #+BEGIN_HTML ... #+END_HTML blocks.
+    * Formatting with non inline (dispaly) math tends to be finicky. This is a rendering issue with Gollum.
+
+### Examples:
+#### Inline math:
+* example 1
+```
+two squared:  \\\(2^2\\\)
+```
+    * two squared: \\\(2^2\\\)
+
+* example 2
+```
+inline math: $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
+```
+    * inline math: $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
+
+#### Display math:
+
+* example 1
+```
+$$2^2$$
+
+```
+
+$$2^2$$
+
+* example 2 
+```
+$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+```
+
+$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+
+
 
 
 ## Page Titles (Custom)
@@ -414,7 +434,7 @@ As Kanye West said:
 * TODO: there are more references for this
 
 ## Tags
-* Tags can be finicky. As a best practice it's a good idea to always reference tags from the root of the repository 
+* Tags can be finicky. As a best practice it's a good idea to always reference tags from the root of the repository
 * The general rule should be to always favor Gollum links/tags over vimwiki
 * (**see #3 in the 'Link Tags' examples**)
 * Basic syntax
@@ -452,13 +472,11 @@ As Kanye West said:
 * Examples
 	1. [[index|This tag will result in a different page for vimwiki than Gollum]]
 	2. [[../index| This will show the root index for both vimwiki and Gollum]]
-	3. [[../PersonalWiki/index| Use relatives paths from root to maintain compatibility -this shows the PersonalWiki index page]]
 
 * Markdown from Examples
 ```
 [[index|This tag will result in a different page for vimwiki than Gollum]]
 [[../index| This will show the root index for both vimwiki and Gollum]]
-[[../PersonalWiki/index| Use relatives paths from root to maintain compatibility -this shows the PersonalWiki index page]]
 ```
 
 #### Linking Internal files (not pages or images)
@@ -499,7 +517,7 @@ Tells Gollum to place the image in an <iframe> and uses the alt's text as its ca
 
 ```
 
-##### Handling image placement issues: 
+##### Handling image placement issues:
 * By default text will fill up all the space around the image. To control how much should show up use this tag to stop and start a new block so that additional content doesn't fill in.
 ```
 [[_]]
@@ -553,7 +571,7 @@ Content in the first column | Content in the second column
 * They can't be added directly but you can add an image with a link to the video like this:
 ```
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 ```
 
@@ -572,10 +590,5 @@ target="_blank"><img src=
 "http://img.youtube.com/vi/PL3F4K1kxSA/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-## Stuff That Doesn't work
-* TODO: not sure we want to keep this section
 ## Issue References
-mojombo/github-flavored-markdown#1
-
-## More todo:
-* document external plantuml server support
+* mojombo/github-flavored-markdown#1
