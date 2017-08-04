@@ -12,7 +12,6 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 
 ## Features:
 * All the features outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki).
-	* Exception: Mathematics expression images are currently buggy.
 * Tutorial with a working example 'mockwiki' directory structure (drop in).
 * Edit wiki pages through Vimwiki using [github mardown](https://guides.github.com/features/mastering-markdown/).
 * Edit wiki pages through the Gollum Web Interface.
