@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page-%2D-Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_plantuml-diagrams -->
+<html style="overflow: visible;"><div style="display: block; opacity: 1;"></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="./Vimwiki Gollum_Demo Page Kitchen Sink_files/gollum.css" media="all">
+  <link rel="stylesheet" type="text/css" href="./Vimwiki Gollum_Demo Page Kitchen Sink_files/editor.css" media="all">
+  <link rel="stylesheet" type="text/css" href="./Vimwiki Gollum_Demo Page Kitchen Sink_files/dialog.css" media="all">
+  <link rel="stylesheet" type="text/css" href="./Vimwiki Gollum_Demo Page Kitchen Sink_files/template.css" media="all">
+  <link rel="stylesheet" type="text/css" href="./Vimwiki Gollum_Demo Page Kitchen Sink_files/print.css" media="print">
+  
+  
+
+  <!--[if IE 7]>
+  <link rel="stylesheet" type="text/css" href="/css/ie7.css" media="all">
+  <![endif]-->
+
+  <script>
+      var baseUrl = '';
+      var uploadDest   = 'Vimwiki-Gollum/Demo-Page---Kitchen-Sink';
+      var pageFullPath = 'Vimwiki Gollum/Demo Page   Kitchen Sink';
+  </script>
+  <script type="text/javascript" src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/mousetrap.min.js"></script>
+  <script type="text/javascript" src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/gollum.js"></script>
+  <script type="text/javascript" src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/gollum.dialog.js"></script>
+  <script type="text/javascript" src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/gollum.placeholder.js"></script>
+  <script type="text/javascript" src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/gollum.editor.js"></script>
+  <script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath:  [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+      processEscapes: true
+    },
+    TeX: { extensions: ["autoload-all.js"] }
+  };
+  </script>
+  <script>(function(d,j){
+  j = d.createElement('script');
+  j.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  (d.head || d.getElementsByTagName('head')[0]).appendChild(j);
+  }(document));
+  </script><script src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/MathJax.js" id=""></script>
+  
+
+  <title>Vimwiki Gollum/Demo Page   Kitchen Sink (Statick Page)</title>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="webkit" style="overflow: visible;"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+<script>
+Mousetrap.bind(['e'], function( e ) {
+  e.preventDefault();
+  window.location = "/edit" + window.location.pathname;
+  return false;
+});
+</script>
+<div id="wiki-wrapper" class="page">
+<div id="wiki-content">
+<div class="">
+  <div id="wiki-body" class="gollum-vimwiki-content">
+    <div class="markdown-body">
+      <h1 id="demo-page---kitchen-sink"><a class="anchor" id="demo-page-kitchen-sink" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink"><i class="fa fa-link"></i></a>Demo Page - Kitchen Sink (Static Page)</h1>
+<h2 id="references"><a class="anchor" id="demo-page-kitchen-sink_references" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_references"><i class="fa fa-link"></i></a>References</h2>
+<ul>
+<li>Note: This is not all my own writing. Content on this page is for reference. Most of the content is taken directly from the reference pages below. This content is cherry picked form these references in an attempt to consolidate some of the knowledge. <strong>Please refer to the following references for more complete information</strong>.</li>
+<li><a href="https://github.com/gollum/gollum/wiki">Home · gollum/gollum Wiki (feature descriptions)</a></li>
+<li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet · adam-p/markdown-here Wiki</a></li>
+<li><a href="https://guides.github.com/features/mastering-markdown/">Mastering Markdown · GitHub Guides</a></li>
+<li><a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/">Emoji cheat sheet for GitHub</a></li>
+</ul>
+<p></p><div class="toc"><div class="toc-title">Table of Contents</div><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink">Demo Page - Kitchen Sink</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_references">References</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_anchors">Anchors</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code">Code</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_blocks">Blocks</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_inline">Inline</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_syntax-highlighting">Syntax Highlighting</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams">DIAGRAMS</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_sequence-diagrams">Sequence diagrams</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_plantuml-diagrams">PlantUML diagrams</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_plantuml-diagrams_plantuml-static-images">PlantUML static images</a></li></ul></li></ul></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_emojis">Emojis</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_emphasis">Emphasis</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_escaping-characters">Escaping Characters</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_escaping-characters_backticks">Backticks</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_footnotes">Footnotes</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_headers">Headers</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_horizontal-rule-lines">Horizontal Rule (lines)</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_html-inline">HTML (inline)</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_images">Images</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_line-breaks">Line Breaks</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists">Lists</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_ordered">Ordered</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists">Task Lists</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists_documented">Documented</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists_undocumented">UnDocumented</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists_unordered">Unordered</a></li></ul></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_macros">Macros</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_macros_default-macros">Default Macros</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics">Mathematics</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics_examples">Examples:</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics_examples_inline-math">Inline math:</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics_examples_display-math">Display math:</a></li></ul></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_page-titles-custom">Page Titles (Custom)</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_quotes">Quotes</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_quotes_blockquotes">Blockquotes</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_other-notes">Other Notes</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_other-notes_uploaded-files">Uploaded files</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_strickthrough">Strickthrough</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_subpages-footers-headers-and-sidebar">Subpages (Footers, Headers and Sidebar)</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags">Tags</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags_escaping-tags-use-a-single-backtick">Escaping Tags: use a single backtick</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags_page-tags">Page Tags</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags_page-tags_include-tag-includes-a-page-in-the-example">Include tag (includes a page in the example)</a></li></ul></li></ul></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project">
+Vimwiki+Gollum Project
+</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages">
+Project Wiki Pages</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags">Link Tags</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-files-not-pages-or-images">Linking Internal files (not pages or images)</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-images">Linking internal images</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-images_handling-image-placement-issues">Handling image placement issues:</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-pages">Linking internal pages</a></li></ul></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_tables">Tables</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_tables_simple">Simple</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_tables_complex">Complex</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_table-of-contents-toc-tag">Table-of-contents (TOC) tag</a></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_youtube-videos">Youtube Videos</a><ul><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_youtube-videos_examples">Examples</a></li></ul></li><li><a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_issue-references">Issue References</a></li></ul></li></ul></div>
+<h2 id="anchors"><a class="anchor" id="demo-page-kitchen-sink_anchors" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_anchors"><i class="fa fa-link"></i></a>Anchors</h2>
+<ul>
+<li>[ ] TODO: html anchors generally needed for external previewers (i.e. InstantMarkdownPreview for Vim)</li>
+<li>[ ] Gollum handlers</li>
+</ul>
+<h2 id="code"><a class="anchor" id="demo-page-kitchen-sink_code" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code"><i class="fa fa-link"></i></a>Code</h2>
+<h3 id="blocks"><a class="anchor" id="demo-page-kitchen-sink_code_blocks" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_blocks"><i class="fa fa-link"></i></a>Blocks</h3>
+<div class="highlight"><pre><span></span>By use of
+three 'backticks'.
+</pre></div>
+<pre><code>Or by indenting
+4 spaces.</code></pre>
+<pre><code>Or use the Kramdown method</code></pre>
+<div class="highlight"><pre><span></span>~~~~~
+Or use the Kramdown method
+~~~~~
+</pre></div>
+<h3 id="inline"><a class="anchor" id="demo-page-kitchen-sink_code_inline" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_inline"><i class="fa fa-link"></i></a>Inline</h3>
+<div class="highlight"><pre><span></span>I think you should use an
+`&lt;addr&gt;` element here instead.
+</pre></div> * example
+<p>I think you should use an <code>&lt;addr&gt;</code> element here instead.</p>
+<h3 id="syntax-highlighting"><a class="anchor" id="demo-page-kitchen-sink_code_syntax-highlighting" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_syntax-highlighting"><i class="fa fa-link"></i></a>Syntax Highlighting</h3>
+<ul>
+<li>TODO: needs testing - some highlighting for some languages seems less robust than I remember</li>
+<li><p>Note this is also how we escape backticks (a code fence + 4 space indention </p><div class="highlight"><pre><span></span>```javascript
+function fancyAlert(arg) {
+  if(arg) {
+	$.facebox({div:'#foo'})
+  }
+}
+```
+</pre></div></li>
+<li><p>example </p><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">fancyAlert</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">facebox</span><span class="p">({</span><span class="nx">div</span><span class="o">:</span><span class="s1">'#foo'</span><span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></li>
+</ul>
+<h3 id="diagrams"><a class="anchor" id="demo-page-kitchen-sink_code_diagrams" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams"><i class="fa fa-link"></i></a>DIAGRAMS</h3>
+<h4 id="sequence-diagrams"><a class="anchor" id="demo-page-kitchen-sink_code_diagrams_sequence-diagrams" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_sequence-diagrams"><i class="fa fa-link"></i></a>Sequence diagrams</h4>
+<ul>
+<li>Gollum can render sequence diagrams from source on a page. Courtesy of <a href="http://www.websequencediagrams.com/">WebSequenceDiagrams</a>. For example:</li>
+<li>You can replace the blue-modern style with any other supported style. Open the link above to discover what styles are available. <div class="highlight"><pre><span></span>{{{{{{ blue-modern
+    alice-&gt;bob: Test
+    bob-&gt;alice: Test response
+}}}}}}
+</pre></div> <img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/saved_resource"></li>
+</ul>
+<h4 id="plantuml-diagrams"><a class="anchor" id="demo-page-kitchen-sink_code_diagrams_plantuml-diagrams" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_plantuml-diagrams"><i class="fa fa-link"></i></a>PlantUML diagrams</h4>
+<ul>
+<li>If you install and configure your own PlantUML server, Gollum can render PlantUML diagrams from source on a page. Courtesy of PlantUML. For example: <div class="highlight"><pre><span></span>@startuml
+Alice -&gt; Bob: Authentication Request
+Bob --&gt; Alice: Authentication Response
+Alice -&gt; Bob: Another authentication Request
+Alice &lt;-- Bob: another authentication Response
+@enduml
+</pre></div></li>
+</ul>
+<p><img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/U9npA2v9B2efpStXSip9J4vLqBLJSCfFib9mB2t9ICqhoKnEBCdCprC8IYqiJIqkuGBAAUW2rO0LOr5LN92VLvoARbPUFb1PaK8YTZCXYcrqTI6g4t6fXfhja9gN0dGl04hCGHO0"></p>
+<p>You can embed any of the diagram types supported by PlantUML: sequence diagrams, case diagrams, class diagrams, activity diagrams, component diagrams, object diagrams and even wireframe diagrams.</p>
+<p><strong>Notes:</strong></p>
+<p>For wireframe diagrams, you must use the <em><span class="citation">@startuml</span></em> tag followed by the <em>salt</em> keyword syntax. The new <em><span class="citation">@salt</span></em> syntax is not supported. See link. There cannot be empty lines inside the <span class="citation">@startuml</span>/<span class="citation">@enduml</span> block. PlantUML expects a single paragraph and adding empty lines in between will be read as multiple paragraphs. If you do not want to use your own PlantUML server, you can configure https://www.plantuml.com/plantuml/png as the server to use. See here on how to configure which server to use.</p>
+<h5 id="plantuml-static-images"><a class="anchor" id="demo-page-kitchen-sink_code_diagrams_plantuml-diagrams_plantuml-static-images" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_code_diagrams_plantuml-diagrams_plantuml-static-images"><i class="fa fa-link"></i></a>PlantUML static images</h5>
+<ul>
+<li>It's best to use the jar file that is generated while building the <a href="https://github.com/plantuml/plantuml-server">PlantUML Server</a>.</li>
+<li>(If you haven't instaled PlantUML Server already)
+<ul>
+<li>Follow the instructions from github (but don't run): <a href="https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server#install-local-plantuml-server">Install local PlantUML server</a>
+</li>
+<li>I put the repo under ~/3rdparty</li>
+</ul>
+</li>
+<li>Here's an example <a href="https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.plantuml">input file</a>
+</li>
+<li>Here's a generated <a href="https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/overview.png">output file</a>
+</li>
+<li>command line ( note the jar file contains the version number ....) <div class="highlight"><pre><span></span>java -jar ~/3rdparty/plantuml-server/target/plantuml/WEB-INF/lib/plantuml-1.2017.14.jar -verbose overview.plantuml -tpng
+</pre></div></li>
+</ul>
+<h2 id="emojis"><a class="anchor" id="demo-page-kitchen-sink_emojis" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_emojis"><i class="fa fa-link"></i></a>Emojis</h2>
+<ul>
+<li>There should be a heart here: <img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/heart" alt="heart" class="emoji"></li>
+</ul>
+<h2 id="emphasis"><a class="anchor" id="demo-page-kitchen-sink_emphasis" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_emphasis"><i class="fa fa-link"></i></a>Emphasis</h2>
+<div class="highlight"><pre><span></span>*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+_You **can** combine them_
+</pre></div>
+<ul>
+<li>example
+<ul>
+<li><em>This text will be italic</em></li>
+<li><em>This will also be italic</em></li>
+<li><strong>This text will be bold</strong></li>
+<li><strong>This will also be bold</strong></li>
+<li><em>You <strong>can</strong> combine them</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="escaping-characters"><a class="anchor" id="demo-page-kitchen-sink_escaping-characters" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_escaping-characters"><i class="fa fa-link"></i></a>Escaping Characters</h2>
+<h3 id="backticks"><a class="anchor" id="demo-page-kitchen-sink_escaping-characters_backticks" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_escaping-characters_backticks"><i class="fa fa-link"></i></a>Backticks</h3>
+<ul>
+<li>[ ] TODO</li>
+</ul>
+<h2 id="footnotes"><a class="anchor" id="demo-page-kitchen-sink_footnotes" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_footnotes"><i class="fa fa-link"></i></a>Footnotes</h2>
+<ul>
+<li>The link will appear as a super script</li>
+<li>The note will appear at the end of the page</li>
+<li>You have to manage the note indexes yourself</li>
+<li>This sentence has a footnote<a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>
+</li>
+</ul>
+<h2 id="headers"><a class="anchor" id="demo-page-kitchen-sink_headers" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_headers"><i class="fa fa-link"></i></a>Headers</h2>
+<ul>
+<li><p>Mainly recommended </p><div class="highlight"><pre><span></span># This is an &lt;h1&gt; tag
+## This is an &lt;h2&gt; tag
+###### This is an &lt;h6&gt; tag
+</pre></div></li>
+<li><p>old style but still supported (H1 and H2 only) </p><div class="highlight"><pre><span></span>Alt-H1
+======
+
+Alt-H2
+------
+</pre></div></li>
+</ul>
+<h2 id="horizontal-rule-lines"><a class="anchor" id="demo-page-kitchen-sink_horizontal-rule-lines" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_horizontal-rule-lines"><i class="fa fa-link"></i></a>Horizontal Rule (lines)</h2>
+<div class="highlight"><pre><span></span>Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+</pre></div>
+<p>Three or more...</p>
+<hr style="BORDER-RIGHT: medium none; BORDER-TOP: #cccccc 3px solid; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; HEIGHT: 1px">
+<p>Hyphens</p>
+<hr style="BORDER-RIGHT: medium none; BORDER-TOP: #cccccc 3px solid; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; HEIGHT: 1px">
+<p>Asterisks</p>
+<hr style="BORDER-RIGHT: medium none; BORDER-TOP: #cccccc 3px solid; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; HEIGHT: 1px">
+<p>Underscores</p>
+<h2 id="html-inline"><a class="anchor" id="demo-page-kitchen-sink_html-inline" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_html-inline"><i class="fa fa-link"></i></a>HTML (inline)</h2>
+<ul>
+<li>TODO: needs more info / examples
+<dl>
+<dt>
+Definition list
+</dt>
+<dd>
+Is something people use sometimes.
+</dd>
+</dl>
+</li>
+</ul>
+<dt>
+Markdown in HTML
+</dt>
+<dd>
+Does <em>not</em> work <strong>very</strong> well. Use HTML <em>tags</em>.
+</dd>
+
+<h2 id="images"><a class="anchor" id="demo-page-kitchen-sink_images" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_images"><i class="fa fa-link"></i></a>Images</h2>
+<div class="highlight"><pre><span></span>Inline local file:
+![GitHub Octocat Logo](Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png)
+
+Here's the logo from [Markdown Here -email markdown plugin](http://markdown-here.com/) (hover to see the title text):
+
+Inline-style:
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style:
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+</pre></div>
+<p>Inline local file: <img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/GitHub-Mark-120px-plus.png" alt="GitHub Octocat Logo"></p>
+<p>Here's the logo from <a href="http://markdown-here.com/">Markdown Here -email markdown plugin</a> (hover to see the title text):</p>
+<p>Inline-style: <img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/icon48.png" title="Logo Title Text 1" alt="alt text"></p>
+<p>Reference-style: <img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/icon48.png" title="Logo Title Text 2" alt="alt text"></p>
+<h2 id="line-breaks"><a class="anchor" id="demo-page-kitchen-sink_line-breaks" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_line-breaks"><i class="fa fa-link"></i></a>Line Breaks</h2>
+<ul>
+<li>
+<strong>Not recommended:</strong> end a line with 2 spaces</li>
+<li>
+<strong>Recommended</strong> end a line with the HTML break tag <code>&lt;br&gt;</code>.</li>
+</ul>
+<h2 id="lists"><a class="anchor" id="demo-page-kitchen-sink_lists" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists"><i class="fa fa-link"></i></a>Lists</h2>
+<h3 id="ordered"><a class="anchor" id="demo-page-kitchen-sink_lists_ordered" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_ordered"><i class="fa fa-link"></i></a>Ordered</h3>
+<div class="highlight"><pre><span></span>1. Item 1
+1. Item 2
+1. Item 3
+    1. Item 3a
+    1. Item 3b
+</pre></div>
+<ul>
+<li>example
+<ol>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3
+<ol>
+<li>Item 3a</li>
+<li>Item 3b</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="task-lists"><a class="anchor" id="demo-page-kitchen-sink_lists_task-lists" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists"><i class="fa fa-link"></i></a>Task Lists</h3>
+<h4 id="documented"><a class="anchor" id="demo-page-kitchen-sink_lists_task-lists_documented" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists_documented"><i class="fa fa-link"></i></a>Documented</h4>
+<div class="highlight"><pre><span></span>- [x] @mentions, #refs, [links](), **formatting**, and &lt;del&gt;tags&lt;/del&gt; supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+- [ ] top level partially done task
+	- [ ] sub A task not done
+	- [x] sub A task done
+</pre></div>
+<ul>
+<li>[x] @mentions, #refs, <a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink">links</a>, <strong>formatting</strong>, and <del>tags</del> supported</li>
+<li>[x] list syntax required (any unordered or ordered list supported)</li>
+<li>[x] this is a complete item</li>
+<li>[ ] this is an incomplete item</li>
+<li>[ ] top level partially done task
+<ul>
+<li>[ ] sub A task not done</li>
+<li>[x] sub A task done</li>
+</ul>
+</li>
+</ul>
+<h4 id="undocumented"><a class="anchor" id="demo-page-kitchen-sink_lists_task-lists_undocumented" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists_undocumented"><i class="fa fa-link"></i></a>UnDocumented</h4>
+<ul>
+<li>Vimwiki has a macro for this and is compatible with Gollum.</li>
+</ul>
+<div class="highlight"><pre><span></span>* [X] @mentions, #refs, [links](), **formatting**, and &lt;del&gt;tags&lt;/del&gt; supported
+* [X] list syntax required (any unordered or ordered list supported)
+* [X] this is a complete item
+* [ ] this is an incomplete item
+* [o] top level partially done task
+	* [ ] sub A task not done
+	* [X] sub A task done
+</pre></div>
+<ul>
+<li>[x] @mentions, #refs, <a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink">links</a>, <strong>formatting</strong>, and <del>tags</del> supported</li>
+<li>[X] list syntax required (any unordered or ordered list supported)</li>
+<li>[X] this is a complete item</li>
+<li>[ ] this is an incomplete item</li>
+<li>[o] top level partially done task
+<ul>
+<li>[ ] sub A task not done</li>
+<li>[X] sub A task done</li>
+</ul>
+</li>
+</ul>
+<h4 id="unordered"><a class="anchor" id="demo-page-kitchen-sink_lists_task-lists_unordered" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_lists_task-lists_unordered"><i class="fa fa-link"></i></a>Unordered</h4>
+<div class="highlight"><pre><span></span>* Item 1
+* Item 2
+    * Item 2a
+    * Item 2b
+</pre></div>
+<ul>
+<li>example:
+<ul>
+<li>Item 1</li>
+<li>Item 2
+<ul>
+<li>Item 2a</li>
+<li>Item 2b</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="macros"><a class="anchor" id="demo-page-kitchen-sink_macros" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_macros"><i class="fa fa-link"></i></a>Macros</h2>
+<ul>
+<li>There aren't many macros as of 07/2017</li>
+<li>Note: In theory these work in subpages as well but that is broken in Gollum v4.1.1</li>
+</ul>
+<h3 id="default-macros"><a class="anchor" id="demo-page-kitchen-sink_macros_default-macros" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_macros_default-macros"><i class="fa fa-link"></i></a>Default Macros</h3>
+<ul>
+<li>
+<p>AllPages <em>Description: Prints a list of all wiki pages. </em>Syntax: </p><div class="highlight"><pre><span></span>&lt;&lt;AllPages()&gt;&gt;
+</pre></div>
+*Result (example): <div class="highlight"><pre><span></span>&lt;ul id="pages"&gt;&lt;li&gt;AllPagesMacroPage&lt;/li&gt;&lt;/ul&gt;
+</pre></div></li>
+<li>GlobalTOC
+<ul>
+<li>Description: Prints a clickable TOC (all pages site wise)</li>
+<li>Syntax: <div class="highlight"><pre><span></span>&lt;&lt;GlobalTOC()&gt;&gt;
+</pre></div></li>
+<li>you can also override the title: <div class="highlight"><pre><span></span>&lt;&lt;GlobalTOC("All pages")&gt;&gt;
+</pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="mathematics"><a class="anchor" id="demo-page-kitchen-sink_mathematics" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics"><i class="fa fa-link"></i></a>Mathematics</h2>
+<ul>
+<li>To enable mathematical expressions in Gollum, start it with the --mathjax option.</li>
+<li>By default, Gollum uses the TeX-AMS-MML_HTMLorMML config with the autoload-all extension. You can also set your own mathjax configuration with the --mathjax-config option.</li>
+<li>Syntax reference: <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax basic tutorial and quick reference - Mathematics Meta Stack Exchange</a>
+</li>
+<li>General Mathematics in Markdown discussion: <a href="https://github.com/cben/mathdown/wiki/math-in-markdown">Math in MarkDown · cben/mathdown Wiki</a>
+</li>
+<li>
+<strong>Notes:</strong>
+<ul>
+<li>When using the Org-mode markup, you will have to wrap display math blocks in #+BEGIN_HTML ... #+END_HTML blocks.</li>
+<li>Formatting with non inline (dispaly) math tends to be finicky. This is a rendering issue with Gollum.</li>
+</ul>
+</li>
+</ul>
+<h3 id="examples"><a class="anchor" id="demo-page-kitchen-sink_mathematics_examples" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics_examples"><i class="fa fa-link"></i></a>Examples:</h3>
+<h4 id="inline-math"><a class="anchor" id="demo-page-kitchen-sink_mathematics_examples_inline-math" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics_examples_inline-math"><i class="fa fa-link"></i></a>Inline math:</h4>
+<ul>
+<li>example 1 <div class="highlight"><pre><span></span>two squared:  \\\(2^2\\\)
+</pre></div>
+<ul>
+<li>two squared: <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 1.15em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.932em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.15em 1000.93em 2.352em -999.997em); top: -2.183em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="msubsup" id="MathJax-Span-3"><span style="display: inline-block; position: relative; width: 0.932em; height: 0px;"><span style="position: absolute; clip: rect(3.172em 1000.44em 4.156em -999.997em); top: -3.986em; left: 0em;"><span class="mn" id="MathJax-Span-4" style="font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; top: -4.369em; left: 0.495em;"><span class="mn" id="MathJax-Span-5" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.189em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.063em; border-left: 0px solid; width: 0px; height: 1.203em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>2</mn><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-1">2^2</script></li>
+</ul>
+</li>
+<li>example 2 <div class="highlight"><pre><span></span>inline math: $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
+</pre></div>
+<ul>
+<li>inline math: <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;munderover&gt;&lt;mo&gt;&amp;#x2211;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/munderover&gt;&lt;msup&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-6" style="width: 11.423em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.347em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(0.822em 1009.35em 2.735em -999.997em); top: -2.183em; left: 0em;"><span class="mrow" id="MathJax-Span-7"><span class="munderover" id="MathJax-Span-8"><span style="display: inline-block; position: relative; width: 2.298em; height: 0px;"><span style="position: absolute; clip: rect(3.063em 1000.99em 4.429em -999.997em); top: -3.986em; left: 0em;"><span class="mo" id="MathJax-Span-9" style="font-family: MathJax_Size1; vertical-align: 0em;">∑</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.5em 1000.5em 4.156em -999.997em); top: -4.478em; left: 1.041em;"><span class="mi" id="MathJax-Span-10" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.336em 1001.21em 4.156em -999.997em); top: -3.713em; left: 1.041em;"><span class="texatom" id="MathJax-Span-11"><span class="mrow" id="MathJax-Span-12"><span class="mi" id="MathJax-Span-13" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-14" style="font-size: 70.7%; font-family: MathJax_Main;">=</span><span class="mn" id="MathJax-Span-15" style="font-size: 70.7%; font-family: MathJax_Main;">0</span></span></span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-16" style="padding-left: 0.167em;"><span style="display: inline-block; position: relative; width: 0.768em; height: 0px;"><span style="position: absolute; clip: rect(3.172em 1000.33em 4.156em -999.997em); top: -3.986em; left: 0em;"><span class="mi" id="MathJax-Span-17" style="font-family: MathJax_Math; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; top: -4.369em; left: 0.331em;"><span class="mn" id="MathJax-Span-18" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span><span class="mo" id="MathJax-Span-19" style="font-family: MathJax_Main; padding-left: 0.276em;">=</span><span class="mfrac" id="MathJax-Span-20" style="padding-left: 0.276em;"><span style="display: inline-block; position: relative; width: 4.593em; height: 0px; margin-right: 0.112em; margin-left: 0.112em;"><span style="position: absolute; clip: rect(3.227em 1004.43em 4.32em -999.997em); top: -4.587em; left: 50%; margin-left: -2.238em;"><span class="mrow" id="MathJax-Span-21"><span class="mo" id="MathJax-Span-22" style="font-size: 70.7%; font-family: MathJax_Main;">(</span><span class="msubsup" id="MathJax-Span-23"><span style="display: inline-block; position: relative; width: 0.713em; height: 0px;"><span style="position: absolute; clip: rect(3.5em 1000.44em 4.156em -999.997em); top: -3.986em; left: 0em;"><span class="mi" id="MathJax-Span-24" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; top: -4.26em; left: 0.44em;"><span class="mn" id="MathJax-Span-25" style="font-size: 50%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span><span class="mo" id="MathJax-Span-26" style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span class="mi" id="MathJax-Span-27" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-28" style="font-size: 70.7%; font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-29" style="font-size: 70.7%; font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-30" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span class="mi" id="MathJax-Span-31" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-32" style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span class="mn" id="MathJax-Span-33" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-34" style="font-size: 70.7%; font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.336em 1000.33em 4.156em -999.997em); top: -3.604em; left: 50%; margin-left: -0.161em;"><span class="mn" id="MathJax-Span-35" style="font-size: 70.7%; font-family: MathJax_Main;">6</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(0.877em 1004.59em 1.26em -999.997em); top: -1.309em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 4.593em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.096em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.189em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.53em; border-left: 0px solid; width: 0px; height: 2.07em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><munderover><mo>∑</mo><mrow class="MJX-TeXAtom-ORD"><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>i</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>6</mn></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-2">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script></li>
+</ul>
+</li>
+</ul>
+<h4 id="display-math"><a class="anchor" id="demo-page-kitchen-sink_mathematics_examples_display-math" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_mathematics_examples_display-math"><i class="fa fa-link"></i></a>Display math:</h4>
+<ul>
+<li>example 1 <div class="highlight"><pre><span></span>$$2^2$$
+</pre></div></li>
+</ul>
+<p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="text-align: center; position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-36" style="width: 1.15em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.932em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.15em 1000.93em 2.352em -999.997em); top: -2.183em; left: 0em;"><span class="mrow" id="MathJax-Span-37"><span class="msubsup" id="MathJax-Span-38"><span style="display: inline-block; position: relative; width: 0.932em; height: 0px;"><span style="position: absolute; clip: rect(3.172em 1000.44em 4.156em -999.997em); top: -3.986em; left: 0em;"><span class="mn" id="MathJax-Span-39" style="font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; top: -4.423em; left: 0.495em;"><span class="mn" id="MathJax-Span-40" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.189em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.063em; border-left: 0px solid; width: 0px; height: 1.203em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msup><mn>2</mn><mn>2</mn></msup></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-3">2^2</script></p>
+<ul>
+<li>example 2 <div class="highlight"><pre><span></span>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+</pre></div></li>
+</ul>
+<p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;munderover&gt;&lt;mo&gt;&amp;#x2211;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/munderover&gt;&lt;msup&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation" style="text-align: center; position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-41" style="width: 13.664em; display: inline-block;"><span style="display: inline-block; position: relative; width: 11.205em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(0.44em 1011.21em 3.555em -999.997em); top: -2.183em; left: 0em;"><span class="mrow" id="MathJax-Span-42"><span class="munderover" id="MathJax-Span-43"><span style="display: inline-block; position: relative; width: 1.423em; height: 0px;"><span style="position: absolute; clip: rect(2.899em 1001.37em 4.593em -999.997em); top: -3.986em; left: 0em;"><span class="mo" id="MathJax-Span-44" style="font-family: MathJax_Size2; vertical-align: 0em;">∑</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.336em 1001.1em 4.265em -999.997em); top: -2.893em; left: 0.167em;"><span class="texatom" id="MathJax-Span-45"><span class="mrow" id="MathJax-Span-46"><span class="mi" id="MathJax-Span-47" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-48" style="font-size: 70.7%; font-family: MathJax_Main;">=</span><span class="mn" id="MathJax-Span-49" style="font-size: 70.7%; font-family: MathJax_Main;">0</span></span></span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.391em 1000.44em 4.156em -999.997em); top: -5.134em; left: 0.495em;"><span class="mi" id="MathJax-Span-50" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-51" style="padding-left: 0.167em;"><span style="display: inline-block; position: relative; width: 0.768em; height: 0px;"><span style="position: absolute; clip: rect(3.172em 1000.33em 4.156em -999.997em); top: -3.986em; left: 0em;"><span class="mi" id="MathJax-Span-52" style="font-family: MathJax_Math; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; top: -4.423em; left: 0.331em;"><span class="mn" id="MathJax-Span-53" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span><span class="mo" id="MathJax-Span-54" style="font-family: MathJax_Main; padding-left: 0.276em;">=</span><span class="mfrac" id="MathJax-Span-55" style="padding-left: 0.276em;"><span style="display: inline-block; position: relative; width: 7.325em; height: 0px; margin-right: 0.112em; margin-left: 0.112em;"><span style="position: absolute; clip: rect(3.008em 1007.11em 4.429em -999.997em); top: -4.697em; left: 50%; margin-left: -3.604em;"><span class="mrow" id="MathJax-Span-56"><span class="mo" id="MathJax-Span-57" style="font-family: MathJax_Main;">(</span><span class="msubsup" id="MathJax-Span-58"><span style="display: inline-block; position: relative; width: 1.041em; height: 0px;"><span style="position: absolute; clip: rect(3.391em 1000.6em 4.156em -999.997em); top: -3.986em; left: 0em;"><span class="mi" id="MathJax-Span-59" style="font-family: MathJax_Math; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; top: -4.369em; left: 0.604em;"><span class="mn" id="MathJax-Span-60" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span></span></span><span class="mo" id="MathJax-Span-61" style="font-family: MathJax_Main; padding-left: 0.221em;">+</span><span class="mi" id="MathJax-Span-62" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.221em;">n</span><span class="mo" id="MathJax-Span-63" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-64" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-65" style="font-family: MathJax_Main;">2</span><span class="mi" id="MathJax-Span-66" style="font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-67" style="font-family: MathJax_Main; padding-left: 0.221em;">+</span><span class="mn" id="MathJax-Span-68" style="font-family: MathJax_Main; padding-left: 0.221em;">1</span><span class="mo" id="MathJax-Span-69" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(3.172em 1000.44em 4.156em -999.997em); top: -3.276em; left: 50%; margin-left: -0.27em;"><span class="mn" id="MathJax-Span-70" style="font-family: MathJax_Main;">6</span><span style="display: inline-block; width: 0px; height: 3.992em;"></span></span><span style="position: absolute; clip: rect(0.877em 1007.33em 1.26em -999.997em); top: -1.309em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 7.325em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.096em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.189em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -1.53em; border-left: 0px solid; width: 0px; height: 3.537em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><munderover><mo>∑</mo><mrow class="MJX-TeXAtom-ORD"><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>i</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>6</mn></mfrac></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-4">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script></p>
+<h2 id="page-titles-custom"><a class="anchor" id="demo-page-kitchen-sink_page-titles-custom" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_page-titles-custom"><i class="fa fa-link"></i></a>Page Titles (Custom)</h2>
+<ul>
+<li>Note that the metadata must be the first piece of text on the page.</li>
+<li>
+<p>[ ] TODO: document how to escape something like this so it doesn't hose the whole page</p>
+<p>&lt;!-- --- title: My page title --&gt;</p>
+</li>
+</ul>
+<h2 id="quotes"><a class="anchor" id="demo-page-kitchen-sink_quotes" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_quotes"><i class="fa fa-link"></i></a>Quotes</h2>
+<h3 id="blockquotes"><a class="anchor" id="demo-page-kitchen-sink_quotes_blockquotes" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_quotes_blockquotes"><i class="fa fa-link"></i></a>Blockquotes</h3>
+<div class="highlight"><pre><span></span>As Kanye West said:
+
+&gt; We're living the future so
+&gt; the present is our past.
+</pre></div> * example
+<p>As Kanye West said:</p>
+<blockquote>
+<p>We're living the future so the present is our past.</p>
+</blockquote>
+<h2 id="other-notes"><a class="anchor" id="demo-page-kitchen-sink_other-notes" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_other-notes"><i class="fa fa-link"></i></a>Other Notes</h2>
+<h3 id="uploaded-files"><a class="anchor" id="demo-page-kitchen-sink_other-notes_uploaded-files" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_other-notes_uploaded-files"><i class="fa fa-link"></i></a>Uploaded files</h3>
+<ul>
+<li>Files uploaded through Gollum are placed in a folder with a space filled name of the page/file.</li>
+<li>i.e. this file's name is 'Demo Page - Kitchen Sink' so an image uploaded via Gollum will be placed under this wiki's directory structure in a folder that is named as it appears below: <div class="highlight"><pre><span></span>![GitHub Octocat Logo](Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png)
+</pre></div></li>
+</ul>
+<h2 id="strickthrough"><a class="anchor" id="demo-page-kitchen-sink_strickthrough" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_strickthrough"><i class="fa fa-link"></i></a>Strickthrough</h2>
+<div class="highlight"><pre><span></span>~~Struckthrough~~
+</pre></div> * <del>Struckthrough</del>
+<h2 id="subpages-footers-headers-and-sidebar"><a class="anchor" id="demo-page-kitchen-sink_subpages-footers-headers-and-sidebar" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_subpages-footers-headers-and-sidebar"><i class="fa fa-link"></i></a>Subpages (Footers, Headers and Sidebar)</h2>
+<ul>
+<li>Header files are named _Header.ext, where ext is one of the supported formats' extensions.</li>
+<li>Sidebar files are named _Sidebar.ext, where ext is one of the supported formats' extensions.</li>
+<li>Footer files are named _Footer.ext, where ext is one of the supported formats' extensions.</li>
+<li>TODO: there are more references for this</li>
+</ul>
+<h2 id="tags"><a class="anchor" id="demo-page-kitchen-sink_tags" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags"><i class="fa fa-link"></i></a>Tags</h2>
+<ul>
+<li>Tags can be finicky. As a best practice it's a good idea to always reference tags from the root of the repository</li>
+<li>The general rule should be to always favor Gollum links/tags over vimwiki</li>
+<li>(<strong>see #3 in the 'Link Tags' examples</strong>)</li>
+<li>Basic syntax <div class="highlight"><pre><span></span>[[tag]]
+</pre></div></li>
+</ul>
+<h3 id="escaping-tags-use-a-single-backtick"><a class="anchor" id="demo-page-kitchen-sink_tags_escaping-tags-use-a-single-backtick" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags_escaping-tags-use-a-single-backtick"><i class="fa fa-link"></i></a>Escaping Tags: use a single backtick</h3>
+<div class="highlight"><pre><span></span>`[[tag]]
+</pre></div>
+<h3 id="page-tags"><a class="anchor" id="demo-page-kitchen-sink_tags_page-tags" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags_page-tags"><i class="fa fa-link"></i></a>Page Tags</h3>
+<h4 id="include-tag-includes-a-page-in-the-example"><a class="anchor" id="demo-page-kitchen-sink_tags_page-tags_include-tag-includes-a-page-in-the-example" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#demo-page-kitchen-sink_tags_page-tags_include-tag-includes-a-page-in-the-example"><i class="fa fa-link"></i></a>Include tag (includes a page in the example)</h4>
+<ul>
+<li>As opposed to the link tag, this one is dedicated to pages, has a special syntax and includes a page into another, rather than linking it: <div class="highlight"><pre><span></span>[[include:cannonical-page-filename]]
+</pre></div></li>
+<li>Example this will likely mess up the TOC
+<ul>
+<li>
+<h1 id="vimwikigollum-project"><a class="anchor" id="vimwiki-gollum-project" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project"><i class="fa fa-link"></i></a>
+<a class="anchor" id="vimwiki-gollum-project" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project"><i class="fa fa-link"></i></a><a href="https://github.com/karlredman/Vimwiki-Gollum-Integration">Vimwiki+Gollum Project</a>
+</h1>
+<h2 id="project-wiki-pages"><a class="anchor" id="vimwiki-gollum-project_project-wiki-pages" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages"><i class="fa fa-link"></i></a>
+<a class="anchor" id="vimwiki-gollum-project_project-wiki-pages" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages"><i class="fa fa-link"></i></a>Project Wiki Pages</h2>
+<ul>
+<li><a class="internal present" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink">Demo Page - Kitchen Sink</a></li>
+<li><a class="internal present" href="http://127.0.0.1:4567/Vimwiki-Gollum/diary/index">Project Diary Index</a></li>
+<li><a class="internal present" href="http://127.0.0.1:4567/Vimwiki-Gollum/Project-TODO-List">Project TODO List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="link-tags"><a class="anchor" id="vimwiki-gollum-project_project-wiki-pages_link-tags" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags"><i class="fa fa-link"></i></a>Link Tags</h3>
+<ul>
+<li><p>Basic syntax </p><div class="highlight"><pre><span></span>[[link-text|linked-resource]]
+</pre></div></li>
+<li><p>Fully qualified URLs work just fine </p><div class="highlight"><pre><span></span>[[http://example.com]]
+[[link-text|http://example.com/pdfs/gollum.pdf]]
+</pre></div></li>
+<li>Examples
+<ol>
+<li><a class="internal present" href="http://127.0.0.1:4567/index">This tag will result in a different page for vimwiki than Gollum</a></li>
+<li><a class="internal present" href="http://127.0.0.1:4567/index">This will show the root index for both vimwiki and Gollum</a></li>
+</ol>
+</li>
+<li><p>Markdown from Examples </p><div class="highlight"><pre><span></span>[[index|This tag will result in a different page for vimwiki than Gollum]]
+[[../index| This will show the root index for both vimwiki and Gollum]]
+</pre></div></li>
+</ul>
+<h4 id="linking-internal-files-not-pages-or-images"><a class="anchor" id="vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-files-not-pages-or-images" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-files-not-pages-or-images"><i class="fa fa-link"></i></a>Linking Internal files (not pages or images)</h4>
+<ul>
+<li>These can be troublesome between Gollum and Vimwiki.</li>
+<li>Vimwiki will always follow the relative links to files and tack on a '.vimwiki' extension. This means that Vimwiki will try to open new Vimwiki file if followed through Vim.</li>
+<li>Gollum will either show the content if it's an image or provie a tag to follow</li>
+<li>Generally I recommend that if there is a conflict in links/tags between Vimwiki and Gollum that you side with Gollum for content display and binary file handling... <img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/GitHub-Mark-120px-plus.png"> <div class="highlight"><pre><span></span>[[Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png|GitHub Octocat Logo link]]
+</pre></div></li>
+</ul>
+<h4 id="linking-internal-images"><a class="anchor" id="vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-images" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-images"><i class="fa fa-link"></i></a>Linking internal images</h4>
+<ul>
+<li>All of the same issues and querks exist here same as 'Linking Internal files'</li>
+<li>Identical to linking internal files, but also supports several special attributes:</li>
+<li>All of these attributes can be combined together simply by separating them with pipes. <div class="highlight"><pre><span></span>[[image-url|alt=text]]
+Text to display when the image is not found.
+
+[[image-url|frame]]
+Tells Gollum to place the image in an &lt;iframe&gt;.
+
+[[image-url|align=position]]
+Tells Gollum to align the image in the given way. Position can be left, center, and right. Default: left.
+
+[[image-url|float]]
+Tells Gollum to float the image so that the text flows around it. This option can not be used with the align=center option. When floating is enabled and alignment is not specified, align=left is applied.
+
+[[image-url|height=value]]
+Set maximum height for the image. Values must be specified either with px or em unit.
+
+[[image-url|width=value]]
+Set maximum width for the image. Values must be specified either with px or em unit.
+
+[[image-url|frame|alt=text]]
+Tells Gollum to place the image in an &lt;iframe&gt; and uses the alt's text as its caption.
+</pre></div></li>
+</ul>
+<h5 id="handling-image-placement-issues"><a class="anchor" id="vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-images_handling-image-placement-issues" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-images_handling-image-placement-issues"><i class="fa fa-link"></i></a>Handling image placement issues:</h5>
+<ul>
+<li>By default text will fill up all the space around the image. To control how much should show up use this tag to stop and start a new block so that additional content doesn't fill in. <div class="highlight"><pre><span></span>[[_]]
+</pre></div></li>
+</ul>
+<h4 id="linking-internal-pages"><a class="anchor" id="vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-pages" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_project-wiki-pages_link-tags_linking-internal-pages"><i class="fa fa-link"></i></a>Linking internal pages</h4>
+<p>The following tag will create a link to another Gollum page: </p><div class="highlight"><pre><span></span>[[cannonical-page-filename]]
+</pre></div>
+<ul>
+<li>Canonical page filename is the page's filename, but after applying these rules:
+<ul>
+<li>Extension is tossed away.</li>
+<li>Spaces (U+0020) are replaced with dashes (U+002D).</li>
+<li>Forward slashes (U+002F) are replaced with dashes (U+002D).</li>
+</ul>
+</li>
+<li>Examples:
+<ul>
+<li>
+<a class="internal absent" href="http://127.0.0.1:4567/J.-R.-R.-Tolkien">J. R. R. Tolkien</a> will reference the J.-R.-R.-Tolkien.ext page</li>
+<li>
+<a class="internal absent" href="http://127.0.0.1:4567/Movies-/-The-Hobbit">Movies / The Hobbit</a> will reference the Movies---The-Hobbit.ext page</li>
+<li>
+<a class="internal absent" href="http://127.0.0.1:4567/%E3%83%A2%E3%83%AB%E3%83%89%E3%83%BC%E3%83%AB">モルドール</a> will reference the モルドール.ext page</li>
+</ul>
+</li>
+</ul>
+<p>The referenced page may exist anywhere in the git repository. Gollum will search for it and link the first such page that it finds.</p>
+<h2 id="tables"><a class="anchor" id="vimwiki-gollum-project_tables" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_tables"><i class="fa fa-link"></i></a>Tables</h2>
+<h3 id="simple"><a class="anchor" id="vimwiki-gollum-project_tables_simple" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_tables_simple"><i class="fa fa-link"></i></a>Simple</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">First Header</th>
+<th align="left">Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content from cell 1</td>
+<td align="left">Content from cell 2</td>
+</tr>
+<tr class="even">
+<td align="left">Content in the first column</td>
+<td align="left">Content in the second column</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complex"><a class="anchor" id="vimwiki-gollum-project_tables_complex" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_tables_complex"><i class="fa fa-link"></i></a>Complex</h3>
+<ul>
+<li>[ ] TODO: my plugin is currently broken for the table plugin</li>
+<li>Made simpler with Vimwiki + <a href="https://github.com/dhruvasagar/vim-table-mode/tree/4e41af8e5f0bf53326d1b83c2feb1eff89fe90d4">dhruvasagar/vim-table-mode plugin</a>
+</li>
+<li>TODO: Explain how this autoformats for me in vim</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">First header</th>
+<th align="left">Second header</th>
+<th align="left">Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-of-contents-toc-tag"><a class="anchor" id="vimwiki-gollum-project_table-of-contents-toc-tag" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_table-of-contents-toc-tag"><i class="fa fa-link"></i></a>Table-of-contents (TOC) tag</h2>
+<ul>
+<li>TODO: note how this needed to be escaped</li>
+<li><p>Gollum provides a special tag for embedding a table of contents into a page: [[<em>TOC</em>]]</p></li>
+<li><p>Or with a max depth: [[<em>TOC</em>|levels = 3]]</p></li>
+</ul>
+<h2 id="youtube-videos"><a class="anchor" id="vimwiki-gollum-project_youtube-videos" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_youtube-videos"><i class="fa fa-link"></i></a>Youtube Videos</h2>
+<ul>
+<li>TODO: needs testing</li>
+<li><p>They can't be added directly but you can add an image with a link to the video like this: </p><div class="highlight"><pre><span></span>&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"&gt;&lt;img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /&gt;&lt;/a&gt;
+</pre></div></li>
+<li><p>Or, in pure Markdown, but losing the image sizing and border: </p><div class="highlight"><pre><span></span>[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+</pre></div></li>
+</ul>
+<h3 id="examples-1"><a class="anchor" id="vimwiki-gollum-project_youtube-videos_examples" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_youtube-videos_examples"><i class="fa fa-link"></i></a>Examples</h3>
+<p><a href="https://www.youtube.com/watch?v=PL3F4K1kxSA"><img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/0.jpg" alt="HEALTH"></a></p>
+<p><a href="https://www.youtube.com/watch?v=PL3F4K1kxSA" target="_blank"><img src="./Vimwiki Gollum_Demo Page Kitchen Sink_files/0(1).jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10"></a></p>
+<h2 id="issue-references"><a class="anchor" id="vimwiki-gollum-project_issue-references" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#vimwiki-gollum-project_issue-references"><i class="fa fa-link"></i></a>Issue References</h2>
+<ul>
+<li>mojombo/github-flavored-markdown#1</li>
+</ul>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>this is the footnote at the bottom of the page. It should be surrounded by a blank line when by itself.<a href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+<div id="footer">
+  <p id="last-edit">Last edited by <b>Karl Redman</b>, 2017-08-04 09:56:34</p>
+    <p>
+      <a id="delete-link" href="http://127.0.0.1:4567/Vimwiki-Gollum/Demo-Page---Kitchen-Sink" data-confirm="Are you sure you want to delete this page?"><span>Delete this Page</span></a>
+    </p>
+</div>
+</div>
+
+<form name="rename" method="POST" action="http://127.0.0.1:4567/rename/Vimwiki-Gollum/Demo-Page---Kitchen-Sink">
+  <input type="hidden" name="rename">
+  <input type="hidden" name="message">
+</form>
+
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Size4, sans-serif;"></div></div></body></html>
