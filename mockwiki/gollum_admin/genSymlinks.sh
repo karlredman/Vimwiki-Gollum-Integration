@@ -9,8 +9,7 @@
 # Gollum and Vimwiki. This script generates symlinks for subdirectories of
 # your repository for each toplevel subdirectory of the repository. In other
 # words: we add symlinks back to all wikis for each subdirectory under the
-# repository root (see mockwiki for examples). I know this is ineffecient -it 
-# was meant as a quick one-off.
+# repository root (see mockwiki for examples).
 #
 # Symlinks are added when the following criteria is met:
 # * The absolute path of the directory is **not** in the excludelist array.
@@ -47,7 +46,7 @@ extension="vimwiki"
 # manage command line arguments
 ## stuff goes here
 ## handle excludelist
-#excludelist+=("$repodir/uploads" "$repodir/testfiles")
+#excludelist+=("$repodir/uploads" "$repodir/testfiles" "$repodir/R-Systems/files" )
 
 function create_symlink () {
     target=$1
@@ -92,6 +91,9 @@ skippedlist=()
 
 # for each wiki in the list
 for i in ${!dirlist[@]}; do
+
+    # TODO: fix situation where directories under skipped directories still get links.
+    # basically track skipped directories and loop through them before creating a link.
 
     # skip the repodir
     if [ "${dirlist[$i]}" == "$repodir" ]; then
@@ -165,10 +167,9 @@ for i in ${!dirlist[@]}; do
     # we'll skip normal directories that have uploads
 
     # Attempt to accomidate for files that have a '-' in the name via masking
-    #
-    # example:
-    # dashed="Demo-Page---Kitchen-Sink"
-    # spaced="Demo Page - Kitchen Sink.vimwiki"
+
+    dashed="Demo-Page---Kitchen-Sink"
+    spaced="Demo Page - Kitchen Sink.vimwiki"
 
     # find all files in the immediate parent dir
     parentlist=()
@@ -187,14 +188,11 @@ for i in ${!dirlist[@]}; do
             continue 2;
         fi
     done
-    #########################
 
     echo "creating links at ${dirlist[$i]}"
     create_symlinks  topdirs[@] "${dirlist[$i]}"
 
 done
-
-## TODO: add git add and commit calls here
 
 # return to where we started
 popd > /dev/null 2>&1
