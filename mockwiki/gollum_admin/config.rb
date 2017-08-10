@@ -3,6 +3,11 @@
 # Github says to "always include this"
 Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_NAMES
 
+# grab the gollum version for later conditionals
+gollum_version = Gem.loaded_specs["gollum"].version.version
+puts "** Gollum config.rb using configuration for Gollem version: #{gollum_version} **"
+STDOUT.flush
+
 ############
 # Attempt to override Gollum::Git.grep
 # original file: /var/lib/gems/2.1.0/gems/gollum-grit_adapter-1.0.1/lib/grit_adapter/git_layer_grit.rb
@@ -82,26 +87,49 @@ end
 # * file reference: /var/lib/gems/2.1.0/gems/github-markup-1.6.0/lib/github/markup/command_implementation.rb
 # * [Adding Pandoc to Gollum - Martin Wolf's weblog [OUTDATED]](https://www.mwolf.net/2014/04/29/adding-pandoc-to-gollum/)
 ci = ::GitHub::Markup::CommandImplementation.new(
-     /vimwiki/,
-     ["Vimwiki"],
-     "pandoc -f markdown-tex_math_dollars-raw_tex",
-     #"pandoc -f markdown_github",
-     #::GitHub::Markup::Markdown.new,
-     :vimwiki)
+    /vimwiki/,
+    ["Vimwiki"],
+    "pandoc -f markdown-tex_math_dollars-raw_tex",                                # works but would like to use internal
+    #"pandoc -f markdown_github",                                                 # close but math is jacked up
+    #::GitHub::Markup::Markdown.new,                                              # doesn't work at all
+    #::GitHub::Markup::markup_impl(":vimwiki", ::GitHub::Markup::Markdown.new),   # sortof works. I'm still missing something
+    :vimwiki)
 
-# # bind your own extension regex
-# * file reference: /var/lib/gems/2.1.0/gems/github-markup-1.6.0/lib/github/markups.rb
+# tell the Markup initializer that :vimwiki types of files will use the implementation spec. from the previous section
+#
+## doesn't work (even after registering with gollum)
+#GitHub::Markup::markup_impl(:vimwiki, ::GitHub::Markup::Markdown.new)
+#
+# works
+GitHub::Markup::markup_impl(:vimwiki, ci)
+
+# # Register the new extension with gollum-lib
+# * file reference: gollum-lib/markup.rb
 #
 # register the new primary extension (:vimwiki) with a markdown type name (Vimwiki)
-Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_links => true)
-# tell the Markup initializer that :vimwiki types of files will use the implementation spec. from the previous section
-GitHub::Markup::markup_impl(:vimwiki, ci)
+case gollum_version
+when "4.1.1"
+  Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_links => true)
+when "4.1.2"
+  #Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => 1, :extensions => ["vimwiki"], :reverse_links => true)
+  Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => Gollum::MarkupRegisterUtils::executable_exists?("pandoc"), :extensions => ["vimwiki"], :reverse_links => true)
+else
+  ## default to 4.1.2 (for now) -change as compatability changes
+  Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => Gollum::MarkupRegisterUtils::executable_exists?("pandoc"), :extensions => ["vimwiki"], :reverse_links => true)
+  puts "** Gollum config.rb: Vimwiki extension registration reverting to Gollum version: 4.1.2 **"
+  STDOUT.flush
+end
 ##################
 
 # fix a regex bug in mediawiki that caused vimwiki not to be recognized for edits
 # Note: the placement of this matters -needs to be after vimwiki stuff for edit to show up correctly
-Gollum::Markup.formats.delete(:mediawiki)
-Gollum::Markup.register(:mediawiki, "MediaWiki", :regexp => /mediawiki|wiki/, :reverse_links => true)
+
+case gollum_version
+when "4.1.1"
+  Gollum::Markup.formats.delete(:mediawiki)
+  Gollum::Markup.register(:mediawiki, "MediaWiki", :regexp => /mediawiki|wiki/, :reverse_links => true)
+#when "4.1.X"     # for future or past versions
+end
 
 ##################
 # # Set the default gollum index (landing page) page name
