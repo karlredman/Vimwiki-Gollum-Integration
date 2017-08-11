@@ -5,7 +5,7 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
 
 * I'm in the process of adding Gollum v4.1.2 (the latest release this week) compatibility. I will add a new release as soon as I can.
 * **`[[Tag]] links are all currently broken for files that have spaces in the filename. Spaces are now replaced by '+' characters in gollum-lib 5.0.a.3 -the default gollum-lib for Gollum v4.1.2.**
-* ** Revert to using gollum-lib v4.2.7 to get up and running for this release of Gollum v4.1.2 **
+* **Revert to using gollum-lib v4.2.7 to get up and running for this release of Gollum v4.1.2**
 
 * Here's the state of things:
     * '\[\[_TOC_\]\] now works in _Sidebar.ext and _Footer.ext files.
