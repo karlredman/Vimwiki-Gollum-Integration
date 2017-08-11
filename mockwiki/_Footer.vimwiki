@@ -1,0 +1,11 @@
+---
+
+##### Footer Example (Wiki Index)
+
+| wiki # | Name / Index                             | Gollam Diary                                      | Vimwiki Diary                                      |
+| :---:  | ---                                      | ---                                               | ---                                                |
+| 1      | [[Personal/index| Personal]]             | [[Personal/diary/index|Gollum Diary Index]]       | [[Personal/diary/diary|Vimwiki Diary Index]]       |
+| 2      | [[Vimwiki-Gollum/index| Vimwiki-Gollum]] | [[Vimwiki-Gollum/diary/index|Gollum Diary Index]] | [[Vimwiki-Gollum/diary/index|Vimwiki Diary Index]] |
+| 3      | [[R-Systems/index| R-Systems]]           | [[R-Systems/diary/index|Gollum Diary Index]]      | [[R-Systems/diary/diary|Vimwiki Diary Index]]      |
+| 4      | [[Fiction/index| Fiction]]               | [[Fiction/diary/index|Gollum Diary Index]]        | [[Fiction/diary/diary|Vimwiki Diary Index]]        |
+

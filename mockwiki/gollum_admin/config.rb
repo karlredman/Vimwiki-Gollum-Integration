@@ -8,6 +8,50 @@ gollum_version = Gem.loaded_specs["gollum"].version.version
 puts "** Gollum config.rb using configuration for Gollem version: #{gollum_version} **"
 STDOUT.flush
 
+
+# Monkey patch find_sub_pages()
+# * Purpose: Applies patch for gollum-lib issue #1161 (Fix rendering of TOC on the sidebar)
+# * Reference file: gollum-lib/pages.rb (gollum-lib: v5.0.a.3) / gollum v4.1.2
+module Gollum
+  class Page
+    def find_sub_pages(subpagenames = SUBPAGENAMES, map = nil)
+      subpagenames.each{|subpagename| instance_variable_set("@#{subpagename}", nil)}
+      return nil if self.filename =~ /^_/ || ! self.version
+
+      map ||= @wiki.tree_map_for(@wiki.ref, true)
+      valid_names = subpagenames.map(&:capitalize).join("|")
+      # From Ruby 2.2 onwards map.select! could be used
+      map = map.select{|entry| entry.name =~ /^_(#{valid_names})/ }
+      return if map.empty?
+
+      subpagenames.each do |subpagename|
+        dir = ::Pathname.new(self.path)
+        while dir = dir.parent do
+          subpageblob = map.find do |blob_entry|
+
+            filename = "_#{subpagename.to_s.capitalize}"
+            searchpath = dir == Pathname.new('.') ? Pathname.new(filename) : dir + filename
+            entrypath = ::Pathname.new(blob_entry.path)
+            # Ignore extentions
+            entrypath = entrypath.dirname + entrypath.basename(entrypath.extname)
+            entrypath == searchpath
+          end
+
+          if subpageblob
+            #instance_variable_set("@#{subpagename}", subpageblob.page(@wiki, @version) )
+						subpage =  subpageblob.page(@wiki, @version)
+						subpage.parent_page = self
+						instance_variable_set("@#{subpagename}", subpage)
+            break
+          end
+
+          break if dir == Pathname.new('.')
+        end
+      end
+    end
+	end
+end
+
 ############
 # Attempt to override Gollum::Git.grep
 # original file: /var/lib/gems/2.1.0/gems/gollum-grit_adapter-1.0.1/lib/grit_adapter/git_layer_grit.rb
@@ -15,7 +59,7 @@ STDOUT.flush
 # We are overriding Gollum::Git::Git.grep in order to open up the native 'git grep' regex capabilities.
 
 # probably not necessary
-Gollum::Git_Adapter::Git.grep :remove_const, :FORMAT_NAMES if defined? Gollum::Git_Adapter::FORMAT_NAMES
+#Gollum::Git_Adapter::Git.grep :remove_const, :FORMAT_NAMES if defined? Gollum::Git_Adapter::FORMAT_NAMES
 
 module Gollum
   module Git
@@ -89,7 +133,7 @@ end
 ci = ::GitHub::Markup::CommandImplementation.new(
     /vimwiki/,
     ["Vimwiki"],
-    "pandoc -f markdown-tex_math_dollars-raw_tex",                                # works but would like to use internal
+    "pandoc -f markdown-tex_math_dollars-raw_tex",                                # works but I would like to use internal
     #"pandoc -f markdown_github",                                                 # close but math is jacked up
     #::GitHub::Markup::Markdown.new,                                              # doesn't work at all
     #::GitHub::Markup::markup_impl(":vimwiki", ::GitHub::Markup::Markdown.new),   # sortof works. I'm still missing something
@@ -111,7 +155,6 @@ case gollum_version
 when "4.1.1"
   Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_links => true)
 when "4.1.2"
-  #Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => 1, :extensions => ["vimwiki"], :reverse_links => true)
   Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => Gollum::MarkupRegisterUtils::executable_exists?("pandoc"), :extensions => ["vimwiki"], :reverse_links => true)
 else
   ## default to 4.1.2 (for now) -change as compatability changes
@@ -123,6 +166,7 @@ end
 
 # fix a regex bug in mediawiki that caused vimwiki not to be recognized for edits
 # Note: the placement of this matters -needs to be after vimwiki stuff for edit to show up correctly
+# This is fixed in gollum 4.1.2
 
 case gollum_version
 when "4.1.1"
@@ -138,7 +182,7 @@ end
 Precious::App.set(:wiki_options, index_page: "index")
 
 ##################
-# # My preferred global options:
+# # My preferred global options -I use the sidebar:
 # * turn on/off TOC for all pages (unless specified by macro in the markdown file)
 Precious::App.set(:wiki_options, { :universal_toc => false })
 

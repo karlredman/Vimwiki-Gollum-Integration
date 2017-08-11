@@ -1,6 +1,59 @@
 # Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration)
 Author: [Karl N. Redman](https://karlredman.github.io/)
 
+## Note:
+
+* I'm in the process of adding Gollum v4.1.2 (the latest release this week) compatibility. I will add a new release as soon as I can.
+* **`[[Tag]] links are all currently broken for files that have spaces in the filename. Spaces are now replaced by '+' characters in gollum-lib 5.0.a.3 -the default gollum-lib for Gollum v4.1.2.**
+
+* Here's the state of things:
+    * '\[\[_TOC_\]\] now works in _Sidebar.ext and _Footer.ext files.
+        * This is done through a new monkey patch in mockwiki/gollum_admin/config.rb
+    * Pandoc now uses the markdown_github gem to processes file content for .vimwiki files.
+        * There is one minor bug in markdown_github for processing mathematics. It's documented in the Demo page.
+    * The demo page under 'mockwiki/Vimwiki-Gollum/' has been updated to reflect the change in processor.
+    * Added documentation to help with the install process.
+    * Added conditional code in config.rb to accomidate for extension registration
+        * Note: the current (temporary) condition is based on Gollum version but will change to gollum-lib version before release
+        * fixes mediawiki regex bug
+
+* Here's the current TODO list for a Gollum v4.1.2 compatible release:
+    * [o] update vim-gollum documents for 4.1.2
+        * [X] update demo page
+        * [X] add note about changes being made
+            * [X] golllum release 4.1.2 broke links
+            * [X] note change in pandoc processor
+        * [ ] add note about changes
+            * [ ] golllum release 4.1.2 broke links
+            * [ ] note change in pandoc processor
+        * [ ] add install instructions for components
+    * [o] Add conditionals for gollum-lib in config.rb
+        * [ ] change form gollum version to gollum.lib version check
+        * [X] mediawiki extension regex handler
+        * [X] vimwiki extension registration
+    * [ ] links are busted
+        * [ ] [[/Personal/Demo Page - Kitchen Sink]]
+        * [ ] [[Personal/Demo Page - Kitchen Sink]]
+        * [ ] [Personal/Demo Page - Kitchen Sink](Personal/Demo Page - Kitchen Sink)
+        * [ ] [/Personal/Demo Page - Kitchen Sink](/Personal/Demo Page - Kitchen Sink)
+        * [ ] "All" tab builds links with '+' for spaces
+        * [ ] all `\[\[tags\]\] attempt to fill spaces with '+'
+    * [O] handle sidebar fix
+        * [ ] post comment about TOC and fix to forum
+        * [X] try to do monkeypatch
+        * [X] Confirmed that [this fix](https://github.com/gollum/gollum-lib/pull/232/commits/e19b4f5363d84f64beb53bbc29468d75b693ee1d) works
+        * [X] Latest Gollum (v4.1.2) release of [gollum-lib/page.rb](https://github.com/gollum/gollum-lib/blob/fb23b68eba375a4235dc3a978b59b2507a9d4a67/lib/gollum-lib/page.rb) (v5.0.a.3) does not have fix
+    * [X] update sidebar/footer for mockwiki
+    * [ ] update my tickets
+
+    ## Other todo:
+    * [ ] try to replace the editor for vimwiki files
+    * [ ] look into css changes
+    * [ ] change name?
+        * [ ] gollum vimwiki
+        * [ ] Gollum And Vimwiki
+        * [ ] GollVim-Wiki
+
 ## Description:
 
 This is a guide and tutorial, with tools and 'out of the box' examples, for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum Wiki](https://github.com/gollum/gollum) on *Linux* systems. The aim of this project is to provide a fairly easy installation and setup for a working Vimwiki + Gollum workflow.
@@ -26,13 +79,13 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 * Custom startup/shutdown scripts
 * Cron script for automatically updating Gollum readable diary indexes.
 * [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) to support the entire integration process.
-* A [shell script](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh) is provided to help with keeping links consistant between Gollum and Vimwiki.
+* A [shell script](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh) is provided to help with keeping links consistent between Gollum and Vimwiki.
 
 ## Special Note about internal link/tag consistency:
 
-There is no easy way to synchronize the behavior for internal links and tags between Gollum and Vimwiki. The two systems, by way of their purpose and use cases, handle links from different perspectives. In an effort to provide the most consistent behavior between the two systems I've created a script ([genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh))that generates symlinks with comprehensive list of restrictions. Without some major alteration of one or both systems it seems that symlinks is as good as it's going to get. Please see the script for more detail. There are notes in the mockwiki that detail the reluctant decision making process that went into using symlinks to solve a very complicated problem. 
+There is no easy way to synchronize the behavior for internal links and tags between Gollum and Vimwiki. The two systems, by way of their purpose and use cases, handle links from different perspectives. In an effort to provide the most consistent behavior between the two systems I've created a script ([genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh))that generates symlinks with comprehensive list of restrictions. Without some major alteration of one or both systems it seems that symlinks is as good as it's going to get. Please see the script for more detail. There are notes in the mockwiki that detail the reluctant decision making process that went into using symlinks to solve a very complicated problem.
 
-If you follow the 'Example Installation / Tutorial' then running the genSymlinks.sh script should work ok for you on a linux based system. 
+If you follow the 'Example Installation / Tutorial' then running the genSymlinks.sh script should work ok for you on a linux based system.
 * Use the script at **Your Own Risk**
 * Please look at the code first before running it.
 * I run exactly this script from cron several times per day.
@@ -129,7 +182,7 @@ vim -c VimwikiIndex
     * Examples of the before and after:
         * Before: [diary.vimwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/diary/diary.vimwiki)
         * After: [index.vimwiki](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Vimwiki-Gollum/diary/index.vimwiki)
-    * Cron Setup: 
+    * Cron Setup:
         * You need to have your git credentials for your local repository setup for this to work properly.
         * The script will need to be run under your user account.
         ```
