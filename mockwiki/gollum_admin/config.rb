@@ -5,13 +5,14 @@ Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_
 
 # TODO: change this to gitlab-lib + gollum version ????
 # grab the gollum version for later conditionals
-gollum_version = Gem.loaded_specs["gollum"].version.version
-puts "** Gollum config.rb using configuration for Gollem version: #{gollum_version} **"
+gollum_lib_version = Gem.loaded_specs["gollum-lib"].version.version
+puts "** Gollum config.rb using configuration for Gollem version: #{gollum_lib_version} **"
 STDOUT.flush
 
 
 # Monkey patch find_sub_pages()
 # * Purpose: Applies patch for gollum-lib issue #1161 (Fix rendering of TOC on the sidebar)
+# * Works for gollum-lib 4.2.7 (from Gollum 4.1.1 release)
 # * Reference file: gollum-lib/pages.rb (gollum-lib: v5.0.a.3) / gollum v4.1.2
 module Gollum
   class Page
@@ -149,25 +150,27 @@ GitHub::Markup::markup_impl(:vimwiki, ci)
 # * file reference: gollum-lib/markup.rb
 #
 # register the new primary extension (:vimwiki) with a markdown type name (Vimwiki)
-case gollum_version
-when "4.1.1"
+case gollum_lib_version
+when "4.2.7"
   Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_links => true)
-when "4.1.2"
+when "5.0.a.3"
   Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => Gollum::MarkupRegisterUtils::executable_exists?("pandoc"), :extensions => ["vimwiki"], :reverse_links => true)
+  puts "** Gollum config.rb: Vimwiki extension registration using gollum-lib version: 5.0.a.3. WARNING: relative links are broken in this version **"
+  STDOUT.flush
 else
-  ## default to 4.1.2 (for now) -change as compatability changes
-  Gollum::Markup.register(:vimwiki,  "Vimwiki", :enabled => Gollum::MarkupRegisterUtils::executable_exists?("pandoc"), :extensions => ["vimwiki"], :reverse_links => true)
-  puts "** Gollum config.rb: Vimwiki extension registration reverting to Gollum version: 4.1.2 **"
+  ## default to 4.2.7 (for now) -change as compatability changes
+  Gollum::Markup.register(:vimwiki,  "Vimwiki", :regex => /vimwiki/, :reverse_links => true)
+  puts "** Gollum config.rb: Vimwiki extension registration reverting to gollum-lib version: 4.2.7 **"
   STDOUT.flush
 end
 ##################
 
 # fix a regex bug in mediawiki that caused vimwiki not to be recognized for edits
 # Note: the placement of this matters -needs to be after vimwiki stuff for edit to show up correctly
-# This is fixed in gollum 4.1.2
+# This is fixed in gollum-lib v5.0.a.3
 
-case gollum_version
-when "4.1.1"
+case gollum_lib_version
+when "4.2.7"
   Gollum::Markup.formats.delete(:mediawiki)
   Gollum::Markup.register(:mediawiki, "MediaWiki", :regexp => /mediawiki|wiki/, :reverse_links => true)
 #when "4.1.X"     # for future or past versions

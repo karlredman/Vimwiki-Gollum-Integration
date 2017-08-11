@@ -6,7 +6,6 @@
 * [Mastering Markdown · GitHub Guides](https://guides.github.com/features/mastering-markdown/)
 * [Emoji cheat sheet for GitHub](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
 
-[[_TOC_|levels=10]]
 
 
 ## Anchors
@@ -65,9 +64,9 @@ function fancyAlert(arg) {
 }
 ```
 
-### DIAGRAMS
+## Diagrams
 
-#### Sequence diagrams
+### Sequence diagrams
 * Gollum can render sequence diagrams from source on a page. Courtesy of [WebSequenceDiagrams](http://www.websequencediagrams.com/). For example:
 * You can replace the blue-modern style with any other supported style. Open the link above to discover what styles are available.
 ```
@@ -81,7 +80,7 @@ function fancyAlert(arg) {
     bob->alice: Test response
 }}}}}}
 
-#### PlantUML diagrams
+### PlantUML diagrams
 * If you install and configure your own PlantUML server, Gollum can render PlantUML diagrams from source on a page. Courtesy of PlantUML. For example:
 ```
 @startuml
@@ -108,7 +107,8 @@ For wireframe diagrams, you must use the *@startuml* tag followed by the *salt* 
 There cannot be empty lines inside the @startuml/@enduml block. PlantUML expects a single paragraph and adding empty lines in between will be read as multiple paragraphs.
 If you do not want to use your own PlantUML server, you can configure https://www.plantuml.com/plantuml/png as the server to use. See here on how to configure which server to use.
 
-##### PlantUML static images
+
+#### PlantUML static images
 * It's best to use the jar file that is generated while building the [PlantUML Server](https://github.com/plantuml/plantuml-server).
 * (If you haven't instaled PlantUML Server already)
     * Follow the instructions from github (but don't run): [Install local PlantUML server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server#install-local-plantuml-server)
@@ -360,10 +360,11 @@ Reference-style:
 ### Examples:
 #### Inline math:
 * example 1
+  * Note the 2 forward slashes for this form instead of 3. It's a bug I think.
 ```
-two squared:  \\\(2^2\\\)
+two squared:  \\(2^2\\\)
 ```
-    * two squared: \\\(2^2\\\)
+    * two squared: \\(2^2\\\)
 
 * example 2
 ```
@@ -421,7 +422,7 @@ As Kanye West said:
 ![GitHub Octocat Logo](Demo-Page---Kitchen-Sink/GitHub-Mark-120px-plus.png)
 ```
 
-## Strickthrough
+## Strikethrough
 ```
 ~~Struckthrough~~
 ```
@@ -443,6 +444,7 @@ As Kanye West said:
 ```
 
 ### Escaping Tags: use a single backtick
+* Note: Doesn't work for TOC tags for whatever reason
 ```
 `[[tag]]
 ```
@@ -451,11 +453,10 @@ As Kanye West said:
 
 #### Include tag (includes a page in the example)
 * As opposed to the link tag, this one is dedicated to pages, has a special syntax and includes a page into another, rather than linking it:
+* This will likely mess up the TOC on your page so review review
 ```
 [[include:cannonical-page-filename]]
 ```
-* Example this will likely mess up the TOC
-    * [[include:index]]
 
 ### Link Tags
 * Basic syntax
@@ -555,16 +556,20 @@ Content in the first column | Content in the second column
 * TODO: Explain how this autoformats for me in vim
 
 | First header | Second header | Third Header |
-| ---          | ---           | ---          |
+| :---         | :---:         | ---:         |
 | x            | x             | x            |
 
 ## Table-of-contents (TOC) tag
-* TODO: note how this needed to be escaped
+* TODO: note how this needed to be escaped -Gollum doesn't handle this tag in a code block well
 * Gollum provides a special tag for embedding a table of contents into a page:
-\[\[_TOC_\]\]
+```text
+`\[\[_TOC_\]\]
+```
 
 * Or with a max depth:
-\[\[_TOC_|levels = 3\]\]
+```text
+`\[\[_TOC_|levels = 3\]\]
+```
 
 ## Youtube Videos
 * TODO: needs testing

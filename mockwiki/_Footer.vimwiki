@@ -1,11 +1,8 @@
----
+##### Wiki Index (footer example)
 
-##### Footer Example (Wiki Index)
-
-| wiki # | Name / Index                             | Gollam Diary                                      | Vimwiki Diary                                      |
-| :---:  | ---                                      | ---                                               | ---                                                |
-| 1      | [[Personal/index| Personal]]             | [[Personal/diary/index|Gollum Diary Index]]       | [[Personal/diary/diary|Vimwiki Diary Index]]       |
-| 2      | [[Vimwiki-Gollum/index| Vimwiki-Gollum]] | [[Vimwiki-Gollum/diary/index|Gollum Diary Index]] | [[Vimwiki-Gollum/diary/index|Vimwiki Diary Index]] |
-| 3      | [[R-Systems/index| R-Systems]]           | [[R-Systems/diary/index|Gollum Diary Index]]      | [[R-Systems/diary/diary|Vimwiki Diary Index]]      |
-| 4      | [[Fiction/index| Fiction]]               | [[Fiction/diary/index|Gollum Diary Index]]        | [[Fiction/diary/diary|Vimwiki Diary Index]]        |
-
+| wiki # | Wiki Name / Index                                             | Diary                                                                                                  |
+| :---:  | :---                                                          | :---:                                                                                                  |
+| 1      | [[Vimwiki-Gollum/index|Vimwiki+Gollum Project Documentation]] | <ul><li>[Gollum](/Vimwiki-Gollum/diary/index)</li><li>[Vimwiki](/Vimwiki-Gollum/diary/diary)</li></ul> |
+| 2      | [[PersonalWiki/index|My Personal Wiki]]                       | <ul><li>[Gollum](/PersonalWiki/diary/index)</li><li>[Vimwiki](/PersonalWiki/diary/diary)</li></ul>     |
+| 3      | [[HouseholdWiki/index|My Household Wiki]]                     | <ul><li>[Gollum](/HouseholdWiki/diary/index)</li><li>[Vimwiki](/HouseholdWiki/diary/diary)</li></ul>   |
+| 4      | [[AnotherWiki/index|Wiki for AnotherWiki]]                    | <ul><li>[Gollum](/AnotherWikiA/diary/index)</li><li>[Vimwiki](/AnotherWikiA/diary/diary)</li></ul>     |

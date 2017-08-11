@@ -1,6 +1,7 @@
-###### Example Header (Useful Links)
+###### Useful Links (example header)
 
-| thing 1                                                                 | thing 2                                                        |
-| ---                                                                     | ---                                                            |
-| [[Vimwiki-Gollum/Search Examples|Search Exapmles]]                      | [[Vimwiki-Gollum/Demo-Page---Kitchen-Sink|Markdown Reference]] |
-| [Vimwiki Cheetsheet](http://thedarnedestthing.com/vimwiki%20cheatsheet) | [Demo Page - Kitchen Sink](Demo Page - Kitchen Sink)           |
+| Internal Links                                                              | External Links
+| ---                                                                  | ---                                                                                                 |
+| [Demo Page - Kitchen Sink](/Vimwiki-Gollum/Demo Page - Kitchen Sink) | [Gollum+Vimwiki Integration Project Page](https://github.com/karlredman/Vimwiki-Gollum-Integration) |
+| [[/Vimwiki-Gollum/Search Examples|Search Examples]]                  | [Vimwiki Cheetsheet](http://thedarnedestthing.com/vimwiki%20cheatsheet)                             |
+

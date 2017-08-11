@@ -5,6 +5,7 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
 
 * I'm in the process of adding Gollum v4.1.2 (the latest release this week) compatibility. I will add a new release as soon as I can.
 * **`[[Tag]] links are all currently broken for files that have spaces in the filename. Spaces are now replaced by '+' characters in gollum-lib 5.0.a.3 -the default gollum-lib for Gollum v4.1.2.**
+* ** Revert to using gollum-lib v4.2.7 to get up and running for this release of Gollum v4.1.2 **
 
 * Here's the state of things:
     * '\[\[_TOC_\]\] now works in _Sidebar.ext and _Footer.ext files.
@@ -24,22 +25,24 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
             * [X] golllum release 4.1.2 broke links
             * [X] note change in pandoc processor
         * [ ] add note about changes
-            * [ ] golllum release 4.1.2 broke links
+            * [ ] golllum-lib release 5.0.a.3 broke links
             * [ ] note change in pandoc processor
         * [ ] add install instructions for components
-    * [o] Add conditionals for gollum-lib in config.rb
-        * [ ] change form gollum version to gollum.lib version check
+    * [X] Add conditionals for gollum-lib in config.rb
+        * [X] change from gollum version to gollum.lib version check
         * [X] mediawiki extension regex handler
         * [X] vimwiki extension registration
-    * [ ] links are busted
-        * [ ] [[/Personal/Demo Page - Kitchen Sink]]
-        * [ ] [[Personal/Demo Page - Kitchen Sink]]
-        * [ ] [Personal/Demo Page - Kitchen Sink](Personal/Demo Page - Kitchen Sink)
-        * [ ] [/Personal/Demo Page - Kitchen Sink](/Personal/Demo Page - Kitchen Sink)
-        * [ ] "All" tab builds links with '+' for spaces
-        * [ ] all `\[\[tags\]\] attempt to fill spaces with '+'
-    * [O] handle sidebar fix
-        * [ ] post comment about TOC and fix to forum
+    * [X] links are busted
+        * [X] [[/Personal/Demo Page - Kitchen Sink]]
+        * [X] [[Personal/Demo Page - Kitchen Sink]]
+        * [X] [Personal/Demo Page - Kitchen Sink](Personal/Demo Page - Kitchen Sink)
+        * [X] [/Personal/Demo Page - Kitchen Sink](/Personal/Demo Page - Kitchen Sink)
+        * [X] "All" tab builds links with '+' for spaces
+        * [X] all `\[\[tags\]\] attempt to fill spaces with '+'
+        * [X] fixed by reverting back to gollum-lib v4.2.7
+        * [X] bug filed to [gollum-lib issues](https://github.com/gollum/gollum-lib/issues/282)
+    * [X] handle sidebar fix
+        * [X] post comment about TOC and fix to forum
         * [X] try to do monkeypatch
         * [X] Confirmed that [this fix](https://github.com/gollum/gollum-lib/pull/232/commits/e19b4f5363d84f64beb53bbc29468d75b693ee1d) works
         * [X] Latest Gollum (v4.1.2) release of [gollum-lib/page.rb](https://github.com/gollum/gollum-lib/blob/fb23b68eba375a4235dc3a978b59b2507a9d4a67/lib/gollum-lib/page.rb) (v5.0.a.3) does not have fix
@@ -48,11 +51,13 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
 
     ## Other todo:
     * [ ] try to replace the editor for vimwiki files
-    * [ ] look into css changes
-    * [ ] change name?
-        * [ ] gollum vimwiki
-        * [ ] Gollum And Vimwiki
-        * [ ] GollVim-Wiki
+    * [X] look into css changes
+        * [X] won't fix for now
+    * [X] change name?
+        * [X] gollum vimwiki
+        * [X] Gollum And Vimwiki
+        * [X] GollVim-Wiki
+        * [X] won't fix for now
 
 ## Description:
 
