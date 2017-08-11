@@ -3,6 +3,7 @@
 # Github says to "always include this"
 Gollum::Page.send :remove_const, :FORMAT_NAMES if defined? Gollum::Page::FORMAT_NAMES
 
+# TODO: change this to gitlab-lib + gollum version ????
 # grab the gollum version for later conditionals
 gollum_version = Gem.loaded_specs["gollum"].version.version
 puts "** Gollum config.rb using configuration for Gollem version: #{gollum_version} **"
@@ -57,9 +58,6 @@ end
 # original file: /var/lib/gems/2.1.0/gems/gollum-grit_adapter-1.0.1/lib/grit_adapter/git_layer_grit.rb
 #
 # We are overriding Gollum::Git::Git.grep in order to open up the native 'git grep' regex capabilities.
-
-# probably not necessary
-#Gollum::Git_Adapter::Git.grep :remove_const, :FORMAT_NAMES if defined? Gollum::Git_Adapter::FORMAT_NAMES
 
 module Gollum
   module Git
@@ -133,8 +131,8 @@ end
 ci = ::GitHub::Markup::CommandImplementation.new(
     /vimwiki/,
     ["Vimwiki"],
-    "pandoc -f markdown-tex_math_dollars-raw_tex",                                # works but I would like to use internal
-    #"pandoc -f markdown_github",                                                 # close but math is jacked up
+    #"pandoc -f markdown-tex_math_dollars-raw_tex",                               # works but I would like to use internal
+    "pandoc -f markdown_github",                                                  # Best fit so far
     #::GitHub::Markup::Markdown.new,                                              # doesn't work at all
     #::GitHub::Markup::markup_impl(":vimwiki", ::GitHub::Markup::Markdown.new),   # sortof works. I'm still missing something
     :vimwiki)
@@ -186,7 +184,7 @@ Precious::App.set(:wiki_options, index_page: "index")
 # * turn on/off TOC for all pages (unless specified by macro in the markdown file)
 Precious::App.set(:wiki_options, { :universal_toc => false })
 
-# This doesn't work here for whatever reason... using command line anyway.
+# This doesn't work here for whatever reason... using command line anyway. (v4.1.1)
 # Gollum::Filter::PlantUML.configure do |config|
 #   config.test = true # Skip server checks
 #   config.url  = "http://localhost:8989/plantuml/png" # Non existent server
