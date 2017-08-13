@@ -2,21 +2,28 @@
 
 ## Special Notes
 * This is the long form of this procedure. See [Vimwiki+Gollum Integration: README.md](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/README.md) for a quick install guide.
-* Anything that has a [ ] checkbox is a TODO item for me.
+
+* This project works with Gollum v4.x/gollum-lib v4.x. I'll update the documents and installation examples when Gollum v5.x is released. Gollum v5.x has some big changes on the way. For this reason I am suspending further work on this project until the Gollum v5.x release. This project's support of Gollum v4.x is considered to be "complete enough" at this time. See [5.0 release notes](https://github.com/gollum/gollum/wiki/5.0-release-notes) for further information.
 
 ## Description:
+
+This is a guide and tutorial, with tools and 'out of the box' examples, for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum Wiki](https://github.com/gollum/gollum) on *Linux* systems. The aim of this project is to provide a fairly easy installation and setup for a working Vimwiki + Gollum workflow.
+
+Most of this work is not my own. Rather I endeavor to document the process for integrating the various components that make a fairly complete wiki system for personal use. I've added some tools and a mock up wiki installation to get you started.
+
+
 * This is a setup guide for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum](https://github.com/gollum/gollum). See the [Features section](#Features_anchor).
 * The intended result is for a **locally served vimwiki+gollum installation**.
 * **Security** is not a consideration at this time. I may add information for setting up [omnigollum](https://github.com/arr2036/omnigollum) at a later date.
-* Note: This project has **only been tested with github-mardown** format. I have not bothered with other markdown formats because vimwiki doesn't recognize formats other than vimwiki and (some close variation to) github-markdown.
+* Note: This project has **only been tested with github-mardown** format. I have not bothered with other markdown formats because vimwiki doesn't recognize formats other than vimwiki and (some close variation to) Github Flavored Markdown.
 * The intention here is to use **out of the box components only**. All customization is done through configuration of the various components via their respective customization methods. No direct patching is allowed.
-* An example wiki directory (mockwiki in the sources of this project) is provided for tutorial purposes. This directory structure will be used to throughout this document.
+* An example Gollum/Vimwiki wiki directory (mockwiki in the sources of this project) is provided for tutorial purposes. This directory structure will be used to throughout this document.
 * Note: this procedure is **only tested with ubuntu based systems** (specifically Linux Mint v18.1 Cinnamon)
 * Specifics for file server setup for media, etc. are not discussed at this time. However please consider that git is definitely not an ideal place to keep binaries.
-* Author: [Karl N. Redman](https://karlredman.github.io/)
+* Author: [Karl N. Redman](https://karlredman.github.io)
 
 ## Limitations / Bugs:
-* See the [Limitations sections](#TODO_anchor) at the bottom of this document
+* See the [Limitations](#TODO_anchor) section at the bottom of this document
 
 ## Background:
 
@@ -45,19 +52,24 @@ My requirements (relative to this project) boil down to the following:
 
 <a name=Features_anchor> </a>
 ## Features:
-* All the features of outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki)
-* Editing vimwiki files in [github mardown](https://guides.github.com/features/mastering-markdown/).
+* All the features outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki).
+* Tutorial with a working example 'mockwiki' directory structure (drop in).
+* Edit wiki pages through Vimwiki using [github mardown](https://guides.github.com/features/mastering-markdown/).
 * Vimwiki extension is recognized in Gollum editor.
-* Improved [git grep](https://git-scm.com/docs/git-grep) search capabilities through Gollum.
-    * See the [search ](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Search%20Examples.vimwiki) for specific information about the improved search capabilities.
-    * Basic Regex file content searches are supported
-	* [PlantUML Server](https://github.com/plantuml/plantuml-server) integration with Gollum
-    * Supports inline mardown
-    * Supports GitHub !includeurl format supported (see [git - How to integrate UML diagrams into GitLab or GitHub - Stack Overflow](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1))
-* File uploads for the occasion that files are genuinely required/needed
-* Custom (very basic) startup/shutdown scripts
-* List some [useful references](#UsefulReferences_anchor) for the components involved
-
+* Edit vimwiki pages through the Gollum Web Interface.
+* TOC works in _Sidebar.ext and _Footer with the included monkypatched [config.rb](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/config.rb)
+* Regex Searches of Wiki content through the Gollum Web Interface.
+	* Enables [git grep](https://git-scm.com/docs/git-grep) on the backend.
+	* Requires [Gollum's Grit Git Adapter](https://github.com/gollum/gollum/wiki/Git-adapters) (default adapter for Linux)
+    * See the [search documentation]((https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/Search%20Examples.vimwiki)) for specific information about the improved search capabilities.
+* [PlantUML Server](https://github.com/plantuml/plantuml-server) integration with Gollum.
+    * Supports inline markdown (i.e [Class Diagrams](http://plantuml.com/class-diagram))
+    * GitHub !includeurl format supported (see [git - How to integrate UML diagrams into GitLab or GitHub - Stack Overflow](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github?rq=1))
+* File uploads to the Vimwiki/Gollum repository from the Gollum web interface.
+* Custom startup/shutdown scripts
+* Cron script for automatically updating Gollum readable diary indexes.
+* [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) to support the entire integration process.
+* A [shell script](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh) is provided to help with keeping links consistent between Gollum and Vimwiki.
 
 <a name=UsefulReferences_anchor> </a>
 ## Useful References
@@ -91,6 +103,17 @@ My requirements (relative to this project) boil down to the following:
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 * You will likely have to accept installation for or install seperately dependencies that these dependencies depend on (i.e. Gollum depends on ruby v2+, etc.)
 
+## Special Note about internal link/tag consistency:
+
+There is no easy way to synchronize the behavior for internal links and tags between Gollum v4.x and Vimwiki. The two systems, by way of their purpose and use cases, handle links from different perspectives. In an effort to provide the most consistent behavior between the two systems I've created a script ([genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh))that generates symlinks with a comprehensive list of restrictions. Without some major alteration of one or both systems it seems that symlinks are as good as it's going to get until the next release of Gollum. Please see the script for more detail. There are notes in the mockwiki that detail the reluctant decision making process that went into using symlinks to solve a very complicated problem.
+
+If you follow the 'Example Installation / Tutorial' then running the genSymlinks.sh script should work ok for you on a linux based system.
+* Use the script at **Your Own Risk**
+* Please look at the code first before running it.
+* I run exactly this script from cron several times per day.
+
+* For **best results with Gollum v4.x use forward looking links as much as possible** (i.e. '\[\[PersonalWiki/diary/2017-07-31\]\]' as opposed to \[\[2017-07-31\]\])
+
 ------
 ## Setup instructions from here on:
 * All path references assume the example 'mockwiki' directory structure that is part of this project.
@@ -101,8 +124,7 @@ My requirements (relative to this project) boil down to the following:
 1. Installation instructions for each component is beyond the scope of this project. Since the aim of this project is to use unaltered components then merely following the basic installation instructions (links provided above) should suffice.
 2. Verify the individual components work as intended
 
-
-### Setting up a new vimwiki:
+### Setting up an example Gollum Wiki installation for use with Vimwiki:
 
 #### setup vim .vimrc
 * vimwiki setup (the first wiki listed will be the default for vimwiki). This example shows 5 wikis being managed by Vimwiki.

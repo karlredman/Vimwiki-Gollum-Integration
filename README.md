@@ -3,61 +3,7 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
 
 ## Note:
 
-* I'm in the process of adding Gollum v4.1.2 (the latest release this week) compatibility. I will add a new release as soon as I can.
-* **`[[Tag]] links are all currently broken for files that have spaces in the filename. Spaces are now replaced by '+' characters in gollum-lib 5.0.a.3 -the default gollum-lib for Gollum v4.1.2.**
-* **Revert to using gollum-lib v4.2.7 to get up and running for this release of Gollum v4.1.2**
-
-* Here's the state of things:
-    * '\[\[_TOC_\]\] now works in _Sidebar.ext and _Footer.ext files.
-        * This is done through a new monkey patch in mockwiki/gollum_admin/config.rb
-    * Pandoc now uses the markdown_github gem to processes file content for .vimwiki files.
-        * There is one minor bug in markdown_github for processing mathematics. It's documented in the Demo page.
-    * The demo page under 'mockwiki/Vimwiki-Gollum/' has been updated to reflect the change in processor.
-    * Added documentation to help with the install process.
-    * Added conditional code in config.rb to accomidate for extension registration
-        * Note: the current (temporary) condition is based on Gollum version but will change to gollum-lib version before release
-        * fixes mediawiki regex bug
-
-* Here's the current TODO list for a Gollum v4.1.2 compatible release:
-    * [o] update vim-gollum documents for 4.1.2
-        * [X] update demo page
-        * [X] add note about changes being made
-            * [X] golllum release 4.1.2 broke links
-            * [X] note change in pandoc processor
-        * [ ] add note about changes
-            * [ ] golllum-lib release 5.0.a.3 broke links
-            * [ ] note change in pandoc processor
-        * [ ] add install instructions for components
-    * [X] Add conditionals for gollum-lib in config.rb
-        * [X] change from gollum version to gollum.lib version check
-        * [X] mediawiki extension regex handler
-        * [X] vimwiki extension registration
-    * [X] links are busted
-        * [X] [[/Personal/Demo Page - Kitchen Sink]]
-        * [X] [[Personal/Demo Page - Kitchen Sink]]
-        * [X] [Personal/Demo Page - Kitchen Sink](Personal/Demo Page - Kitchen Sink)
-        * [X] [/Personal/Demo Page - Kitchen Sink](/Personal/Demo Page - Kitchen Sink)
-        * [X] "All" tab builds links with '+' for spaces
-        * [X] all `\[\[tags\]\] attempt to fill spaces with '+'
-        * [X] fixed by reverting back to gollum-lib v4.2.7
-        * [X] bug filed to [gollum-lib issues](https://github.com/gollum/gollum-lib/issues/282)
-    * [X] handle sidebar fix
-        * [X] post comment about TOC and fix to forum
-        * [X] try to do monkeypatch
-        * [X] Confirmed that [this fix](https://github.com/gollum/gollum-lib/pull/232/commits/e19b4f5363d84f64beb53bbc29468d75b693ee1d) works
-        * [X] Latest Gollum (v4.1.2) release of [gollum-lib/page.rb](https://github.com/gollum/gollum-lib/blob/fb23b68eba375a4235dc3a978b59b2507a9d4a67/lib/gollum-lib/page.rb) (v5.0.a.3) does not have fix
-    * [X] update sidebar/footer for mockwiki
-    * [ ] update my tickets
-
-    ## Other todo:
-    * [ ] try to replace the editor for vimwiki files
-    * [X] look into css changes
-        * [X] won't fix for now
-    * [X] change name?
-        * [X] gollum vimwiki
-        * [X] Gollum And Vimwiki
-        * [X] GollVim-Wiki
-        * [X] won't fix for now
+This project works with Gollum v4.x/gollum-lib v4.x. I'll update the documents and installation examples when Gollum v5.x is released. Gollum v5.x has some big changes on the way. For this reason I am suspending further work on this project until the Gollum v5.x release. This project's support of Gollum v4.x is considered to be "complete enough" at this time. See [5.0 release notes](https://github.com/gollum/gollum/wiki/5.0-release-notes) for further information.
 
 ## Description:
 
@@ -72,7 +18,8 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 * All the features outlined on the [Gollum Wiki Home Page](https://github.com/gollum/gollum/wiki).
 * Tutorial with a working example 'mockwiki' directory structure (drop in).
 * Edit wiki pages through Vimwiki using [github mardown](https://guides.github.com/features/mastering-markdown/).
-* Edit wiki pages through the Gollum Web Interface.
+* Edit vimwiki pages through the Gollum Web Interface.
+* TOC works in _Sidebar.ext and _Footer with the included monkypatched [config.rb](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/config.rb)
 * Regex Searches of Wiki content through the Gollum Web Interface.
 	* Enables [git grep](https://git-scm.com/docs/git-grep) on the backend.
 	* Requires [Gollum's Grit Git Adapter](https://github.com/gollum/gollum/wiki/Git-adapters) (default adapter for Linux)
@@ -88,16 +35,16 @@ Most of this work is not my own. Rather I endeavor to document the process for i
 
 ## Special Note about internal link/tag consistency:
 
-There is no easy way to synchronize the behavior for internal links and tags between Gollum and Vimwiki. The two systems, by way of their purpose and use cases, handle links from different perspectives. In an effort to provide the most consistent behavior between the two systems I've created a script ([genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh))that generates symlinks with comprehensive list of restrictions. Without some major alteration of one or both systems it seems that symlinks is as good as it's going to get. Please see the script for more detail. There are notes in the mockwiki that detail the reluctant decision making process that went into using symlinks to solve a very complicated problem.
+There is no easy way to synchronize the behavior for internal links and tags between Gollum v4.x and Vimwiki. The two systems, by way of their purpose and use cases, handle links from different perspectives. In an effort to provide the most consistent behavior between the two systems I've created a script ([genSymlinks.sh](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/genSymlinks.sh))that generates symlinks with a comprehensive list of restrictions. Without some major alteration of one or both systems it seems that symlinks are as good as it's going to get until the next release of Gollum. Please see the script for more detail. There are notes in the mockwiki that detail the reluctant decision making process that went into using symlinks to solve a very complicated problem.
 
 If you follow the 'Example Installation / Tutorial' then running the genSymlinks.sh script should work ok for you on a linux based system.
 * Use the script at **Your Own Risk**
 * Please look at the code first before running it.
 * I run exactly this script from cron several times per day.
 
-* For **best results use forward looking links as much as possible** (i.e. '\[\[PersonalWiki/diary/2017-07-31\]\]' as opposed to \[\[2017-07-31\]\])
+* For **best results with Gollum v4.x use forward looking links as much as possible** (i.e. '\[\[PersonalWiki/diary/2017-07-31\]\]' as opposed to \[\[2017-07-31\]\])
 
-## Example Installation / Tutorial
+## Example Gollum (v4.x) Wiki Installation / Tutorial
 
 1. Install dependencies and their respective dependencies:
 * [Vim v8.0+](http://www.vim.org/)
@@ -111,7 +58,7 @@ sudo apt-get install git
 ```bash
 sudo apt-get install pandoc
 ```
-* [Gollum](https://github.com/gollum/gollum) (only v4.1.1 is tested at this time)
+* [Gollum](https://github.com/gollum/gollum) (v4.x)
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 	* The startup script expects this to be installed at $HOME/3rdparty/plantuml-server
@@ -144,7 +91,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 	```bash
 	cp -r [path to]/Vimwiki-Gollum-Integration/mockwiki ~/
 	```
-	3. Initialize the mockwiki as a git repository and check in the files
+	3. Initialize the mockwiki directory as a git repository and check in the files
 	```bash
 	cd ~/mockwiki
 	git init
