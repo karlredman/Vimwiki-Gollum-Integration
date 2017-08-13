@@ -89,7 +89,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 3. Setup wiki directory structure and initialize the repository:
 	1. Clone this project:
 	```bash
-	git clone git@github.com:karlredman/Vimwiki-Gollum-Integration.git
+	git clone -b gollum_v4.x git@github.com:karlredman/Vimwiki-Gollum-Integration.git
 	```
 	2. Copy the mockwiki directory structure to your home directory:
 	```bash

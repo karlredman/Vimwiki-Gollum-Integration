@@ -134,6 +134,11 @@ If you follow the 'Example Installation / Tutorial' then running the genSymlinks
 
 ### Setting up an example Gollum Wiki installation for use with Vimwiki:
 
+#### Clone Vimwiki-Gollum-Integration project (for Gollum v4.x)
+```
+git clone -b gollum_v4.x git@github.com:karlredman/Vimwiki-Gollum-Integration.git
+```
+
 #### setup vim .vimrc
 * vimwiki setup (the first wiki listed will be the default for vimwiki). This example shows 5 wikis being managed by Vimwiki.
 * I do not recommend including the root directory of your repository/wikis as a wiki. It'll just get overly messy.
@@ -166,7 +171,7 @@ let g:vimwiki_folding='list'
 autocmd FileType vimwiki setlocal tabstop=4 expandtab
 ```
 
-### Setup wiki directory structure and initialize the repository:
+#### Setup wiki directory structure and initialize the repository:
 * For an explanation of why we setup index.vimwiki and diary.vimwiki files this way please see the [Gollum configuration section](#GollumConfig_anchor).
 * The directory structure I use seperates several wikis all accessable from both Vimwiki and Gollum
 
