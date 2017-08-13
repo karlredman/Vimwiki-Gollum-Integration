@@ -60,6 +60,10 @@ sudo apt-get install pandoc
 ```
 * [Gollum](https://github.com/gollum/gollum) (v4.x)
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
+```
+[sudo] gem install gollum -v 4.1.2
+```
+
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 	* The startup script expects this to be installed at $HOME/3rdparty/plantuml-server
 	* see [Install local PlantUML server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server#install-local-plantuml-server) for installation instructions.

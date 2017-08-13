@@ -93,15 +93,23 @@ My requirements (relative to this project) boil down to the following:
 * A non-mobile computer system to run local web servers and host a git repository (possible clone)
 * Some knowledge of Linux/Unix administration. If you have read this far you probably have the knowledge you need.
 * Linux (only ubuntu derivatives are tested)
+* You will likely have to accept installation for or install seperately dependencies that these dependencies depend on (i.e. Gollum depends on ruby v2+, etc.)
 * [Vim v8.0+](http://www.vim.org/)
+	* Suggested link: [Vim 8.0 Released! How to install it in Ubuntu 16.04 - Tips on Ubuntu](http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/)
 * [Git Version Control System](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+```bash
+sudo apt-get install git
+```
 * [Vimwiki](https://github.com/vimwiki/vimwiki) vim plugin
 * [Pandoc](http://pandoc.org/installing.html)
-* [Gollum](https://github.com/gollum/gollum)
-	* '[[_TOC_]] is broken for sidebars as of v4.1.1. It looks like 4.2.2 might fix this (untested).
+```bash
+sudo apt-get install pandoc
+```
+* [Gollum](https://github.com/gollum/gollum) (v4.x)
     * ...using Github's [Gollum Grit Adapter](https://github.com/gollum/grit_adapter) (installed by default for ubuntu systems)
-* [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
-* You will likely have to accept installation for or install seperately dependencies that these dependencies depend on (i.e. Gollum depends on ruby v2+, etc.)
+```
+[sudo] gem install gollum -v 4.1.2
+```
 
 ## Special Note about internal link/tag consistency:
 
