@@ -63,11 +63,25 @@ sudo apt-get install pandoc
 ```
 [sudo] gem install gollum -v 4.1.2
 ```
+    * Note: For system level installs, if you get an error for '[charlock_holmes](https://github.com/brianmario/charlock_holmes)' relative to [ICU](http://site.icu-project.org/) then you need to install the unicode library and ruby dev files.   
+	```
+	sudo apt-get install libicu-dev
+    sudo apt-get install ruby-dev
+	```
+   
+    * For System level installs, if you are also using RVM make sure you are installing with system ruby:
+	```
+    rvm use system
+	```
 
 * [PlantUML Server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server)
 	* The startup script expects this to be installed at $HOME/3rdparty/plantuml-server
 	* see [Install local PlantUML server](https://github.com/gollum/gollum/wiki/Custom-PlantUML-Server#install-local-plantuml-server) for installation instructions.
 	* The [startup script](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/mockwiki/gollum_admin/start_gollum.sh) from this project starts plantuml server for you
+    * You will likely need to install maven + dependencies
+    ```
+    sudo apt-get install maven
+    ```
 
 2. Add the following to your '.vimrc' configuration file:
     * Adjust the 'path:' references in your '.vimrc' 'vimwiki_list' as needed.
