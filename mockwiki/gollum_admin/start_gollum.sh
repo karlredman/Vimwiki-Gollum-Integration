@@ -3,17 +3,15 @@
 # starts the plantuml and gollum servers in the background
 # not suitable as a service script
 
-# Configuration
-## PlantUML
-plantuml_installdir="$HOME/3rdparty/plantuml-server"
-plantuml_port="8989"        # remember to upate gollum's config.rb for this port as well
-## Gollum
-gollum_plantuml_url="http://localhost:$plantuml_port/plantuml/png"
-gollum_repodir="$HOME/mockwiki"
-gollum_configfile="$gollum_repodir/gollum_admin/config.rb"
-gollum_port="4567"
+#setup include path
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then
+    DIR="$PWD"
+fi
 
-waitstart_plantuml=10       # how long to wait for the plantuml server to start
+# include config
+. "$DIR/config.sh"
+
 
 ########### End of configuration section
 
@@ -26,9 +24,9 @@ if [ "${proclive}" ]; then
     echo "NOTICE: it appears that $program is already running with PID $id! Skipping startup for $program"
 else
     cd $plantuml_installdir
-    command="mvn jetty:run -Djetty.port=$plantuml_port"
-    $command > /tmp/$program-server.log 2>&1 &
-    echo "$!" > /tmp/$program-server.pid
+    command="nohup mvn jetty:run -Djetty.port=$plantuml_port"
+    $command > /tmp/$program-$server_type-server.log 2>&1 &
+    echo "$!" > /tmp/$program-$server_type-server.pid
 
     echo "Sleeping for $waitstart_plantuml while PlantUML starts..."
     sleep $waitstart_plantuml
@@ -42,10 +40,10 @@ if [ "${proclive}" ]; then
     id=`echo $proclive | awk '{print $1}'`
     echo "NOTICE: it appears that $program is already running with PID $id! Skipping startup for $program"
 else
-    cd $gollum_repodir
-    command="gollum --port $gollum_port --config $gollum_configfile --plantuml-url $gollum_plantuml_url --emoji --mathjax --live-preview --allow-uploads=page --collapse-tree --adapter grit"
-    $command > /tmp/$program-server.log 2>&1 &
-    echo "$!" > /tmp/$program-server.pid
+    cd $repodir
+    command="nohup gollum --port $gollum_port --config $gollum_configfile --plantuml-url $gollum_plantuml_url --emoji --mathjax --live-preview --allow-uploads=page --collapse-tree --adapter grit"
+    $command > /tmp/$program-$server_type-server.log 2>&1 &
+    echo "$!" > /tmp/$program-$server_type-server.pid
 fi
 
 

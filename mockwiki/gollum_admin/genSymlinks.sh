@@ -34,19 +34,20 @@
 ####################################################
 
 ###########
-# configuration defaults
-repodir="$HOME/mockwiki"
-excludelist=($repodir "$repodir/gollum_admin")
-skiptoplevels=false         # !!!! set to true to skip toplevel directories
-diary_dir_name="diary"
-extension="vimwiki"
+#setup include path
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then
+    DIR="$PWD"
+fi
+
+# include config
+. "$DIR/config.sh"
+
 ###########
 
 # TODO:
 # manage command line arguments
 ## stuff goes here
-## handle excludelist
-#excludelist+=("$repodir/uploads" "$repodir/testfiles" "$repodir/R-Systems/files" )
 
 function create_symlink () {
     target=$1
@@ -157,7 +158,7 @@ for i in ${!dirlist[@]}; do
         fi
 
         # create links
-        echo "creating links at ${dirlist[$i]}"
+        echo "creating diary subdir links at ${dirlist[$i]}"
         create_symlinks  topdirs[@] "${dirlist[$i]}"
         continue
     fi

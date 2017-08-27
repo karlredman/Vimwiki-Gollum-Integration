@@ -1,0 +1,14 @@
+# Demo page updates / todo
+
+# Journal:
+
+Updated the demo page and fixed a few things -mostly dumb formatting errors
+
+# TODO:
+* [ ] gollum footnotes are hosed
+    * [ ] could be footer, etc?
+    * [ ] do test in isolated file away from demo page
+* [ ] finish adding sidebar test
+    * [ ] setup new testing workspace for gollum+lib
+    * [ ] add test as suggested [Issue #1161 : Fix rendering of TOC on the sidebar. by bogado · Pull Request #232 · gollum/gollum-lib](https://github.com/gollum/gollum-lib/pull/232)
+    * [ ] update this project's docs

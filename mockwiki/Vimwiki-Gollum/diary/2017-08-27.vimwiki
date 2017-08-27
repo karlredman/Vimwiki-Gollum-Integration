@@ -1,0 +1,47 @@
+# Journal: better config, TOC PR, timetrap + vim macros
+
+* I've added a slightly better config file mechanism for the gollum_admin scripts. This will hopefully help with me switching back and forth between production and development environments.
+
+* I haven't finished the PR for the TOC fix yet. Basically I've been busy with other things and also realized that I needed to set up a better testing environment for my development system overall. I expect to get back to this issue in a day or two.
+
+* I'm adding timetrap support as part of the larger system I have in mind. This Timetrap config uses the "nested_dotfiles" auto_sheet to make it easier to start and stop timers based on the file that is open in a particular wiki. I'll need to document this once I've started working on polishing the overall system. timetrap isn't perfet for what I want to accomplish bit it's close enough for now/prototype.
+```vim
+" timetrap
+map ,ti :cd %:p:h<CR> :!t i<space>
+map ,to :cd %:p:h<CR> :!t o<cr>
+map ,ta :cd %:p:h<CR> :!t edit --append<space>
+map ,te :cd %:p:h<CR> :!t edit<space>
+map ,td :cd %:p:h<CR> :!t display --ids --all \| less<CR>
+map ,tl :cd %:p:h<CR> :!t list<CR>
+map ,tn :!t now<CR>
+map ,tO :!stop_all_timetraps.sh<CR>
+" DISCOURAGED: won't work if in a dir where .timetrap-sheet resides
+map ,ts :!t s<space>
+"restart with note
+map ,tR :cd %:p:h<CR> :!t o<CR> \| :!t i<space>
+```
+
+* Here's the immature script for the stop_all_timetraps.sh
+```bash
+#!/bin/bash
+# get names of sheets from `t now`
+x=$(t now 2>/dev/null| sed 's/\:.*$//' | sed 's/^.//');
+
+# TODO: this version doesn't handle multiline notes
+# change the program to use `t list`
+
+# go somewhere there is now timesheet
+pushd /
+
+for i in ${x[@]};
+do
+    # `switch to sheet`
+    t s $i;
+    # `punch out`
+    t o;
+
+    echo killing: $i
+done
+popd
+```
+

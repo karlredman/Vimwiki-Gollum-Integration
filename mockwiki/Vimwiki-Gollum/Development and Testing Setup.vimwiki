@@ -1,0 +1,71 @@
+# Development and Testing Setup
+
+## Rebuilding mockwiki for development
+* This is my personal system (Other users BEWARE!!!)
+
+1. Ruby environment
+```
+rvm install -n gollum_testing ruby
+rvm use ruby-2.4.1-gollum_teting
+gem install gollum
+```
+
+2. setup mockwiki
+```
+cd Vimwiki-Gollum
+##
+git status
+#
+# check stuff in as needed
+#
+git pull
+##
+# copy mockwiki to $HOME
+rsync -a --no-links $HOME/Projects/github/Vimwiki-Gollum-Integration/mockwiki $HOME/
+# copy latest Vimwiki-Gollum wiki to mockwiki
+rsync -a --no-links --exclude ".timetrap-sheet" $HOME/Documents/Heorot/Vimwiki-Gollum $HOME/mockwiki/
+#
+# copy the gollum_admin from production
+rsync -a --no-links $HOME/Documents/Heorot/gollum_admin $HOME/mockwiki/
+
+#
+# (optional) copy timetrap stuff -DON'T FORGET TO REMOVE THE DB !!!
+# Careful not to copy over the mockwiki timetrap.yml file !!!!!
+rsync -a --no-links --exclude 'timetrap/timetrap.db' $HOME/Documents/Heorot/timetrap $HOME/mockwiki/
+
+##
+# create git repo in mockwiki (if not present -probably there already)
+cd mockwiki
+echo "*~" >> .gitignore
+git init
+git add -A
+git commit -am "init"
+#
+##
+```
+
+4. edit `~/mockwiki/gollum_admin/config.sh`
+    * should only have to set variable `use_mockwiki=true`
+
+5. rebuild links and diaries
+```
+~/mockwiki/gollum_admin/genSymlinks.sh
+~/mockwiki/gollum_admin/genGollumDiaryIndexes.sh
+```
+
+6. commit changes
+```
+git add -A
+git commit -am "updated from downstream author"
+```
+
+7. start gollum
+```
+~/mockwiki/gollum_admin/start_gollum.sh
+```
+
+8. monitor logs
+```
+tail -f /tmp/gollum-testing-server.log /tmp/plantuml-testing-server.log
+```
+

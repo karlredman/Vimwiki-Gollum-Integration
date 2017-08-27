@@ -9,49 +9,50 @@ gollum_lib_version = Gem.loaded_specs["gollum-lib"].version.version
 puts "** Gollum config.rb using configuration for Gollem version: #{gollum_lib_version} **"
 STDOUT.flush
 
+if ( Gem.loaded_specs['gollum-lib'].version <= Gem::Version.create('4.2.7') )
+  # Monkey patch find_sub_pages()
+  # * Purpose: Applies patch for gollum-lib issue #1161 (Fix rendering of TOC on the sidebar)
+  # * Works for gollum-lib 4.2.7 (from Gollum 4.1.1 release)
+  # * Reference file: gollum-lib/pages.rb (gollum-lib: v4.2.7) / gollum v4.1.2
+  module Gollum
+    class Page
+      def find_sub_pages(subpagenames = SUBPAGENAMES, map = nil)
+        subpagenames.each{|subpagename| instance_variable_set("@#{subpagename}", nil)}
+        return nil if self.filename =~ /^_/ || ! self.version
 
-# Monkey patch find_sub_pages()
-# * Purpose: Applies patch for gollum-lib issue #1161 (Fix rendering of TOC on the sidebar)
-# * Works for gollum-lib 4.2.7 (from Gollum 4.1.1 release)
-# * Reference file: gollum-lib/pages.rb (gollum-lib: v5.0.a.3) / gollum v4.1.2
-module Gollum
-  class Page
-    def find_sub_pages(subpagenames = SUBPAGENAMES, map = nil)
-      subpagenames.each{|subpagename| instance_variable_set("@#{subpagename}", nil)}
-      return nil if self.filename =~ /^_/ || ! self.version
+        map ||= @wiki.tree_map_for(@wiki.ref, true)
+        valid_names = subpagenames.map(&:capitalize).join("|")
+        # From Ruby 2.2 onwards map.select! could be used
+        map = map.select{|entry| entry.name =~ /^_(#{valid_names})/ }
+        return if map.empty?
 
-      map ||= @wiki.tree_map_for(@wiki.ref, true)
-      valid_names = subpagenames.map(&:capitalize).join("|")
-      # From Ruby 2.2 onwards map.select! could be used
-      map = map.select{|entry| entry.name =~ /^_(#{valid_names})/ }
-      return if map.empty?
+        subpagenames.each do |subpagename|
+          dir = ::Pathname.new(self.path)
+          while dir = dir.parent do
+            subpageblob = map.find do |blob_entry|
 
-      subpagenames.each do |subpagename|
-        dir = ::Pathname.new(self.path)
-        while dir = dir.parent do
-          subpageblob = map.find do |blob_entry|
+              filename = "_#{subpagename.to_s.capitalize}"
+              searchpath = dir == Pathname.new('.') ? Pathname.new(filename) : dir + filename
+              entrypath = ::Pathname.new(blob_entry.path)
+              # Ignore extentions
+              entrypath = entrypath.dirname + entrypath.basename(entrypath.extname)
+              entrypath == searchpath
+            end
 
-            filename = "_#{subpagename.to_s.capitalize}"
-            searchpath = dir == Pathname.new('.') ? Pathname.new(filename) : dir + filename
-            entrypath = ::Pathname.new(blob_entry.path)
-            # Ignore extentions
-            entrypath = entrypath.dirname + entrypath.basename(entrypath.extname)
-            entrypath == searchpath
+            if subpageblob
+              #instance_variable_set("@#{subpagename}", subpageblob.page(@wiki, @version) )
+              subpage =  subpageblob.page(@wiki, @version)
+              subpage.parent_page = self
+              instance_variable_set("@#{subpagename}", subpage)
+              break
+            end
+
+            break if dir == Pathname.new('.')
           end
-
-          if subpageblob
-            #instance_variable_set("@#{subpagename}", subpageblob.page(@wiki, @version) )
-						subpage =  subpageblob.page(@wiki, @version)
-						subpage.parent_page = self
-						instance_variable_set("@#{subpagename}", subpage)
-            break
-          end
-
-          break if dir == Pathname.new('.')
         end
       end
     end
-	end
+  end
 end
 
 ############
@@ -93,7 +94,7 @@ module Gollum
         # * Add --all-match and --extended-regexp to the arguments list plus the now delimited query
         # * The array format is <empty hash> +  <git grep options> + <query> + <branch reference (i.e. HEAD) + <end of options specifier>
         args = [{}, '--all-match', '-I', '-i', '-c', '--extended-regexp']+query+[ref, '--']
-        # args = [{}, '--all-match', '-I', '-i', '-c', '--extended-regexp', query, ref, '--']
+        #args = [{}, '--all-match -I -i -c --extended-regexp gollum HEAD -- testfiles']
         ##########################
 
 

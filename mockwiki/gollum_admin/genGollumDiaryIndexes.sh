@@ -25,10 +25,14 @@
 #
 # Author: [Karl N. Redman](https://github.com/karlredman)
 
-# configuration
-repodir="$HOME/mockwiki"
-diaryname="diary.vimwiki"
-targetindex="index.vimwiki"
+#setup include path
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then
+    DIR="$PWD"
+fi
+
+# include config
+. "$DIR/config.sh"
 
 # go to the repository
 pushd $repodir > /dev/null 2>&1
@@ -54,8 +58,9 @@ for i in ${!filelist[@]}; do
 
     ### save the diary parent (wiki) directory name as $wikiname
     D1=$(dirname "${filelist[$i]}")
-    D2=$(dirname $D1)
-    wikiname=$(basename $D2)
+    full_wikipath=$(dirname $D1)
+    wikiname=$(basename $full_wikipath)
+    wikipath=$(echo $full_wikipath | sed "s@$repodir@@")
 
 	# to be included in diary.index for a placeholder for today's diary entry
     today=$(date +"%Y-%m-%d")
@@ -63,7 +68,7 @@ for i in ${!filelist[@]}; do
 	# reformat the file in one pass
     # Anything after # Diary... remove beginning whitespace, add the wikiname
 	# to the file path, and add the file name (date) to the description field
-    file_content=`awk -v wikiname=$wikiname -v today=$today '
+    file_content=`awk -v wikiname=$wikipath -v today=$today '
     {
         if(!match($0,/^\# Diary/))
         {
@@ -97,12 +102,20 @@ for i in ${!filelist[@]}; do
     #file_content=`echo "$file_content" | sed '/\# Diary/a \\\n\* [['${wikiname}'\/diary\/'$today'\|Today Placeholder]]'`
 
     # write the content the index file
-    index_file=$(dirname ${filelist[i]})/index.vimwiki
+    index_file=$(dirname ${filelist[i]})/$targetindex
     echo "$file_content" > $index_file
 
     # Checking in the index.vimwiki
     git add $index_file > /dev/null 2>&1
     git commit -m "gollum generated index" $index_file > /dev/null 2>&1
+
+    ####### Add timetrap project to wiki dirs
+    # requires diary.vimwiki to set as timetrap project
+    if [ $update_timetrap == true ]; then
+        echo "$wikiname" > $full_wikipath/.timetrap-sheet
+        git add $full_wikipath/.timetrap-sheet > /dev/null 2>&1
+        git commit -m "gollum generated timetrap-sheet" > /dev/null 2>&1
+    fi
 done
 
 # return to where we started

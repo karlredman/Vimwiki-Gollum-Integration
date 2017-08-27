@@ -1,0 +1,8 @@
+# timetrap and subprojects/subwikis
+
+# subwikis
+* Adding subwiki support to genGollumDiaryIndexes.sh
+* added full relative wiki paths to generated gollum diary index.vimwiki files
+
+# timetrap
+* Added .timetrap-sheet to wikis and subwikis
