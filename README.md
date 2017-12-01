@@ -1,17 +1,19 @@
 # Project: [Vimwiki+Gollum Integration](https://github.com/karlredman/Vimwiki-Gollum-Integration)
+
 Author: [Karl N. Redman](https://karlredman.github.io/)
-
-## Note:
-
-This project works with Gollum v4.x/gollum-lib v4.x. I'll update the documents and installation examples when Gollum v5.x is released. Gollum v5.x has some big changes on the way. For this reason I am suspending further work on this project until the Gollum v5.x release. This project's support of Gollum v4.x is considered to be "complete enough" at this time. See [5.0 release notes](https://github.com/gollum/gollum/wiki/5.0-release-notes) for further information.
-
-## Description:
 
 This is a guide and tutorial, with tools and 'out of the box' examples, for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum Wiki](https://github.com/gollum/gollum) on *Linux* systems. The aim of this project is to provide a fairly easy installation and setup for a working Vimwiki + Gollum workflow.
 
 Most of this work is not my own. Rather I endeavor to document the process for integrating the various components that make a fairly complete wiki system for personal use. I've added some tools and a mock up wiki installation to get you started.
 
-**Note:** This is a short version of the documentation. Please see the [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) for more in depth information.
+
+![Latest Screenshot](https://github.com/karlredman/Timetrap_TUI/blob/master/docs/screenshot/screenshot.gif?raw=true "Vimwiki-Gollum-Integration Screenshot")
+
+## Note:
+
+This project works with Gollum v4.x/gollum-lib v4.x. I'll update the documents and installation examples when Gollum v5.x is released. Gollum v5.x has some big changes on the way. For this reason I am suspending further work on this project until the Gollum v5.x release. This project's support of Gollum v4.x is considered to be "complete enough" at this time. See [5.0 release notes](https://github.com/gollum/gollum/wiki/5.0-release-notes) for further information.
+
+**Also Note:** This is a short version of the documentation. Please see the [Extended documentation](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/extended_readme.md) for more in depth information.
 
 
 ## Features:
@@ -63,12 +65,12 @@ sudo apt-get install pandoc
 ```
 [sudo] gem install gollum -v 4.1.2
 ```
-    * Note: For system level installs, if you get an error for '[charlock_holmes](https://github.com/brianmario/charlock_holmes)' relative to [ICU](http://site.icu-project.org/) then you need to install the unicode library and ruby dev files.   
+    * Note: For system level installs, if you get an error for '[charlock_holmes](https://github.com/brianmario/charlock_holmes)' relative to [ICU](http://site.icu-project.org/) then you need to install the unicode library and ruby dev files.
 	```
 	sudo apt-get install libicu-dev
     sudo apt-get install ruby-dev
 	```
-   
+
     * For System level installs, if you are also using RVM make sure you are installing with system ruby:
 	```
     rvm use system
