@@ -4,7 +4,7 @@ Author: [Karl N. Redman](https://karlredman.github.io/)
 
 This is a guide and tutorial, with tools and 'out of the box' examples, for integrating [Vimwiki](https://github.com/vimwiki/vimwiki) with [Gollum Wiki](https://github.com/gollum/gollum) on *Linux* systems. The aim of this project is to provide a fairly easy installation and setup for a working Vimwiki + Gollum workflow.
 
-Most of this work is not my own. Rather I endeavor to document the process for integrating the various components that make a fairly complete wiki system for personal use. I've added some tools and a mock up wiki installation to get you started.
+With this project I endeavor to document the process for integrating the various components that make a fairly complete wiki system for personal use. I've added some tools and a mock up wiki installation to get you started.
 
 
 ![Latest Screenshot](https://github.com/karlredman/Vimwiki-Gollum-Integration/blob/master/docs/screenshot/screenshot.gif?raw=true "Vimwiki-Gollum-Integration Screenshot")
