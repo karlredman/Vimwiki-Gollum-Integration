@@ -136,7 +136,7 @@ If you follow the 'Example Installation / Tutorial' then running the genSymlinks
 
 #### Clone Vimwiki-Gollum-Integration project (for Gollum v4.x)
 ```
-git clone -b gollum_v4.x git@github.com:karlredman/Vimwiki-Gollum-Integration.git
+git clone https://github.com/karlredman/Vimwiki-Gollum-Integration.git
 ```
 
 #### setup vim .vimrc

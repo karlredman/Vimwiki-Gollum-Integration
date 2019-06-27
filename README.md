@@ -105,7 +105,7 @@ autocmd FileType vimwiki setlocal tabstop=4 expandtab
 3. Setup wiki directory structure and initialize the repository:
 	1. Clone this project:
 	```bash
-	git clone -b gollum_v4.x git@github.com:karlredman/Vimwiki-Gollum-Integration.git
+	git clone https://github.com/karlredman/Vimwiki-Gollum-Integration.git
 	```
 	2. Copy the mockwiki directory structure to your home directory:
 	```bash
@@ -129,7 +129,7 @@ vim ~/mockwiki/gollum_admin/start_gollum.sh
 [sudo] ~/mockwiki/gollum_admin/start_gollum.sh
 ```
 
-6. Start using the wiki: [http://127.0.0.1:4567/](http://http://127.0.0.1:4567/)
+6. Start using the wiki: [http://127.0.0.1:4567/](http://127.0.0.1:4567/)
     * The index page for mockwiki will show links for the wiki repository
 
 8. Check out additional [demo pages on your system (http://127.0.0.1:4567/Vimwiki-Gollum/index)](http://127.0.0.1:4567/Vimwiki-Gollum/index)
